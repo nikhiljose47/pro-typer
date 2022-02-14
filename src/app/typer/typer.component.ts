@@ -24,9 +24,10 @@ export class TyperComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.dataSet[0];
+    // Character Array element e and index i
     this.data.split("").forEach((e,i)=> {
       let cell = document.getElementById("text");
-      let val = document.createElement('li');
+      let val = document.createElement('span');
       val.setAttribute("id", i.toString());
       val.textContent = e;
       if(cell){

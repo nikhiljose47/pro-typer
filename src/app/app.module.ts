@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TyperComponent } from './typer/typer.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TyperComponent
+    TyperComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
