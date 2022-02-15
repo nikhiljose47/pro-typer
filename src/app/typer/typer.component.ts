@@ -11,6 +11,12 @@ export class TyperComponent implements OnInit {
   str: string;
   data: string;
   counter: number = 0;
+  interval: any;
+  timeUp: boolean = false;
+  TIMER: number = 10;
+  typerLen : number;
+  inCorrectCount: number = 0;
+  totalTyped: number = 0;
   dataSet = [
     'Push yourself, because no one else is going to do it for you.',
     'Failure is the condiment that gives success its flavor.',
@@ -20,34 +26,74 @@ export class TyperComponent implements OnInit {
     'The only way to do great work is to love what you do.',
   ];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.data = this.dataSet[0];
     // Character Array element e and index i
-    this.data.split("").forEach((e,i)=> {
+    this.data.split("").forEach((e, i) => {
       let cell = document.getElementById("text");
       let val = document.createElement('span');
       val.setAttribute("id", i.toString());
       val.textContent = e;
-      if(cell){
-      cell.append(val);
+      if (cell) {
+        cell.append(val);
       }
     });
+    this.typerLen = this.data.length-1;
   }
 
   @HostListener('document:keypress', ['$event'])
   handleInput(event: KeyboardEvent) {
-    if(event.key === " " && event.target === document.body) {  
-      event.preventDefault();  
-    } 
-    this.str = event.key;
-    let ele = document.getElementById(this.counter.toString());
-    if(this.str == ele.textContent){
-      console.log(ele.textContent);
-     ele.textContent = "D";
-     this.counter++;
+    if (event.key === " " && event.target === document.body) {
+      event.preventDefault();
     }
+    this.calculateWM(event.key);
+  }
+
+  calculateWM(input:string){
     console.log(this.str);
+    this.totalTyped++;
+    this.str = input;
+    let ele = document.getElementById(this.counter.toString());
+    if (this.str == ele.textContent) {
+      ele.textContent = " ";
+      this.counter++;
+    }
+    else{
+      this.inCorrectCount++;
+      
+    }
+  }
+
+  timer() {
+    this.startTimer();
+  }
+
+  timerFinish(){
+    let score = 100*(this.typerLen-this.inCorrectCount)/this.typerLen;
+    score.toPrecision(1);
+    document.getElementById("user1").textContent = score.toString()+"%";
+  }
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.TIMER <= 0) {
+        clearInterval(this.interval);
+        this.timerFinish();
+      }
+      if (this.TIMER > 0) {
+        this.TIMER--;
+        let ele = document.getElementById("timer");
+        if (ele.innerText) {
+          let val = parseInt(ele.innerText);
+          val--;
+          ele.innerText = val.toString();
+        }
+      } else {
+        this.TIMER = 10;
+      }
+    }, 1000)
   }
 }
+
