@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Cell, TyperState } from '../common/common';
 
 @Component({
   selector: 'app-typer',
@@ -14,10 +15,11 @@ export class TyperComponent implements OnInit {
   interval: any;
   timeUp: boolean = false;
   TIMER: number = 10;
-  typerLen : number;
+  typerLen: number;
   inCorrectCount: number = 0;
   correctCount: number = 0;
   totalTyped: number = 0;
+  cells: Cell[] = [];
   dataSet = [
     'Push yourself, because no one else is going to do it for you.',
     'Failure is the condiment that gives success its flavor.',
@@ -31,8 +33,21 @@ export class TyperComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.dataSet[0];
-    // Character Array element e and index i
-    this.data.split("").forEach((e, i) => {
+    this.createTyper(this.data);
+  }
+
+  createTyper(data: string) {
+    let arr = data.split("");
+    for (let i = 0; i < arr.length; i++) {
+      let cell = new Cell();
+      cell.val = arr[i];
+      i == 0 ? cell.state = TyperState.blink : TyperState.undone;
+      cell.stateId = cell.state;
+      this.cells.push(cell);
+    }
+
+    ////////
+    data.split("").forEach((e, i) => {
       let cell = document.getElementById("text");
       let val = document.createElement('span');
       val.setAttribute("id", i.toString());
@@ -41,7 +56,7 @@ export class TyperComponent implements OnInit {
         cell.append(val);
       }
     });
-    this.typerLen = this.data.length-1;
+    this.typerLen = this.data.length - 1;
   }
 
   @HostListener('document:keypress', ['$event'])
@@ -49,10 +64,26 @@ export class TyperComponent implements OnInit {
     if (event.key === " " && event.target === document.body) {
       event.preventDefault();
     }
-    this.calculateWM(event.key);
+  //  this.updateTyper(event.key);
+   this.calculateWM(event.key);
   }
 
-  calculateWM(input:string){
+  updateTyper(input:string){
+    if(input == this.cells[this.counter].val){
+      this.cells[this.counter].state = TyperState.done;
+      this.counter++;
+      this.cells[this.counter].state = TyperState.blink;
+      //check
+      console.log(this.cells[this.counter].state);
+      this.cells[this.counter].val = "M";
+    }
+    else{
+      this.cells[this.counter].status.push(input);
+    }
+    
+  }
+
+  calculateWM(input: string) {
     console.log(this.str);
     this.totalTyped
     this.str = input;
@@ -62,8 +93,8 @@ export class TyperComponent implements OnInit {
       this.counter++;
       this.correctCount++;
     }
-    else{
-      this.inCorrectCount++; 
+    else {
+      this.inCorrectCount++;
     }
     this.accuracyUI();
   }
@@ -72,10 +103,10 @@ export class TyperComponent implements OnInit {
     this.startTimer();
   }
 
-  timerFinish(){
-    let score = 100*(this.typerLen-this.inCorrectCount)/this.typerLen;
-    score.toPrecision(1);
-    document.getElementById("user1").textContent = score.toString()+"%";
+  timerFinish() {
+    let score = 100 * (this.typerLen - this.inCorrectCount) / this.typerLen;
+    Math.trunc(score);
+    document.getElementById("user1").textContent = score.toString() + "%";
   }
 
   startTimer() {
@@ -98,11 +129,11 @@ export class TyperComponent implements OnInit {
     }, 1000)
   }
 
- accuracyUI(){
-   let val = 100 - this.inCorrectCount + this.correctCount/10;
-   console.log(val);
-   document.getElementById("accuracy").setAttribute("value",val.toString()); 
- }
-  
+  accuracyUI() {
+    let val = 100 - this.inCorrectCount + this.correctCount / 10;
+    console.log(val);
+    document.getElementById("accuracy").setAttribute("value", val.toString());
+  }
+
 }
 

@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TyperComponent } from './typer/typer.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { TyperCellComponent } from './typer-cell/typer-cell.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TyperComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    TyperCellComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
