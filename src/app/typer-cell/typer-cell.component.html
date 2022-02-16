@@ -1,8 +1,6 @@
-<span [ngSwitch]="stateId" style="background-color: green;">
-
-    <span class = "cell-blink" *ngSwitchCase="'0'" >{{ value.val }}</span>
-    <span class = "cell-done" *ngSwitchCase="'1'" >{{ value.val }}</span>
-    <span class = "cell-undone" *ngSwitchCase="'2'" >{{ value.val }}</span>
-    <span class = "cell-undone" *ngSwitchDefault>{{ value.val }}</span>
-
+<span [ngSwitch]="value.state">
+    <span class="cell-blink" *ngSwitchCase="'0'">{{ value.val }}</span>
+    <span class="cell-done" *ngSwitchCase="'1'">{{ value.val }}</span>
+    <span class="cell-undone" *ngSwitchCase="'2'">{{ value.val }}</span>
+    <span class="cell-undone" *ngSwitchDefault>{{ value.val }}</span>
 </span>

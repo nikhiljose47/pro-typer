@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Cell, TyperState } from '../common/common';
+import { Component, Input} from '@angular/core';
+import { Cell } from '../common/common';
 
 @Component({
   selector: 'typer-cell',
@@ -8,6 +8,4 @@ import { Cell, TyperState } from '../common/common';
 })
 export class TyperCellComponent  {
   @Input() value: Cell;
-  @Input() stateId;
-
 }

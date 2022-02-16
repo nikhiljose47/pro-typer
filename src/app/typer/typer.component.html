@@ -6,12 +6,9 @@
       <progress id="accuracy" max="100" value="100"></progress>
       <ul id="text"> </ul>
       <main>
-        <typer-cell 
-            *ngFor="let val of cells; let i = index" 
-            [value]="val"
-            [stateId]="val.stateId" >  
-      </typer-cell>
-    </main>
+        <typer-cell *ngFor="let val of cells; let i = index; trackBy: trackByItems" [value]="val">
+        </typer-cell>
+      </main>
     </div>
   </div>
   <div class="col2">

@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Cell, TyperState } from '../common/common';
+import * as data from "../data/typer-data.json";
 
 @Component({
   selector: 'app-typer',
@@ -10,7 +11,6 @@ import { Cell, TyperState } from '../common/common';
 
 export class TyperComponent implements OnInit {
   str: string;
-  data: string;
   counter: number = 0;
   interval: any;
   timeUp: boolean = false;
@@ -18,8 +18,10 @@ export class TyperComponent implements OnInit {
   typerLen: number;
   inCorrectCount: number = 0;
   correctCount: number = 0;
-  totalTyped: number = 0;
   cells: Cell[] = [];
+  typerData: any = (data as any).default;
+  trackByItems(index: number, item: Cell): number { return item.state; }
+
   dataSet = [
     'Push yourself, because no one else is going to do it for you.',
     'Failure is the condiment that gives success its flavor.',
@@ -32,8 +34,7 @@ export class TyperComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.data = this.dataSet[0];
-    this.createTyper(this.data);
+    this.createTyper(this.typerData[0].value);
   }
 
   createTyper(data: string) {
@@ -45,18 +46,7 @@ export class TyperComponent implements OnInit {
       cell.stateId = cell.state;
       this.cells.push(cell);
     }
-
-    ////////
-    data.split("").forEach((e, i) => {
-      let cell = document.getElementById("text");
-      let val = document.createElement('span');
-      val.setAttribute("id", i.toString());
-      val.textContent = e;
-      if (cell) {
-        cell.append(val);
-      }
-    });
-    this.typerLen = this.data.length - 1;
+    this.typerLen = data.length - 1;
   }
 
   @HostListener('document:keypress', ['$event'])
@@ -64,39 +54,19 @@ export class TyperComponent implements OnInit {
     if (event.key === " " && event.target === document.body) {
       event.preventDefault();
     }
-  //  this.updateTyper(event.key);
-   this.calculateWM(event.key);
+    this.updateTyper(event.key);
   }
 
-  updateTyper(input:string){
-    if(input == this.cells[this.counter].val){
+  updateTyper(input: string) {
+    if (input == this.cells[this.counter].val) {
       this.cells[this.counter].state = TyperState.done;
       this.counter++;
       this.cells[this.counter].state = TyperState.blink;
-      //check
-      console.log(this.cells[this.counter].state);
-      this.cells[this.counter].val = "M";
-    }
-    else{
-      this.cells[this.counter].status.push(input);
-    }
-    
-  }
-
-  calculateWM(input: string) {
-    console.log(this.str);
-    this.totalTyped
-    this.str = input;
-    let ele = document.getElementById(this.counter.toString());
-    if (this.str == ele.textContent) {
-      ele.textContent = " ";
-      this.counter++;
-      this.correctCount++;
     }
     else {
-      this.inCorrectCount++;
+      this.cells[this.counter].status.push(input);
     }
-    this.accuracyUI();
+
   }
 
   timer() {

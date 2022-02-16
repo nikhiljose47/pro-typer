@@ -1,6 +1,8 @@
 .cell-blink {
     animation: blinker 1.2s linear infinite;
     color: white;
+    font-size: xx-large;
+
   }
   
   @keyframes blinker {  
@@ -9,8 +11,11 @@
 
   .cell-undone {
     color: white;
+    font-size: x-large;
+
   }
 
   .cell-done {
     color: white;
+    font-size: x-large;
   }

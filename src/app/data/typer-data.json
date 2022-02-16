@@ -6,9 +6,15 @@
         "prop": "null"
     },
     {
-        "id": "10",
+        "id": "11",
         "value": "Hi, I am Tony and you are pony",
         "hardness": "easy",
+        "prop": "null"
+    },
+    {
+        "id": "11",
+        "value": "'Push yourself, because no one else is going to do it for you.",
+        "hardness": "med",
         "prop": "null"
     }
 ]
