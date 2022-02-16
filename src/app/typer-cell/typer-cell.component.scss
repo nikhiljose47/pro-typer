@@ -1,0 +1,16 @@
+.cell-blink {
+    animation: blinker 1.2s linear infinite;
+    color: white;
+  }
+  
+  @keyframes blinker {  
+    50% { opacity: 0.3; }
+  }
+
+  .cell-undone {
+    color: white;
+  }
+
+  .cell-done {
+    color: white;
+  }
