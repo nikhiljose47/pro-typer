@@ -22,17 +22,6 @@ export class TyperComponent implements OnInit {
   typerData: any = (data as any).default;
   trackByItems(index: number, item: Cell): number { return item.state; }
 
-  dataSet = [
-    'Push yourself, because no one else is going to do it for you.',
-    'Failure is the condiment that gives success its flavor.',
-    'Wake up with determination. Go to bed with satisfaction.',
-    "It's going to be hard, but hard does not mean impossible.",
-    'Learning never exhausts the mind.',
-    'The only way to do great work is to love what you do.',
-  ];
-
-  constructor() { }
-
   ngOnInit(): void {
     this.createTyper(this.typerData[0].value);
   }
