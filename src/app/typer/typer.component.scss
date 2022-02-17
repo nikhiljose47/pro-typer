@@ -3,6 +3,14 @@
   background: #121212;
   height: 100rem;
 
+  .heading {
+    text-align: center;
+    color:#ffffff;
+    font-size: 3rem;
+    margin:0px auto;
+    display :block;
+    padding-bottom:1vh;
+  }
   .col1 {
     width: 70%;
     float: left;
@@ -35,6 +43,7 @@
 }
 .widgets {
   height: 30vh;
+  box-shadow: 0px 15px 40px #66fcf1;
 }
 .progressBar {
   float: right;
@@ -53,12 +62,18 @@
 
 .timerWidget {
   float: left;
+  padding-left:5vw;
+  padding-top:2vh;
 }
 
 label {
   padding-right: 10px;
   color: #ffffff;
   font-size: 2rem;
+}
+
+.counterValue {
+  text-align: center;
 }
 
 //Timer
