@@ -15,11 +15,12 @@ export class TyperComponent implements OnInit {
   counter: number = 0;
   interval: any;
   timeUp: boolean = false;
-  timerVal: number = 10;
+  timerVal: number = 60;
   typerLen: number;
   inCorrectCount: number = 0;
   correctCount: number = 0;
   cells: Cell[] = [];
+  accuracyVal : number;
   typerData: any = (data as any).default;
   typerDataCounter: number = 0;
   trackByItems(index: number, item: Cell): number { return item.state; }
@@ -46,12 +47,13 @@ export class TyperComponent implements OnInit {
     if (event.key === " " && event.target === document.body) {
       event.preventDefault();
     }
+    this.startTimer();
     this.updateTyper(event.key);
   }
 
   updateTyper(input: string) {
     if (!this.isTyping){
-      this.startTimer();
+      this.timerVal --;
     }
     this.isTyping = true;
 
@@ -76,27 +78,26 @@ export class TyperComponent implements OnInit {
   timerFinish() {
     let score = 100 * (this.typerLen - this.inCorrectCount) / this.typerLen;
     Math.trunc(score);
+    this.timerVal = 0;
     document.getElementById("user1").textContent = score.toString() + "%";
   }
 
   startTimer() {
     this.interval = setInterval(() => {
-      if (this.timerVal <= 0) {
-        clearInterval(this.interval);
-        this.timerFinish();
-        this.isTyping = false;
-      }
-      if (this.timerVal > 0) {
         this.timerVal--;
-        document.getElementById("timer").setAttribute("value", this.timerVal.toString());
-      }
-    }, 1000)
+        if (this.timerVal <= 0) {
+          clearInterval(this.interval);
+          this.timerFinish();
+          this.isTyping = false;
+        }
+      }, 1000
+    );
   }
 
   accuracyUpdate() {
-    let val = 100 - this.inCorrectCount + this.correctCount / 10;
-    console.log(val);
-    document.getElementById("accuracy").setAttribute("value", val.toString());
+    this.accuracyVal = 100 - this.inCorrectCount + this.correctCount / 10;
+    console.log(this.accuracyVal);
+    document.getElementById("accuracy").setAttribute("value", this.accuracyVal.toString());
   }
 }
 

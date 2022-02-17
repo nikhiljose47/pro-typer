@@ -1,13 +1,11 @@
 .row {
   display: flex;
-  background: #414750;  /* fallback for old browsers */
- // background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
-  //background: linear-gradient(to left, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background: #121212;
+  height: 100rem;
+
   .col1 {
     width: 70%;
     float: left;
-    height: 100rem;
     padding: 10%;
     .type-text {
       padding: 0;
@@ -16,8 +14,7 @@
       #text {
         margin: 10vh 10vw 10vh;
         text-align: left;
-        color: white;
-      //  text-shadow: 2px 2px 2px rgb(11, 186, 199);
+        color: #b24592;
         padding: 3vh 1vw 1vh;
         height: 5vh;
         width: auto;
@@ -26,37 +23,87 @@
   }
   .col2 {
     width: 30%;
-    height:100rem;
+    height: 100rem;
     text-align: center;
     font-size: 2rem;
     float: right;
-    background: #B24592;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    background: #b24592;
+    background: -webkit-linear-gradient(to right, #f15f79, #b24592);
+    // background: linear-gradient(to right, #f15f79, #b24592);
+    background: linear-gradient(to right, #66fcf1, #f15f79)
   }
 }
+.widgets {
+  height: 30vh;
+}
+.progressBar {
+  float: right;
+  padding: 5vh 5vw 5vh;
+}
+.typing-arena {
+  background: #121212;
+  background-blend-mode: luminosity;
+  box-sizing: border-box;
+  padding-left:3vw;
+  overflow: hidden;
+  box-shadow: 0px 15px 40px #f15f79;
+  // border: 2px solid #ffffff;
+  height:50vh;
+}
 
-.timer {
-  border: 0;
-  line-height: 2.5;
-  padding: 0 20px;
-  font-size: 1rem;
-  text-align: center;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
-  border-radius: 10px;
-  background-color: rgb(19, 90, 245);
-  background-image: linear-gradient(to top left,
-                                    rgba(0, 0, 0, .2),
-                                    rgba(0, 0, 0, .2) 30%,
-                                    rgba(0, 0, 0, 0));
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-              inset -2px -2px 3px rgba(0, 0, 0, .6);
+.timerWidget {
+  float: left;
 }
 
 label {
   padding-right: 10px;
-  font-size: 1rem;
+  color: #ffffff;
+  font-size: 2rem;
 }
+
+//Timer
+
+svg {
+  align-self: center;
+  height: 20vh;
+  width: 20vh;
+  transform: rotate(-90deg);
+}
+text {
+  transform: rotate(90deg);
+}
+circle {
+  // animation: spin 60s linear forwards;
+}
+
+
+ .switchTextbtn {
+   background-color: #66fcf1;
+   border-radius: 50px;
+   box-shadow: darkblue;
+   color: #121212;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  margin:0 auto;
+  display:block;
+  border: 0;
+   font-size: 16px;
+}
+
+// main {
+// margin: 5vh 2vw 3vh;
+// }
+
+
+@keyframes spin {
+  0% {
+    stroke-dashoffset: 126;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
 
