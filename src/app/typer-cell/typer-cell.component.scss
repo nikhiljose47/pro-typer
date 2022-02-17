@@ -1,8 +1,7 @@
 .cell-blink {
     animation: blinker 1.2s linear infinite;
-    color: white;
+    color: rgb(54, 214, 102);
     font-size: xx-large;
-
   }
   
   @keyframes blinker {  
@@ -16,6 +15,6 @@
   }
 
   .cell-done {
-    color: white;
+    color: rgb(126, 124, 124);
     font-size: x-large;
   }

@@ -2,31 +2,34 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Cell, TyperState } from '../common/common';
 import * as data from "../data/typer-data.json";
 
+
 @Component({
   selector: 'app-typer',
   templateUrl: './typer.component.html',
   styleUrls: ['./typer.component.scss'],
 })
 
-
 export class TyperComponent implements OnInit {
   str: string;
+  isTyping: boolean = false;
   counter: number = 0;
   interval: any;
   timeUp: boolean = false;
-  TIMER: number = 10;
+  timerVal: number = 10;
   typerLen: number;
   inCorrectCount: number = 0;
   correctCount: number = 0;
   cells: Cell[] = [];
   typerData: any = (data as any).default;
+  typerDataCounter: number = 0;
   trackByItems(index: number, item: Cell): number { return item.state; }
 
   ngOnInit(): void {
-    this.createTyper(this.typerData[0].value);
+    this.createTyper(this.typerData[this.typerDataCounter].value);
   }
 
   createTyper(data: string) {
+    this.cells = [];
     let arr = data.split("");
     for (let i = 0; i < arr.length; i++) {
       let cell = new Cell();
@@ -47,19 +50,27 @@ export class TyperComponent implements OnInit {
   }
 
   updateTyper(input: string) {
+    if (!this.isTyping){
+      this.startTimer();
+    }
+    this.isTyping = true;
+
     if (input == this.cells[this.counter].val) {
       this.cells[this.counter].state = TyperState.done;
       this.counter++;
       this.cells[this.counter].state = TyperState.blink;
+      this.correctCount++;
     }
     else {
       this.cells[this.counter].status.push(input);
+      this.inCorrectCount++;
     }
-
+    this.accuracyUpdate();
   }
 
-  timer() {
-    this.startTimer();
+  changeTyper() {
+    this.typerDataCounter = (++this.typerDataCounter) % this.typerData.length;
+    this.ngOnInit();
   }
 
   timerFinish() {
@@ -70,29 +81,22 @@ export class TyperComponent implements OnInit {
 
   startTimer() {
     this.interval = setInterval(() => {
-      if (this.TIMER <= 0) {
+      if (this.timerVal <= 0) {
         clearInterval(this.interval);
         this.timerFinish();
+        this.isTyping = false;
       }
-      if (this.TIMER > 0) {
-        this.TIMER--;
-        let ele = document.getElementById("timer");
-        if (ele.innerText) {
-          let val = parseInt(ele.innerText);
-          val--;
-          ele.innerText = val.toString();
-        }
-      } else {
-        this.TIMER = 10;
+      if (this.timerVal > 0) {
+        this.timerVal--;
+        document.getElementById("timer").setAttribute("value", this.timerVal.toString());
       }
     }, 1000)
   }
 
-  accuracyUI() {
+  accuracyUpdate() {
     let val = 100 - this.inCorrectCount + this.correctCount / 10;
     console.log(val);
     document.getElementById("accuracy").setAttribute("value", val.toString());
   }
-
 }
 

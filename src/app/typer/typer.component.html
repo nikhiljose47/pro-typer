@@ -1,16 +1,18 @@
 <div class="row">
   <div class="col1">
     <div class="type-text">
-      <button class="timer" id="timer" type="button" (click)="timer()">10</button>
       <label for="accuracy-label">Accuracy</label>
       <progress id="accuracy" max="100" value="100"></progress>
-      <ul id="text"> </ul>
+      <span style="display:block; height: 50px;"></span>
       <main>
         <typer-cell *ngFor="let val of cells; let i = index; trackBy: trackByItems" [value]="val">
         </typer-cell>
       </main>
+      <label for="timer-label">10 sec</label>
+      <progress id="timer" max="10" value="10"></progress>
+      <span style="display:block; height: 50px;"></span>
+      <button class="change" id="change" type="button" (click)="changeTyper()">Change Text</button>
       <h3>Turtle? </h3> 
-      
       <p>3 good things to know</p>
       <ol>
         <li>Start to use all fingers</li> 
