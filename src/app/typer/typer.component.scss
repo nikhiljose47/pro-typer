@@ -1,69 +1,74 @@
 .row {
   display: flex;
   background: #121212;
-  height: 100rem;
+  height: 62rem;
 
   .heading {
     text-align: center;
-    color:#ffffff;
+    color: #ffffff;
     font-size: 3rem;
-    margin:0px auto;
-    display :block;
-    padding-bottom:1vh;
+    margin: 0px auto;
+    display: block;
+    padding-bottom: 2rem;
+  }
+
+  .accuracyValue {
+    color: #ffffff;
   }
   .col1 {
     width: 70%;
     float: left;
-    padding: 10%;
+    padding-top: 5rem;
     .type-text {
       padding: 0;
       margin: 0;
-
-      #text {
-        margin: 10vh 10vw 10vh;
-        text-align: left;
-        color: #b24592;
-        padding: 3vh 1vw 1vh;
-        height: 5vh;
-        width: auto;
-      }
+    }
+    #text {
+      margin: 10rem 10rem 10rem;
+      text-align: left;
+      color: #b24592;
+      padding: 3rem 1rem 1rem;
+      width: auto;
     }
   }
   .col2 {
     width: 30%;
-    height: 100rem;
+    height: 62rem;
+    margin-left:1rem;
     text-align: center;
     font-size: 2rem;
     float: right;
     background: #b24592;
     background: -webkit-linear-gradient(to right, #f15f79, #b24592);
-    // background: linear-gradient(to right, #f15f79, #b24592);
-    background: linear-gradient(to right, #66fcf1, #f15f79)
+    background: linear-gradient(to right, #66fcf1, #f15f79);
   }
 }
 .widgets {
-  height: 30vh;
-  box-shadow: 0px 15px 40px #66fcf1;
+  height: 20rem;
+  margin-left:1rem;
+  box-shadow: 0px 20px 40px #66fcf1;
 }
 .progressBar {
   float: right;
-  padding: 5vh 5vw 5vh;
+  padding-right: 5rem;
+  padding-top: 2rem;
 }
 .typing-arena {
   background: #121212;
+  margin-left:1rem;
   background-blend-mode: luminosity;
-  box-sizing: border-box;
-  padding-left:3vw;
   overflow: hidden;
+  text-align: center;
+  padding-bottom: 2rem;
   box-shadow: 0px 15px 40px #f15f79;
   // border: 2px solid #ffffff;
-  height:50vh;
+  height: 25rem;
 }
 
 .timerWidget {
   float: left;
-  padding-left:5vw;
-  padding-top:2vh;
+  padding-left: 5rem;
+  padding-top: 2rem;
 }
 
 label {
@@ -76,40 +81,34 @@ label {
   text-align: center;
 }
 
-//Timer
-
 svg {
   align-self: center;
-  height: 20vh;
-  width: 20vh;
+  height: 12rem;
+  width: 12rem;
   transform: rotate(-90deg);
 }
 text {
   transform: rotate(90deg);
 }
-circle {
-  // animation: spin 60s linear forwards;
-}
 
-
- .switchTextbtn {
-   background-color: #66fcf1;
-   border-radius: 50px;
-   box-shadow: darkblue;
-   color: #121212;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+.switchTextbtn {
+  background-color: #66fcf1;
+  border-radius: 50px;
+  box-shadow: darkblue;
+  color: #121212;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
   padding: 7px 20px;
   text-align: center;
-  margin:0 auto;
-  display:block;
+  margin: 0 auto;
+  display: block;
   border: 0;
-   font-size: 16px;
+  font-size: 16px;
 }
 
-// main {
-// margin: 5vh 2vw 3vh;
-// }
-
+main {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
 
 @keyframes spin {
   0% {
@@ -119,6 +118,3 @@ circle {
     stroke-dashoffset: 0;
   }
 }
-
-
-

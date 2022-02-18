@@ -13,6 +13,7 @@ export class TyperComponent implements OnInit {
   str: string;
   isTyping: boolean = false;
   counter: number = 0;
+  characterTyped : number;
   interval: any;
   timeUp: boolean = false;
   timerVal: number = 60;
@@ -44,7 +45,7 @@ export class TyperComponent implements OnInit {
 
   @HostListener('document:keypress', ['$event'])
   handleInput(event: KeyboardEvent) {
-    if (event.key === " " && event.target === document.body) {
+    if (event.key === " " && event.target === document.body && this.timerVal==0) {
       event.preventDefault();
     }
     this.startTimer();
@@ -67,6 +68,7 @@ export class TyperComponent implements OnInit {
       this.cells[this.counter].status.push(input);
       this.inCorrectCount++;
     }
+    this.characterTyped = this.correctCount + this.inCorrectCount;
     this.accuracyUpdate();
   }
 
@@ -79,7 +81,7 @@ export class TyperComponent implements OnInit {
     let score = 100 * (this.typerLen - this.inCorrectCount) / this.typerLen;
     Math.trunc(score);
     this.timerVal = 0;
-    document.getElementById("user1").textContent = score.toString() + "%";
+    document.getElementById("user1").textContent = this.accuracyVal + "%";
   }
 
   startTimer() {
@@ -95,9 +97,8 @@ export class TyperComponent implements OnInit {
   }
 
   accuracyUpdate() {
-    this.accuracyVal = 100 - this.inCorrectCount + this.correctCount / 10;
-    console.log(this.accuracyVal);
-    document.getElementById("accuracy").setAttribute("value", this.accuracyVal.toString());
+    this.accuracyVal = (Math.round((this.correctCount / this.characterTyped) *100) );
+    document.getElementById("accuracy").setAttribute("value", Math.round(this.accuracyVal).toString());
   }
 }
 
