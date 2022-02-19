@@ -2,7 +2,13 @@
     {
         "playerId": "100",
         "playerName": "oct",
-        "country": "india"
+        "country": "india",
+        "typerSheet": {
+          "wpm": 20,
+          "accuracy": 80,
+          "typerId" : "",
+          "typerTimeNumber" : []
+         }
     },
     {
         "playerId": "101",

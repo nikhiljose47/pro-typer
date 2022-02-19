@@ -1,5 +1,5 @@
 <span [ngSwitch]="value.state">
-    <span class="cell-blink" *ngSwitchCase="'0'">{{ value.val }}</span>
+    <span class="cell-blink" [ngStyle]="{'background-color': value.bgColor}" *ngSwitchCase="'0'">{{ value.val }}</span>
     <span class="cell-done" *ngSwitchCase="'1'">{{ value.val }}</span>
     <span class="cell-undone" *ngSwitchCase="'2'">{{ value.val }}</span>
     <span class="cell-undone" *ngSwitchDefault>{{ value.val }}</span>

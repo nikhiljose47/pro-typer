@@ -3,18 +3,26 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TyperComponent } from './typer/typer.component';
+import { TyperComponent } from './common-components/typer/typer.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { TyperCellComponent } from './typer-cell/typer-cell.component';
+import { TyperUnitComponent } from './common-components/typer-unit/typer-unit.component';
 import { LoginComponent } from './login/login.component';
+import { GameTwoComponent } from './games/game-two/game-two.component';
+import { GameOneComponent } from './games/game-one/game-one.component';
+import { HomeComponent } from './home/home.component';
+import { GameOneUnitComponent } from './games/game-one-unit/game-one-unit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TyperComponent,
     LeaderboardComponent,
-    TyperCellComponent,
-    LoginComponent
+    TyperUnitComponent,
+    LoginComponent,
+    GameTwoComponent,
+    GameOneComponent,
+    HomeComponent,
+    GameOneUnitComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TyperCellComponent } from './typer-cell.component';
+import { GameOneUnitComponent } from './game-one-unit.component';
 
-describe('TyperCellComponent', () => {
-  let component: TyperCellComponent;
-  let fixture: ComponentFixture<TyperCellComponent>;
+describe('GameOneUnitComponent', () => {
+  let component: GameOneUnitComponent;
+  let fixture: ComponentFixture<GameOneUnitComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TyperCellComponent ]
+      declarations: [ GameOneUnitComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TyperCellComponent);
+    fixture = TestBed.createComponent(GameOneUnitComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,5 @@
+<div class="container">
+    <game-one-unit *ngFor="let val of units; let i = index; trackBy: trackByItems" [value]="val">
+    </game-one-unit>
+    <button (click)="startGame()">Start</button>
+</div>
