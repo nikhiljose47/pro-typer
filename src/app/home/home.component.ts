@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   cells: TyperUnit[] = [];
   typerData: any = (data as any).default;
   typerDataCounter: number = 0;
+  characterTyped: number;
+  accuracyVal : number;
   trackByItems(index: number, item: TyperUnit): number { return item.state; }
   constructor() { }
 
@@ -63,6 +65,7 @@ export class HomeComponent implements OnInit {
       this.cells[this.counter].status.push(input);
       this.inCorrectCount++;
     }
+    this.characterTyped = this.correctCount + this.inCorrectCount;
     this.accuracyUpdate();
   }
 
@@ -74,7 +77,7 @@ export class HomeComponent implements OnInit {
   timerFinish() {
     let score = 100 * (this.typerLen - this.inCorrectCount) / this.typerLen;
     Math.trunc(score);
-    document.getElementById("user1").textContent = score.toString() + "%";
+    document.getElementById("user1").textContent = this.accuracyVal + "%";
   }
 
   startTimer() {
@@ -93,8 +96,8 @@ export class HomeComponent implements OnInit {
   }
 
   accuracyUpdate() {
-    let val = 100 - this.inCorrectCount + this.correctCount / 10;
-    document.getElementById("accuracy").setAttribute("value", val.toString());
+    this.accuracyVal = (Math.round((this.correctCount / this.characterTyped) *100) );
+    document.getElementById("accuracy").setAttribute("value", Math.round(this.accuracyVal).toString());
   }
 }
 
