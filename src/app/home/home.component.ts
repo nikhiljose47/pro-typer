@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { TyperState, TyperUnit } from '../common-functions/common';
-import { TIMER } from '../common-functions/constants';
+import { TIMER } from '../shared/constants';
 import * as data from "../data/typer-data.json";
+import { TyperUnit } from '../shared/classes';
 
 @Component({
   selector: 'app-home',
@@ -9,61 +9,17 @@ import * as data from "../data/typer-data.json";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  typerText: string = "";
   str: string;
-  isTyping: boolean = false;
-  counter: number = 0;
-  timeUp: boolean = false;
   typerLen: number;
   inCorrectCount: number = 0;
   correctCount: number = 0;
-  cells: TyperUnit[] = [];
   typerData: any = (data as any).default;
   typerDataCounter: number = 0;
-  trackByItems(index: number, item: TyperUnit): number { return item.state; }
-  constructor() { }
-
+  isTyping: boolean = false;
 
   ngOnInit(): void {
-    this.createTyper(this.typerData[this.typerDataCounter].value);
-  }
-
-  createTyper(data: string) {
-    this.cells = [];
-    let arr = data.split("");
-    for (let i = 0; i < arr.length; i++) {
-      let cell = new TyperUnit();
-      cell.val = arr[i];
-      i == 0 ? cell.state = TyperState.blink : TyperState.undone;
-      this.cells.push(cell);
-    }
-    this.typerLen = data.length - 1;
-  }
-
-  @HostListener('document:keypress', ['$event'])
-  handleInput(event: KeyboardEvent) {
-    if (event.key === " " || event.target === document.body) {
-      event.preventDefault();
-    }
-    this.updateTyper(event.key);
-  }
-
-  updateTyper(input: string) {
-    if (!this.isTyping) {
-      this.startTimer();
-    }
-    this.isTyping = true;
-    if (input == this.cells[this.counter].val) {
-      this.cells[this.counter].state = TyperState.done;
-      this.counter++;
-      this.cells[this.counter].state = TyperState.blink;
-      this.correctCount++;
-    }
-    else {
-      this.cells[this.counter].status.push(input);
-      this.inCorrectCount++;
-    }
-    this.accuracyUpdate();
+    this.typerText = this.typerData[this.typerDataCounter].value;
   }
 
   changeTyper() {
@@ -96,5 +52,15 @@ export class HomeComponent implements OnInit {
     let val = 100 - this.inCorrectCount + this.correctCount / 10;
     document.getElementById("accuracy").setAttribute("value", val.toString());
   }
+
+  typerFinish(typerUnits: TyperUnit[]) {
+
+  }
+
+  update(val: boolean) {
+    console.log(val);
+  }
+
+  replay(){}
 }
 

@@ -11,6 +11,8 @@ import { GameTwoComponent } from './games/game-two/game-two.component';
 import { GameOneComponent } from './games/game-one/game-one.component';
 import { HomeComponent } from './home/home.component';
 import { GameOneUnitComponent } from './games/game-one-unit/game-one-unit.component';
+import { TyperReplayComponent } from './typer-replay/typer-replay.component';
+import { TyperPracticeComponent } from './typer-practice/typer-practice.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { GameOneUnitComponent } from './games/game-one-unit/game-one-unit.compon
     GameTwoComponent,
     GameOneComponent,
     HomeComponent,
-    GameOneUnitComponent
+    GameOneUnitComponent,
+    TyperReplayComponent,
+    TyperPracticeComponent
   ],
   imports: [
     BrowserModule,

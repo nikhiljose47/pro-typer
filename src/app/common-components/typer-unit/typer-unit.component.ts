@@ -1,5 +1,5 @@
 import { Component, Input} from '@angular/core';
-import { TyperUnit } from '../../common-functions/common';
+import { TyperUnit } from '../../shared/classes';
 
 @Component({
   selector: 'typer-unit',

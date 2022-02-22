@@ -1,6 +1,6 @@
 <div class ="card">
     <progress id="accuracy" max="100" value={{value.progressValue}}></progress>
-    <div class="card" *ngFor="let val of value.typerUnit; let i = index;">
-        
-    </div>
+    <span class="card" *ngFor="let val of value.typerUnit; let i = index;">
+     {{val.val}}   
+    </span>
 </div>

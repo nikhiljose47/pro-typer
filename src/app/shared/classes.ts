@@ -1,12 +1,19 @@
-export enum TyperState {
+export enum TyperUnitState {
     blink,
     done,
     undone
 }
 
+export enum TyperMode {
+    timer,
+    practice,
+    gameone,
+    gametwo
+}
+
 export class TyperUnit {
     val: string;
-    state: TyperState;
+    state: TyperUnitState;
     status: string[] = [];
     bgColor: string;
     progressValue: number;
@@ -19,8 +26,8 @@ export class GameOneUnit {
     typerUnit: TyperUnit[]=[];
 }
 
-
 export class GameBot {
     name: string;
     hardness: number;
 }
+

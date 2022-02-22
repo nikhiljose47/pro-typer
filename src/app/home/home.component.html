@@ -5,8 +5,10 @@
         <progress id="accuracy" max="100" value="100"></progress>
         <label for="timer-label">30 sec</label>
         <progress id="timer" max="30" value="30"></progress>
+        <button class="change" id="replay" type="button" (click)="replay()">Replay</button>
+
         <span style="display:block; height: 50px;"></span>
-        <app-typer [data]="cells" ></app-typer>
+        <app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="update($event)" ></app-typer>
         <button class="change" id="change" type="button" (click)="changeTyper()">Change Text</button>
         <h3>Turtle? </h3> 
         <p>3 good things to know</p>

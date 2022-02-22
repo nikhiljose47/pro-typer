@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GameOneUnit } from 'src/app/common-functions/common';
+import { GameOneUnit } from 'src/app/shared/classes';
 
 @Component({
   selector: 'game-one-unit',
