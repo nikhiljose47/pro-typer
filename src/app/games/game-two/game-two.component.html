@@ -4,8 +4,7 @@
         <button class="change" id="change" type="button" (click)="reset()">Reset</button>
         <span> {{bestScore}} </span>
         <span style="display:block; height: 50px;"></span>
-        <app-typer [data]="text" (result)="typerFinish($event)" (updateVal)="update($event)" ></app-typer>
-
+        <game-two-unit *ngFor="let val of gameTwoUnits; let i = index; trackBy: trackByItems" [value]="val"> </game-two-unit>
         <label for="timer-label">30 sec</label>
         <progress id="timer" max="30" value="30"></progress>
         <span style="display:block; height: 50px;"></span>

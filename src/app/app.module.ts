@@ -20,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GameTwoUnitComponent } from './games/game-two-unit/game-two-unit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GameOneUnitComponent,
     TyperReplayComponent,
     TyperPracticeComponent,
-    RegisterComponent
+    RegisterComponent,
+    GameTwoUnitComponent
     
   ],
   imports: [
