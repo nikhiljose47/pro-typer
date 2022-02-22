@@ -1,2 +1,4 @@
-<app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="update($event)" ></app-typer>
-
+<label for="accuracy-label">Accuracy</label>
+<progress id="accuracy" max="100" value="100"></progress>
+<div class="accuracyValue">{{accuracyVal}}</div>
+<app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="update($event)"></app-typer>

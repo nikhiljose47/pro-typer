@@ -12,13 +12,12 @@ export class HomeComponent implements OnInit {
   typerText: string = "";
   str: string;
   typerLen: number;
-  inCorrectCount: number = 0;
-  correctCount: number = 0;
   typerData: any = (data as any).default;
   typerDataCounter: number = 0;
   isTyping: boolean = false;
-  accuracyVal: number;
-  characterTyped: number;
+  accuracyVal: number = 100;
+  rightCount: number = 0;
+  characterTyped: number = 0;
 
   ngOnInit(): void {
     this.typerText = this.typerData[this.typerDataCounter].value;
@@ -30,9 +29,6 @@ export class HomeComponent implements OnInit {
   }
 
   timerFinish() {
-    let score = 100 * (this.typerLen - this.inCorrectCount) / this.typerLen;
-    Math.trunc(score);
-    document.getElementById("user1").textContent = this.accuracyVal + "%";
   }
 
   startTimer() {
@@ -51,7 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   accuracyUpdate() {
-    this.accuracyVal = (Math.round((this.correctCount / this.characterTyped) *100) );
+    this.accuracyVal = (Math.round((this.rightCount / this.characterTyped) *100) );
     document.getElementById("accuracy").setAttribute("value", Math.round(this.accuracyVal).toString());
   }
 
@@ -60,7 +56,11 @@ export class HomeComponent implements OnInit {
   }
 
   update(val: boolean) {
-    console.log(val);
+    this.characterTyped++;
+    if (val) {
+      this.rightCount++;
+    }
+    this.accuracyUpdate();
   }
 
   replay(){}

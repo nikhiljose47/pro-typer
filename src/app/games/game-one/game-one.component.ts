@@ -18,7 +18,20 @@ export class GameOneComponent implements OnInit {
   trackByItems(index: number, item: GameOneUnit): number { return null; }
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.createPlayers()
+  }
+
+  createPlayers(){
+    for(let i=0;i<GAME_ONE_PLAYER_COUNT;i++){
+      let unit = new GameOneUnit();
+      unit.userId = "";
+      unit.userName = "manu"+i.toString();
+      unit.progressValue = 50;
+      unit.typerUnit = [new TyperUnit()];
+     this.units.push(unit);
+     }
+  }
 
   startGame() {
     //Make common function
