@@ -1,6 +1,8 @@
 <div class="container">
-    <game-one-unit *ngFor="let val of units; let i = index; trackBy: trackByItems" [value]="val">
-    </game-one-unit>
-    <button (click)="startGame()">Start</button>
-    <app-typer [data]="text" (result)="typerFinish($event)" (updateVal)="update($event)" ></app-typer>
+  <h2>"Hi, Start typing to start the game"</h2> 
+  <h2>"The progress is based on the top players score"</h2> 
+    <game-one-unit #childRef *ngFor="let val of units; let i = index; trackBy: trackByItems" [data]="val">
+    </game-one-unit>    
+    <progress id="progress" max={{topScore}} value={{myScore}}></progress>
+    <app-typer class="card" [data]="text" (result)="typerFinish($event)" (updateVal)="update($event)" ></app-typer>
 </div>

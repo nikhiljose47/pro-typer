@@ -30,8 +30,9 @@ export class TyperUnit {
 export class GameOneUnit {
     userId: string;
     userName: string;
-    progressValue: number;
-    typerUnit: TyperUnit[]=[];
+    topScore: number;
+    text: string;
+    typerDelays: number[]=[];
 }
 
 export class GameTwoUnit {

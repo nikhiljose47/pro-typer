@@ -1,6 +1,7 @@
-<div class ="card">
-    <progress id="accuracy" max="100" value={{value.progressValue}}></progress>
-    <span class="card" *ngFor="let val of value.typerUnit; let i = index;">
-     {{val.val}}   
-    </span>
+<div class="card" [ngStyle]="{'background-color': tempWinColor }">
+    <h2>{{data.userName}}</h2>
+    <progress id="progress" max={{data.topScore}} value={{myCurrentScore}}></progress>
 </div>
+
+<typer-unit *ngFor="let val of typerUnits; let i = index; trackBy: trackByItems" [value]="val">
+</typer-unit>

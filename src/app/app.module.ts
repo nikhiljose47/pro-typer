@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameTwoUnitComponent } from './games/game-two-unit/game-two-unit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +36,7 @@ import { GameTwoUnitComponent } from './games/game-two-unit/game-two-unit.compon
     TyperReplayComponent,
     TyperPracticeComponent,
     RegisterComponent,
-    GameTwoUnitComponent
-    
+    GameTwoUnitComponent,    
   ],
   imports: [
     BrowserModule,
