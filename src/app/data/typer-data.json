@@ -3,23 +3,51 @@
         "id": "10",
         "value": "Jim goes ashore and returns to the stockade, where he is horrified to find only Silver and the pirates. Silver tells Jim that when everyone found the ship was gone, Captain Flint's party had agreed to a truce whereby they take the map and allow the besieged party to leave. In the morning, Livesey arrives to treat the wounded and sick pirates and tells Silver to look out for trouble once he's found the site of the treasure. After a dispute over leadership, Silver and the others set out with the map, taking Jim along as a hostage.",
         "hardness": "easy",
-        "best": {
+        "top": {
             "playerId": "",
-            "value": []
+            "delays": []
         },
-        "mid" : [],
-        "prop": "null"
+        "other0": {
+            "playerId": "",
+            "delays": []
+        },
+        "other1": {
+            "playerId": "",
+            "delays": []
+        }
     },
     {
         "id": "11",
         "value": "Hi, I am Tony and you are pony",
         "hardness": "easy",
-        "prop": "null"
+        "top": {
+            "playerId": "",
+            "delays": []
+        },
+        "other0": {
+            "playerId": "",
+            "delays": []
+        },
+        "other1": {
+            "playerId": "",
+            "delays": []
+        }
     },
     {
         "id": "11",
         "value": "Push yourself, because no one else is going to do it for you.Push yourself, because no one else is going to do it for you.",
         "hardness": "med",
-        "prop": "null"
+        "top": {
+            "playerId": "",
+            "delays": []
+        },
+        "other0": {
+            "playerId": "",
+            "delays": []
+        },
+        "other1": {
+            "playerId": "",
+            "delays": []
+        }
     }
 ]

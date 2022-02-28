@@ -38,7 +38,7 @@ export class GameOneComponent implements OnInit, AfterViewInit {
     this.createOpponents();
   }
 
-  ngAfterViewInit(): void { }
+  ngAfterViewInit(): void {}
 
   createOpponents() {
     for (let i = 0; i < GAME_ONE_OPPONENT_COUNT; i++) {
