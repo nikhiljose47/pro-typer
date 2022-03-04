@@ -1,9 +1,15 @@
 <div class="topnav">
-    <a class="active" routerLinkActive="active" routerLink="/home">Home</a>
-    <a routerLink="/game-two">Game 2/Ghost</a>
-    <a routerLink="/game-one">Game 1/Race</a>
-    <a routerLink="/typer-practice">t-Practice</a>
-    <button  routerLink="/app-login">Login</button>
+    <a routerLinkActive="active" routerLink="/home">Home</a>
+    <a routerLinkActive="active" (click)="openDropDown()" (pointerleave)="closeDropDown()">
+        <label>Games</label>
+        <div id="myDropdown" class="dropdown-content">
+            <a routerLink="/game-one">Race</a>
+            <a routerLink="/game-two">Ghost</a>
+        </div>
+    </a>
+    <a routerLinkActive="active" routerLink="/typer-practice">Practice</a>
+    <!-- <a routerLink="/app-login">Login</a> -->
+    <br>
     <p> Typer Pro</p>
 </div>
-<router-outlet></router-outlet> 
+<router-outlet></router-outlet>

@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./typer-replay.component.scss']
 })
 export class TyperReplayComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit(): void {
   }
 

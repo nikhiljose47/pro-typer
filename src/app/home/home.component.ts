@@ -2,6 +2,9 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { TIMER } from '../shared/constants';
 import * as data from "../data/typer-data.json";
 import { TyperUnit } from '../shared/classes';
+import { TyperReplayComponent } from '../typer-replay/typer-replay.component';
+import {MatDialog} from '@angular/material/dialog';
+import { TyperResultComponent } from '../typer-result/typer-result.component';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +21,12 @@ export class HomeComponent implements OnInit {
   accuracyVal: number = 100;
   rightCount: number = 0;
   characterTyped: number = 0;
+  timerPercent: number= 0;
+  timerLabel: string= TIMER.toString();
+  isTyperInitial: boolean = true;
+
+  constructor(public dialog: MatDialog) {}
+
 
   ngOnInit(): void {
     this.typerText = this.typerData[this.typerDataCounter].value;
@@ -29,6 +38,13 @@ export class HomeComponent implements OnInit {
   }
 
   timerFinish() {
+    let dialogRef = this.dialog.open(TyperResultComponent, {
+      height: '400px',
+      width: '600px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   startTimer() {
@@ -41,21 +57,23 @@ export class HomeComponent implements OnInit {
       }
       if (timer > 0) {
         timer--;
-        document.getElementById("timer").setAttribute("value", timer.toString());
+        this.timerPercent = 100*(TIMER-timer)/TIMER;
+        this.timerLabel = timer.toString();
       }
     }, 1000)
   }
 
   accuracyUpdate() {
     this.accuracyVal = (Math.round((this.rightCount / this.characterTyped) *100) );
-    document.getElementById("accuracy").setAttribute("value", Math.round(this.accuracyVal).toString());
   }
 
-  typerFinish(typerUnits: TyperUnit[]) {
+  typerFinish(typerUnits: TyperUnit[]) {}
 
-  }
-
-  update(val: boolean) {
+  typerUpdate(val: boolean) {
+    if(this.isTyperInitial){
+      this.startTimer();
+      this.isTyperInitial = false;
+    }
     this.characterTyped++;
     if (val) {
       this.rightCount++;
@@ -63,6 +81,14 @@ export class HomeComponent implements OnInit {
     this.accuracyUpdate();
   }
 
-  replay(){}
+  replay(){
+    let dialogRef = this.dialog.open(TyperReplayComponent, {
+      height: '400px',
+      width: '600px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
 

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { TyperUnitState, TyperUnit } from '../../shared/classes';
 
 
@@ -6,12 +7,15 @@ import { TyperUnitState, TyperUnit } from '../../shared/classes';
   selector: 'app-typer',
   templateUrl: './typer.component.html',
   styleUrls: ['./typer.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class TyperComponent implements OnInit {
   @Input() data: string;
   @Output() result = new EventEmitter<TyperUnit[]>();
   @Output() updateVal = new EventEmitter<boolean>();
+  @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
 
   index: number = 0;
   hasFinished: boolean = false; 
@@ -53,6 +57,7 @@ export class TyperComponent implements OnInit {
       this.index++;
       this.typerUnits[this.index].state = TyperUnitState.blink;
       this.updateVal.emit(true);
+      this.viewport.scrollTo({start: this.index*12});
     }
     else {
       this.typerUnits[this.index].status.push(input);
@@ -62,4 +67,5 @@ export class TyperComponent implements OnInit {
       this.result.emit(this.typerUnits);
     }
   }
+  sc(){}
 }
