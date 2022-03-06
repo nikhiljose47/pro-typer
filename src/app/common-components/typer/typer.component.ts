@@ -67,5 +67,4 @@ export class TyperComponent implements OnInit {
       this.result.emit(this.typerUnits);
     }
   }
-  sc(){}
 }

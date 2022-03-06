@@ -25,6 +25,9 @@ export class HomeComponent implements OnInit {
   timerLabel: string= TIMER.toString();
   isTyperInitial: boolean = true;
 
+  delays: Array<number> = [];
+  prevDelay: number = 0;
+
   constructor(public dialog: MatDialog) {}
 
 
@@ -76,6 +79,7 @@ export class HomeComponent implements OnInit {
     }
     this.characterTyped++;
     if (val) {
+      this.delayFinder();
       this.rightCount++;
     }
     this.accuracyUpdate();
@@ -83,12 +87,20 @@ export class HomeComponent implements OnInit {
 
   replay(){
     let dialogRef = this.dialog.open(TyperReplayComponent, {
-      height: '400px',
-      width: '600px',
+      height: '500px',
+      width: '800px',
+      data: this.delays
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+   delayFinder(){    
+     if(this.prevDelay!=0){
+      this.delays.push(new Date().getTime() - this.prevDelay);
+     }
+     this.prevDelay = new Date().getTime(); 
+   }
 }
 
