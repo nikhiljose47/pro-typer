@@ -3,7 +3,7 @@ import { TIMER } from '../shared/constants';
 import * as data from "../data/typer-data.json";
 import { TyperUnit } from '../shared/classes';
 import { TyperReplayComponent } from '../typer-replay/typer-replay.component';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { TyperResultComponent } from '../typer-result/typer-result.component';
 
 @Component({
@@ -20,15 +20,18 @@ export class HomeComponent implements OnInit {
   isTyping: boolean = false;
   accuracyVal: number = 100;
   rightCount: number = 0;
-  characterTyped: number = 0;
-  timerPercent: number= 0;
-  timerLabel: string= TIMER.toString();
+  charactersTyped: number = 0;
+  timerPercent: number = 0;
+  timerLabel: string = TIMER.toString();
   isTyperInitial: boolean = true;
+  wpmLabel: string = "0";
 
   delays: Array<number> = [];
   prevDelay: number = 0;
 
-  constructor(public dialog: MatDialog) {}
+  startms: number = 0;
+
+  constructor(public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
@@ -60,24 +63,21 @@ export class HomeComponent implements OnInit {
       }
       if (timer > 0) {
         timer--;
-        this.timerPercent = 100*(TIMER-timer)/TIMER;
+        this.timerPercent = 100 * (TIMER - timer) / TIMER;
         this.timerLabel = timer.toString();
       }
     }, 1000)
   }
 
-  accuracyUpdate() {
-    this.accuracyVal = (Math.round((this.rightCount / this.characterTyped) *100) );
-  }
-
-  typerFinish(typerUnits: TyperUnit[]) {}
+  typerFinish(typerUnits: TyperUnit[]) { }
 
   typerUpdate(val: boolean) {
-    if(this.isTyperInitial){
+    if (this.isTyperInitial) {
       this.startTimer();
       this.isTyperInitial = false;
+      this.startms = new Date().getTime();
     }
-    this.characterTyped++;
+    this.charactersTyped++;
     if (val) {
       this.delayFinder();
       this.rightCount++;
@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit {
     this.accuracyUpdate();
   }
 
-  replay(){
+  replay() {
     let dialogRef = this.dialog.open(TyperReplayComponent, {
       height: '500px',
       width: '800px',
@@ -96,11 +96,25 @@ export class HomeComponent implements OnInit {
     });
   }
 
-   delayFinder(){    
-     if(this.prevDelay!=0){
+  delayFinder() {
+    if (this.prevDelay != 0) {
       this.delays.push(new Date().getTime() - this.prevDelay);
-     }
-     this.prevDelay = new Date().getTime(); 
-   }
+    }
+    this.prevDelay = new Date().getTime();
+  }
+
+  accuracyUpdate() {
+    this.accuracyVal = (Math.round((this.rightCount / this.charactersTyped) * 100));
+  }
+
+  //re-work needed
+  wordUpdate() {
+    let minute = (new Date().getTime() - this.startms)/60000;
+    console.log(minute);  
+    let wpm = this.charactersTyped / (5 * minute);
+    wpm = Math.floor(wpm);
+    console.log(wpm);
+    this.wpmLabel = wpm.toString();
+  }
 }
 

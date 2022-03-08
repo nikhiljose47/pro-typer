@@ -15,6 +15,7 @@ export class TyperComponent implements OnInit {
   @Input() data: string;
   @Output() result = new EventEmitter<TyperUnit[]>();
   @Output() updateVal = new EventEmitter<boolean>();
+  @Output() wordUpdate = new EventEmitter<void>();
   @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
 
   index: number = 0;
@@ -56,6 +57,9 @@ export class TyperComponent implements OnInit {
       this.typerUnits[this.index].state = TyperUnitState.done;
       this.index++;
       this.typerUnits[this.index].state = TyperUnitState.blink;
+      if(input == " "){
+        this.wordUpdate.emit();
+      }
       this.updateVal.emit(true);
       this.viewport.scrollTo({start: this.index*12});
     }

@@ -3,6 +3,8 @@
     width: 40rem;
     outline: 2px;
     overflow-x: hidden;
+    outline: 8px ridge rgba(68, 202, 255, 0.6);
+    border-radius: 2rem;
 }
 
 .container .viewport .cdk-virtual-scroll-content-wrapper{

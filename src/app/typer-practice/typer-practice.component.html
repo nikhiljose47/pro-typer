@@ -1,4 +1,32 @@
-<label for="accuracy-label">Accuracy</label>
-<progress id="accuracy" max="100" value="100"></progress>
-<div class="accuracyValue">{{accuracyVal}}</div>
-<app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="update($event)"></app-typer>
+<div class="row">
+    <div class="col1">
+    
+      
+      <section class="widgets">
+        <div class="item1">
+          <div>accuracy</div>
+          <div class="container" id="accuracy">
+            <div class="accuracy" [ngStyle]="{'width': accuracyVal+'%'}">{{accuracyVal}}%</div>
+        </div>
+        </div>
+   
+      </section>
+  
+      <app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="typerUpdate($event)"></app-typer>
+  
+      <br>
+    
+  
+    <br>
+    <div>
+      <button class="change" id="change" type="button" (click)="changeTyper()">
+        Change Text
+      </button>
+  
+    </div>
+  </div>
+  
+  <!-- <div class="col2">
+    <app-leaderboard></app-leaderboard>
+  </div> -->
+  </div>

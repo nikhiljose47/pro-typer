@@ -1,60 +1,63 @@
-<div class="row">
-  <div class="col1">
-  
-    
-    <section class="widgets">
-      <circle-progress 
-      [percent]=timerPercent 
-      [radius]="50" 
-      [space]="0"
-      [showUnits]="false"
-      [title]="[timerLabel]"  
-      [titleFontWeight]="'bold'"
-      [showSubtitle]="false"
-      [titleFontSize]="'45px'"
-      [outerStrokeWidth]="6" 
-      [innerStrokeWidth]="1" 
-        [startFromZero]="false"
-        [animation]="true"
-        [clockwise]="false">
-      </circle-progress>
-      <div class="item1">
-        <div>accuracy</div>
-        <div class="container" id="accuracy">
-          <div class="accuracy" [ngStyle]="{'width': accuracyVal+'%'}">{{accuracyVal}}%</div>
-      </div>
-      </div>
- 
-    </section>
+<div class="col1">
+  <div class="widgets">
+    <svg version="1.1" width="250" height="200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="120" cy="100" r="70" fill="#eee" />
+      <text x="120" y="120" font-size="60" text-anchor="middle" fill="black">{{timerLabel}}</text>
+      <text x="120" y="145" font-size="20" text-anchor="middle" fill="black">sec</text>
+    </svg>
 
-    <app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="typerUpdate($event)"></app-typer>
+    <svg version="1.1" width="250" height="200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="120" cy="100" r="70" fill="#eee" />
+      <text x="120" y="120" font-size="60" text-anchor="middle" fill="black">{{wpmLabel}}</text>
+      <text x="120" y="145" font-size="20" text-anchor="middle" fill="black">wpm</text>
+    </svg>
 
-    <br>
-  
+    <div class="item1">
+      <div>accuracy</div>
+      <div id="accuracy-container">
+        <div class="accuracy" [ngStyle]="{'width': accuracyVal+'%'}">{{accuracyVal}}%</div>
+      </div>
+    </div>
+  </div>
+
+  <app-typer [data]="typerText" (result)="typerFinish($event)" (wordUpdate)="wordUpdate()"
+    (updateVal)="typerUpdate($event)"></app-typer>
 
   <br>
-  <div>
-    <button class="change" id="change" type="button" (click)="changeTyper()">
+  <div class="card-container">
+    <button id="change" type="button" (click)="changeTyper()">
       Change Text
     </button>
 
-    <button mat-button class="replay" id="replay" type="button" (click)="replay()">
+    <button id="replay" type="button" (click)="replay()">
       Replay
     </button>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <section>
+        <h2>Did you know?</h2>
+        <p>Steve Woodmore achieved a rate of 637 wpm!!</p>
+      </section>
+    </div>
+
+
+    <div class="card">
+      <section>
+      <h2>Turtle?</h2>
+        3 good things to know
+        <li>1.Start to use all fingers</li>
+        <li>2.Type many notes & know suiting hand position</li>
+        <li>3.Gradualy you will get to type words without looking!</li>
+      </section>
+    </div>
 
   </div>
-  <div class="feedback">
-    <h3>Turtle?</h3>
-    <p>3 good things to know</p>
-    <ol>
-      <li>Start to use all fingers</li>
-      <li>Type many notes & know suiting hand position</li>
-      <li>Gradualy you will get to type words without looking!</li>
-    </ol>
-  </div>
-</div>
 
-<!-- <div class="col2">
-  <app-leaderboard></app-leaderboard>
-</div> -->
-</div>
+  <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+    <title>Gray Clouds Background</title>
+    <path id="Path_39" data-name="Path 39"
+      d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
+      transform="translate(142.69 -634.312)" fill="#eee" />
+  </svg>

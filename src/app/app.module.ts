@@ -22,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameTwoUnitComponent } from './games/game-two-unit/game-two-unit.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { NgCircleProgressModule } from 'ng-circle-progress';
 import { TyperResultComponent } from './typer-result/typer-result.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ScrollingModule} from '@angular/cdk/scrolling';
@@ -57,15 +56,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MatDialogModule,
     MatProgressSpinnerModule,
     ScrollingModule,
-    NgCircleProgressModule.forRoot({
-      // set defaults here
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300,
-    })
   ],
   providers: [],
   bootstrap: [AppComponent]
