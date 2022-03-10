@@ -25,6 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TyperResultComponent } from './typer-result/typer-result.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { GameThreeComponent } from './games/game-three/game-three.component';
+import { GameThreeUnitComponent } from './games/game-three-unit/game-three-unit.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     TyperPracticeComponent,
     RegisterComponent,
     GameTwoUnitComponent,
-    TyperResultComponent,    
+    TyperResultComponent,
+    GameThreeComponent,
+    GameThreeUnitComponent,    
   ],
   imports: [
     BrowserModule,

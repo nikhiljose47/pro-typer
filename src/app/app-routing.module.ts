@@ -7,16 +7,18 @@ import { HomeComponent } from './home/home.component';
 import { TyperPracticeComponent } from './typer-practice/typer-practice.component';
 import { RegisterComponent } from './register/register.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { GameThreeComponent } from './games/game-three/game-three.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'typer-practice', component: TyperPracticeComponent },
+  { path: 'game-one', component: GameOneComponent },
   { path: 'game-two', component: GameTwoComponent },
+  { path: 'game-three', component: GameThreeComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'app-login', component: LoginComponent },
-  { path: 'leaderboard', component: LeaderboardComponent },
-  { path: 'game-one', component: GameOneComponent }
+  { path: 'leaderboard', component: LeaderboardComponent }
 ];
 
 @NgModule({

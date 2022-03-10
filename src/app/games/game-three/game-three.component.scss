@@ -1,0 +1,26 @@
+#row{
+  display: flex;
+}  
+#col1 {
+      width: 60%;
+      padding: 3% ;
+      float: left;
+  }
+
+  #col2{
+  width: 40%;
+  border-left: thick solid #6b6464;
+  padding: 3%;
+
+  }
+  
+  label {
+    padding-right: 10px;
+    font-size: 1rem;
+  }
+
+
+  .typer{
+display: flex;
+flex-wrap: wrap;
+  }

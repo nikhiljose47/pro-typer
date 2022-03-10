@@ -1,0 +1,50 @@
+.cell-blink {
+    animation: blinker 1.2s linear infinite;
+    background-color: rgb(54, 214, 102);
+    font-size: x-large;
+  }
+  
+  @keyframes blinker {  
+    50% { opacity: 0.3; }
+  }
+
+  .cell-undone {
+    color:black;
+    font-size: x-large;
+
+  }
+
+  .cell-done {
+    color: #3eb118;
+    font-size: x-large;
+  }
+
+  .cell-gblink {
+    animation: blinker 1.2s linear infinite;
+    background-color: #698ff8;
+    font-size: x-large;
+  }
+  
+  @keyframes blinker {  
+    50% { opacity: 0.3; }
+  }
+
+  .cell-gundone {
+    background-color: #698ff8;
+    font-size: x-large;
+
+  }
+
+  .cell-gdone {
+    background-color: #698ff8;
+    font-size: x-large;
+  }
+  
+  #c1{
+      display: inline;
+  }
+
+  #c2{
+    display: inline;
+}
+

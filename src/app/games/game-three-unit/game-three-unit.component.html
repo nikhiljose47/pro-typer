@@ -1,0 +1,18 @@
+    <div>
+        <ng-container [ngSwitch]="value.state">
+            <div *ngSwitchCase="'0'">&nbsp;</div>
+            <div *ngSwitchCase="'1'">&nbsp;</div>
+            <div *ngSwitchCase="'2'">&nbsp;</div>
+            <div *ngSwitchCase="'3'">😀</div>
+            <div *ngSwitchCase="'4'">😀</div>
+            <div *ngSwitchCase="'5'">😀</div>
+            <div *ngSwitchDefault>&nbsp;</div>
+        </ng-container>
+     <ng-container [ngSwitch]="value.state">
+        <div class="cell-blink" *ngSwitchCase="'0'">{{ value.val }}</div>
+        <div class="cell-done" *ngSwitchCase="'1'">{{ value.val }}</div>
+        <div class="cell-undone" *ngSwitchCase="'2'">{{ value.val }}</div>
+        <div class="cell-undone" *ngSwitchDefault>{{ value.val }}</div>
+    </ng-container>
+    </div>
+
