@@ -1,19 +1,33 @@
 .cell-blink {
     animation: blinker 1.2s linear infinite;
-    background-color: rgb(132, 238, 164);
-    font-size: xx-large;
+    background-color: #b6d2ff;
+    border-radius: 8px;
+    height: 5rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   @keyframes blinker {  
-    50% { opacity: 0.3; }
+    50% { opacity: 0.5; }
   }
 
   .cell-undone {
     color:black;
-    font-size: xx-large;
   }
 
   .cell-done {
     color: #3eb118;
-    font-size: xx-large;
   }
+
+.text{
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.blink-text{
+  font-size: 3rem;
+  font-weight: 300;
+  padding-bottom: 10%;
+}

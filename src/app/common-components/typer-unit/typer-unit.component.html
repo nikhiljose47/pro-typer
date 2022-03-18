@@ -1,6 +1,14 @@
 <ng-container [ngSwitch]="value.state">
-    <span class="cell-blink" *ngSwitchCase="'0'">{{ value.val }}</span>
-    <span class="cell-done" *ngSwitchCase="'1'">{{ value.val }}</span>
-    <span class="cell-undone" *ngSwitchCase="'2'">{{ value.val }}</span>
-    <span class="cell-undone" *ngSwitchDefault>{{ value.val }}</span>
+    <div class="cell-blink" *ngSwitchCase="'0'">
+        <div class="blink-text">{{ value.val }}</div>
+    </div>
+    <div class="cell-done" *ngSwitchCase="'1'">
+        <div class="text">{{ value.val }}</div>
+    </div>
+    <div class="cell-undone" *ngSwitchCase="'2'">
+        <div class="text">{{ value.val }}</div>
+    </div>
+    <div class="cell-undone" *ngSwitchDefault>
+        <div class="text">{{ value.val }}</div>
+    </div>
 </ng-container>

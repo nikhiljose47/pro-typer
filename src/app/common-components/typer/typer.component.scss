@@ -1,6 +1,6 @@
 .container .viewport{
-    height: 5rem;
-    width: 40rem;
+    height: 8rem;
+    width: 60%;
     overflow-x: hidden;
     outline: 8px ridge rgba(68, 202, 255, 0.6);
     border-radius: 2rem;
@@ -14,7 +14,6 @@
   }
 
   .container .typer{
-    min-width: 6px;
-    display: flex;
+    min-width: 10px;
   }
  
