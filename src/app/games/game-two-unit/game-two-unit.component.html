@@ -1,4 +1,4 @@
-<span [ngSwitch]="value.state">
+<ng-container [ngSwitch]="value.state">
     <span class="cell-blink" *ngSwitchCase="'0'">{{ value.val }}</span>
     <span class="cell-done" *ngSwitchCase="'1'">{{ value.val }}</span>
     <span class="cell-undone" *ngSwitchCase="'2'">{{ value.val }}</span>
@@ -6,4 +6,4 @@
     <span class="cell-gdone" *ngSwitchCase="'4'">{{ value.val }}</span>
     <span class="cell-gundone" *ngSwitchCase="'5'">{{ value.val }}</span>
     <span class="cell-undone" *ngSwitchDefault>{{ value.val }}</span>
-</span>
+</ng-container>

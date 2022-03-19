@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { GameTwoUnit, GameTwoUnitState, TyperUnitState } from '../../shared/classes';
+import { GameTwoUnit, GameTwoUnitState } from '../../shared/classes';
 
 @Component({
   selector: 'game-two',
@@ -38,7 +38,7 @@ export class GameTwoComponent implements OnInit {
     for (let i = 0; i < arr.length; i++) {
       let unit = new GameTwoUnit();
       unit.val = arr[i];
-      i == 0 ? unit.state = GameTwoUnitState.blink : GameTwoUnitState.undone;
+      unit.state = GameTwoUnitState.undone;
       this.gameTwoUnits.push(unit);
     }
   }

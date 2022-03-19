@@ -1,6 +1,6 @@
 .cell-blink {
     animation: blinker 1.2s linear infinite;
-    background-color: #b6d2ff;
+    background-color: #ffc79a;
     border-radius: 8px;
     height: 5rem;
     width: 2rem;
@@ -24,6 +24,8 @@
 .text{
   font-size: 2.5rem;
   font-weight: 300;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal 
 }
 
 .blink-text{

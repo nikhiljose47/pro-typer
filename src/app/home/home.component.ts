@@ -96,6 +96,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  changeFont(){
+    
+  }
+
   delayFinder() {
     if (this.prevDelay != 0) {
       this.delays.push(new Date().getTime() - this.prevDelay);
