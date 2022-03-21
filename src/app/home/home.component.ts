@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Optional } from '@angular/core';
 import { TIMER } from '../shared/constants';
 import * as data from "../data/typer-data.json";
 import { TyperUnit } from '../shared/classes';
@@ -14,6 +14,7 @@ import { TyperResultComponent } from '../typer-result/typer-result.component';
 export class HomeComponent implements OnInit {
   typerText: string = "";
   str: string;
+  customColor : string;
   typerLen: number;
   typerData: any = (data as any).default;
   typerDataCounter: number = 0;
@@ -21,15 +22,17 @@ export class HomeComponent implements OnInit {
   accuracyVal: number = 100;
   rightCount: number = 0;
   charactersTyped: number = 0;
+  timer: number = TIMER;
+  seconds: string = "Sec";
   timerPercent: number = 0;
   timerLabel: string = TIMER.toString();
   isTyperInitial: boolean = true;
   wpmLabel: string = "0";
-
   delays: Array<number> = [];
   prevDelay: number = 0;
-
   startms: number = 0;
+  timerlabel: string;
+  percentIndicator: number;
 
   constructor(public dialog: MatDialog) { }
 
@@ -54,22 +57,45 @@ export class HomeComponent implements OnInit {
   }
 
   startTimer() {
-    let timer = TIMER;
+     this.timer = TIMER;
     let interval = setInterval(() => {
-      if (timer <= 0) {
+      if (this.timer <= 0) {
         clearInterval(interval);
         this.timerFinish();
         this.isTyping = false;
       }
-      if (timer > 0) {
-        timer--;
-        this.timerPercent = 100 * (TIMER - timer) / TIMER;
-        this.timerLabel = timer.toString();
+      if (this.timer > 0) {
+        this.timer--;
+        this.timerPercent = 100 * (TIMER - this.timer) / TIMER;
+        this.timerLabel = this.timer.toString();
       }
     }, 1000)
   }
 
-  typerFinish(typerUnits: TyperUnit[]) { }
+  /* Progress circle timer color change logic */
+  formatTitle = (percent: number) : string => {
+  if(this.timerPercent>=0 && this.timerPercent<=50) {
+    this.timerlabel = this.timer.toString();
+    this.customColor = "#32CD32";
+    return this.timerlabel;
+  }
+  else if(this.timerPercent>50 && this.timerPercent<=80)
+  {
+    this.timerlabel = this.timer.toString();
+    this.customColor = "Orange";
+    return this.timerlabel;
+  }
+  else {
+    this.timerlabel = this.timer.toString();
+    this.customColor = "Red";
+    return this.timerlabel;
+  }
+}
+  /* Progress circle timer color change logic */
+  
+  typerFinish(typerUnits: TyperUnit[]) { 
+    this.typerData = '';
+  }
 
   typerUpdate(val: boolean) {
     if (this.isTyperInitial) {

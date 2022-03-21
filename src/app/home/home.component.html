@@ -1,10 +1,26 @@
 <div class="col1">
   <div class="widgets">
-    <svg version="1.1" width="250" height="200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="120" cy="100" r="70" fill="#eee" />
-      <text x="120" y="120" font-size="60" text-anchor="middle" fill="black">{{timerLabel}}</text>
-      <text x="120" y="145" font-size="20" text-anchor="middle" fill="black">sec</text>
-    </svg>
+    <div>
+      <circle-progress
+      [percent]= 100-timerPercent
+      [maxPercent]= 200
+      [showUnits]=false
+      [showZeroOuterStroke]=false
+      [radius]="19"
+      [title] = 'timerLabel'
+      [titleFormat]="formatTitle"
+      [outerStrokeWidth]="4.5"
+      [innerStrokeWidth]="3"
+      [outerStrokeColor]= customColor
+      [startFromZero]=false
+      [renderOnClick]=false
+      [animation]=true
+      [animationDuration]="300"
+      [lazy]=false
+      [showBackground]=true
+    ></circle-progress>
+
+    </div>
 
     <svg version="1.1" width="250" height="200" xmlns="http://www.w3.org/2000/svg">
       <circle cx="120" cy="100" r="70" fill="#eee" />
@@ -20,20 +36,15 @@
     </div>
   </div>
 
-  <app-typer [data]="typerText" (result)="typerFinish($event)" (wordUpdate)="wordUpdate()"
+  <div class="widgets">
+    <app-typer [data]="typerText" (result)="typerFinish($event)" (wordUpdate)="wordUpdate()"
     (updateVal)="typerUpdate($event)"></app-typer>
+  </div>
 
   <br>
   <div class="card-container">
-    <button id="change" type="button" (click)="changeTyper()">
-      Change Text
-    </button>
-
-    <button id="replay" type="button" (click)="replay()">
+    <button id="replay" class="typerBtn" type="button" (click)="replay()">
       Replay
-    </button>
-    <button id="font" type="button" (click)="changeFont()">
-      Change font
     </button>
   </div>
 
@@ -41,7 +52,7 @@
     <div class="card">
       <section>
         <h2>Did you know?</h2>
-        <p>Steve Woodmore achieved a rate of 637 wpm!!</p>
+        <p>Steve Woodmore achieved a rate of 164 wpm!!</p>
       </section>
     </div>
 

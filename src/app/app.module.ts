@@ -27,6 +27,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { GameThreeComponent } from './games/game-three/game-three.component';
 import { GameThreeUnitComponent } from './games/game-three-unit/game-three-unit.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 @NgModule({
@@ -60,6 +61,18 @@ import { GameThreeUnitComponent } from './games/game-three-unit/game-three-unit.
     MatDialogModule,
     MatProgressSpinnerModule,
     ScrollingModule,
+    NgCircleProgressModule.forRoot({
+      "subtitle": "Sec",
+      "units": "seconds",
+      "responsive": true,
+      "lazy": true,
+      "titleFontSize": '8px',
+      "titleFontWeight": '600',
+      "subtitleFontSize": '6px',
+      "outerStrokeGradient": true,
+      "showInnerStroke": false,
+      "outerStrokeGradientStopColor": "#7ea3c8",
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

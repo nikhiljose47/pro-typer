@@ -1,9 +1,16 @@
 #container {
+  background: white;
+  height:auto;
   }
 
   #title {
     color: rgb(230, 52, 52);
     font-size: 2rem;
+    text-align: center;
+  }
+
+  .mat-dialog-container {
+    background: white;
   }
   
   
