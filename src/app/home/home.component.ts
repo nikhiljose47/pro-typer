@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   startms: number = 0;
   timerlabel: string;
   percentIndicator: number;
+  timerFinishIndicator: boolean;
 
   constructor(public dialog: MatDialog) { }
 
@@ -47,6 +48,7 @@ export class HomeComponent implements OnInit {
   }
 
   timerFinish() {
+    this.timerFinishIndicator = true;
     let dialogRef = this.dialog.open(TyperResultComponent, {
       height: '400px',
       width: '600px',
