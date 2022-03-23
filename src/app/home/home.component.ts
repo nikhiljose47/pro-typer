@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
     this.customColor = "#32CD32";
     return this.timerlabel;
   }
-  else if(this.timerPercent>50 && this.timerPercent<=80)
+  else if(this.timerPercent>50 && this.timerPercent<75)
   {
     this.timerlabel = this.timer.toString();
     this.customColor = "Orange";
