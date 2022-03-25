@@ -19,7 +19,7 @@ export class TyperComponent implements OnInit {
   @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
 
   index: number = 0;
-  hasFinished: boolean = false; 
+  hasFinished: boolean = false;
 
   trackByItems(index: number, item: TyperUnit): number { return item.state; }
 
@@ -41,12 +41,12 @@ export class TyperComponent implements OnInit {
 
   @HostListener('document:keypress', ['$event'])
   handleInput(event: KeyboardEvent) {
-    if(!this.hasFinished){
+    if (!this.hasFinished) {
       if (event.key === " " || event.target === document.body) {
         event.preventDefault();
       }
       this.updateTyper(event.key);
-      if(this.typerUnits.length-1 == this.index){
+      if (this.typerUnits.length - 1 == this.index) {
         this.hasFinished = true;
       }
     }
@@ -57,17 +57,17 @@ export class TyperComponent implements OnInit {
       this.typerUnits[this.index].state = TyperUnitState.done;
       this.index++;
       this.typerUnits[this.index].state = TyperUnitState.blink;
-      if(input == " "){
+      if (this.index % 5 == 0) {
         this.wordUpdate.emit();
       }
       this.updateVal.emit(true);
-      this.viewport.scrollTo({start: this.index*12});
+      this.viewport.scrollTo({ start: this.index * 12 });
     }
     else {
       this.typerUnits[this.index].status.push(input);
       this.updateVal.emit(false);
     }
-    if(this.hasFinished){
+    if (this.hasFinished) {
       this.result.emit(this.typerUnits);
     }
   }

@@ -126,6 +126,7 @@ export class HomeComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.changeTyper();
     });
   }
 
@@ -146,11 +147,8 @@ export class HomeComponent implements OnInit {
 
   //re-work needed
   wordUpdate() {
-    let minute = (new Date().getTime() - this.startms)/60000;
-    console.log(minute);  
-    let wpm = this.charactersTyped / (5 * minute);
-    wpm = Math.floor(wpm);
-    console.log(wpm);
+    let wpm = parseInt(this.wpmLabel);
+    wpm++;
     this.wpmLabel = wpm.toString();
   }
 }
