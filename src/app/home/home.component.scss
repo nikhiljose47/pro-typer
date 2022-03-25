@@ -2,7 +2,7 @@ $blue: #3498db;
 
 .col1 {
   width: 100%;
-  height: 60rem;
+  height: 50rem;
   float: left;
   background: radial-gradient(
     at 90% 90%,
@@ -20,23 +20,14 @@ $blue: #3498db;
   justify-content: center;
 }
 
-.col2 {
-  width: 30%;
-  height: 60rem;
+.col-2 {
+  width: 100%;
+  height: 50rem;
   text-align: center;
   font-size: 2rem;
   float: right;
-  background: #b24592; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #f15f79,
-    #b24592
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #f15f79,
-    #b24592
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: whitesmoke;
+  border-radius: 20px;
 }
 
 .item1 {
@@ -100,11 +91,11 @@ $blue: #3498db;
 }
 
 svg#clouds {
-  position: fixed;
-  bottom: -160px;
+  position: absolute;
+  bottom: -100px;
   left: -230px;
   z-index: -10;
-  width: 1920px;
+  width: 140rem;
 }
 
 .typerBtn {
