@@ -13,7 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { GameOneUnitComponent } from './games/game-one-unit/game-one-unit.component';
 import { TyperReplayComponent } from './typer-replay/typer-replay.component';
 import { TyperPracticeComponent } from './typer-practice/typer-practice.component';
-
 import { RegisterComponent } from './register/register.component';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
@@ -27,8 +26,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { GameThreeComponent } from './games/game-three/game-three.component';
 import { GameThreeUnitComponent } from './games/game-three-unit/game-three-unit.component';
+import { CarouselComponent } from './carousel/carousel.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
 
 @NgModule({
   declarations: [
@@ -47,7 +46,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     GameTwoUnitComponent,
     TyperResultComponent,
     GameThreeComponent,
-    GameThreeUnitComponent,    
+    GameThreeUnitComponent,
+    CarouselComponent,    
   ],
   imports: [
     BrowserModule,
@@ -62,16 +62,17 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     MatProgressSpinnerModule,
     ScrollingModule,
     NgCircleProgressModule.forRoot({
-      "subtitle": "Sec",
+      "subtitle": "sec",
       "units": "seconds",
       "responsive": true,
-      "lazy": true,
-      "titleFontSize": '9px',
+      "titleFontSize": '3.2px',
       "titleFontWeight": '600',
-      "subtitleFontSize": '5px',
+      "subtitleFontWeight": '300',
+      "backgroundStrokeWidth": 1,
+      "subtitleFontSize": '1.5px',
       "backgroundGradient": true,
       "backgroundColor": "white",
-      "backgroundPadding": 2,
+      "backgroundPadding": 0.5,
       "backgroundGradientStopColor": "rgb(238, 238, 238)",
       "outerStrokeGradient": false,
       "showInnerStroke": false,

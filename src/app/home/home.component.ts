@@ -58,6 +58,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  PlayAgain() {
+    window.location.reload();
+  }
+
+
   startTimer() {
      this.timer = TIMER;
     let interval = setInterval(() => {

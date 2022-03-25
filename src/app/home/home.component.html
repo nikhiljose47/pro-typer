@@ -6,10 +6,10 @@
       [maxPercent]= 200
       [showUnits]=false
       [showZeroOuterStroke]=false
-      [radius]="16"
+      [radius]="5"
       [title] = 'timerLabel'
       [titleFormat]="formatTitle"
-      [outerStrokeWidth]="4.2"
+      [outerStrokeWidth]="1.3"
       [outerStrokeColor]= customColor
       [startFromZero]=false
       [renderOnClick]=false
@@ -43,9 +43,13 @@
   <br>
   <div class="card-container">
     <button id="replay" class="typerBtn" type="button" [disabled]="!timerFinishIndicator" (click)="replay()">
-      Replay
+      Show Replay
+    </button>
+    <button id="reset" class="typerBtn" type="button" [disabled]="!timerFinishIndicator" (click)="PlayAgain()">
+      Play Again
     </button>
   </div>
+
 
   <div class="card-container">
     <div class="card">
@@ -67,6 +71,8 @@
     </div>
 
   </div>
+
+  <app-carousel></app-carousel>
 
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
     <title>Gray Clouds Background</title>
