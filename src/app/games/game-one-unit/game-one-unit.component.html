@@ -3,5 +3,10 @@
     <progress id="progress" max={{data.topScore}} value={{myCurrentScore}}></progress>
 </div>
 
-<typer-unit *ngFor="let val of typerUnits; let i = index; trackBy: trackByItems" [value]="val">
-</typer-unit>
+<div class="container">
+    <cdk-virtual-scroll-viewport itemSize="" orientation="horizontal" class="viewport"> 
+        <typer-unit class="typer" *cdkVirtualFor="let val of typerUnits; let i = index; trackBy: trackByItems"
+            [value]="val">
+        </typer-unit>
+    </cdk-virtual-scroll-viewport>
+</div>

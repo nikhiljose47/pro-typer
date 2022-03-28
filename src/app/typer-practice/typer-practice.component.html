@@ -1,33 +1,19 @@
-<div class="row">
-  <div class="col1">
-    <section class="widgets">
-      <div class="item1">
-        <div>accuracy</div>
-        <div class="container" id="accuracy">
-          <div class="accuracy" [ngStyle]="{ width: accuracyVal + '%' }">
-            {{ accuracyVal }}%
-          </div>
+<div class="bg">
+  <section id="content">
+    <section id="widgets">
+      <div>accuracy</div>
+      <div id="accuracy">
+        <div class="accuracy" [ngStyle]="{ width: accuracyVal + '%' }">
+          {{ accuracyVal }}%
         </div>
       </div>
     </section>
+  
+    <section id="typer">
+      <app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="typerUpdate($event)"></app-typer>
+    </section>
+  </section>
 
-    <app-typer
-      [data]="typerText"
-      (result)="typerFinish($event)"
-      (updateVal)="typerUpdate($event)"
-    ></app-typer>
+ 
 
-    <br />
-
-    <br />
-    <div>
-      <button class="change" id="change" type="button" (click)="changeTyper()">
-        Change Text
-      </button>
-    </div>
-  </div>
-
-  <!-- <div class="col2">
-    <app-leaderboard></app-leaderboard>
-  </div> -->
 </div>
