@@ -10,3 +10,22 @@
     margin: 10px;
     background-color: whitesmoke;
   }
+  .container .viewport{
+    height: 4rem;
+    width: 50rem;
+    overflow-x: hidden;
+    outline: 8px ridge rgba(68, 202, 255, 0.6);
+    border-radius: 2rem;
+}
+
+.container .viewport .cdk-virtual-scroll-content-wrapper{
+    display: flex;
+    align-items: center;
+    padding-left: 40%;
+    padding-right: 60%;
+  }
+
+  .container .typer{
+    min-width: 10px;
+  }
+ 

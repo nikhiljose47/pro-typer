@@ -1,10 +1,9 @@
 .container{
     background-color: rgb(226, 226, 225);
-    height: 50rem;
 }
 
 .card {
-    height: 10rem;
+    height: 4rem;
     width: 60%;
     border-radius: 10px;
     box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
@@ -14,22 +13,3 @@
     background-color: whitesmoke;
   }
 
-  .container .viewport{
-    height: 8rem;
-    width: 60rem;
-    overflow-x: hidden;
-    outline: 8px ridge rgba(68, 202, 255, 0.6);
-    border-radius: 2rem;
-}
-
-.container .viewport .cdk-virtual-scroll-content-wrapper{
-    display: flex;
-    align-items: center;
-    padding-left: 40%;
-    padding-right: 60%;
-  }
-
-  .container .typer{
-    min-width: 10px;
-  }
- 
