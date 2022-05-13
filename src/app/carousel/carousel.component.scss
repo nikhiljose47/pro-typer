@@ -1,16 +1,15 @@
-.container {
+.carousel-container{
   position: absolute;
-  height: 35rem;
-  width: 80rem;
-  top: 70rem;
-  left: calc(50% - 570px);
+  width: 82rem;
+  top: 67rem;
+  left: calc(50% - 620px);
   display: flex;
 }
 
 .card {
   height: 28rem;
-  width: 30rem;
-  background-color: #00BFFF;
+  width: 18rem;
+  background-color: #89CFF0;
   border-radius: 10px;
   box-shadow: -1rem 0 3rem #000;
   transition: 0.4s ease-out;
@@ -26,6 +25,13 @@
   transform: translateY(-20px);
   transition: 0.4s ease-out;
 }
+.col-3 {
+  height: 20rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
 
 .card:hover ~ .card {
   position: relative;

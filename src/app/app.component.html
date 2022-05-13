@@ -3,20 +3,24 @@
     <img
       src="../assets/brand.ico"
       alt="Typer Pro logo"
-      height="75px"
-      width="120px"
+      height="60px"
+      width="130px"
     />
   </div>
 
   <div class="navbar-menu">
     <a routerLinkActive="active" routerLink="/home">Home</a>
-    <a routerLinkActive="active" (click)="openDropDown()" (pointerleave)="closeDropDown()">
-        <label>Games</label>
-        <div id="myDropdown" class="dropdown-content">
-            <!-- <a routerLink="/game-one">Race</a> -->
-            <a routerLink="/game-two">Ghost</a>
-            <!-- <a routerLink="/game-three">Follow</a> -->
-        </div>
+    <a
+      routerLinkActive="active"
+      (click)="openDropDown()"
+      (pointerleave)="closeDropDown()"
+    >
+      <label>Games</label>
+      <div id="myDropdown" class="dropdown-content">
+        <!-- <a routerLink="/game-one">Race</a> -->
+        <a routerLink="/game-two">Ghost</a>
+        <!-- <a routerLink="/game-three">Follow</a> -->
+      </div>
     </a>
     <a routerLinkActive="active" routerLink="/typer-practice">Practice</a>
   </div>

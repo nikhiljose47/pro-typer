@@ -33,6 +33,10 @@ export class GameTwoComponent implements OnInit {
   hasFinished: boolean = false;
   winner: String = "";
   oncePlayed:boolean = false;
+  easyGameEnabled: boolean = true;
+  mediumGameEnabled: boolean = true;
+  hardGameEnabled: boolean = true;
+  extremeGameEnabled: boolean = true;
 
   constructor(public dialog: MatDialog) { }
 
@@ -47,6 +51,25 @@ export class GameTwoComponent implements OnInit {
   reset() { }
 
   changeTyper() { }
+
+  loadEasyGame() {
+    this.ghostData = this.easyLevel;
+    this.mediumGameEnabled = false;
+    this.hardGameEnabled = false;
+    this.extremeGameEnabled = false;
+  }
+
+  loadMediumGame() {
+    console.log("Medium button clicked");
+  }
+
+  loadHardGame() {
+    console.log("Hard game opted");
+  }
+
+  loadExtremeGame() {
+    console.log("Extreme game opted");
+  }
 
   createTyper(data: string) {
     let arr = data.split("");
@@ -159,5 +182,10 @@ export class GameTwoComponent implements OnInit {
         //FINISH ALL
       }
     }, e);
+  }
+
+  restartGame() {
+    this.hasFinished = true;
+    clearInterval();
   }
 }
