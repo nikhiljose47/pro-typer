@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-typer-result',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./typer-result.component.scss']
 })
 export class TyperResultComponent implements OnInit {
-  isLoading: boolean = true;
+  @Inject(MAT_DIALOG_DATA) public data: boolean;
+  isLoading: boolean = false;
 
   constructor() { }
 

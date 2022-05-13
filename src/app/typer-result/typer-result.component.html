@@ -1,6 +1,7 @@
-<div>
-    <mat-spinner *ngIf="isLoading; else result"></mat-spinner>
-
-    <ng-template #result>result</ng-template>
-    
+<div *ngIf="data; else elseBlock">
+    <img style="height: 24rem;" src="/assets/gif/slow-turtle.gif" />
 </div>
+
+<ng-template #elseBlock>
+    <img style="height: 24rem;" src="/assets/gif/success-fireworks.gif" />
+</ng-template>
