@@ -32,6 +32,7 @@ export class GameTwoComponent implements OnInit {
   gameTwoStates: GameTwoUnitState[] = [];
   hasFinished: boolean = false;
   winner: String = "";
+  oncePlayed:boolean = false;
 
   constructor(public dialog: MatDialog) { }
 
@@ -102,7 +103,13 @@ export class GameTwoComponent implements OnInit {
   setState(index: number) {
     // console.log(this.ghostStates);
     if(this.ghostIndex> this.index){
-      this.playAudio()
+      if(!this.oncePlayed){
+        this.oncePlayed = true;
+        this.playAudio()
+      }
+    }
+    if(this.ghostIndex< this.index){
+     this.oncePlayed = false;
     }
     this.gameTwoUnits[index].state = this.ghostStates[index] ? this.getGhostState(index) : this.gameTwoStates[index];
   }
