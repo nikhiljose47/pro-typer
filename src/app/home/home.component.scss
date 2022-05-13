@@ -2,7 +2,7 @@ $blue: #3498db;
 
 .col1 {
   width: 100%;
-  height: 50rem;
+  height: 55rem;
   float: left;
   background: radial-gradient(
     at 90% 90%,
@@ -22,7 +22,7 @@ $blue: #3498db;
 
 .col-2 {
   width: 100%;
-  height: 50rem;
+  height: 45rem;
   text-align: center;
   font-size: 2rem;
   float: right;
@@ -139,4 +139,7 @@ svg#clouds {
   padding-bottom:4rem;
   font-weight: 700;
   letter-spacing: 0.5px;
+}
+.col-3 {
+  height: 20rem;
 }

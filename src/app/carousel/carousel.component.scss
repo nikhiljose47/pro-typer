@@ -1,20 +1,18 @@
 .container {
-    position: absolute;
-    height: 35rem;
-    width: 75rem;
-    top: 60rem;
-    left: calc(50% - 570px);
-    display: flex;
+  position: absolute;
+  height: 35rem;
+  width: 80rem;
+  top: 70rem;
+  left: calc(50% - 570px);
+  display: flex;
 }
 
 .card {
-  display: flex;
-  height: 24rem;
+  height: 28rem;
   width: 30rem;
-  background-color: rgb(29, 29, 175);
+  background-color: #00BFFF;
   border-radius: 10px;
   box-shadow: -1rem 0 3rem #000;
-/*   margin-left: -50px; */
   transition: 0.4s ease-out;
   position: relative;
   left: 0px;
@@ -34,21 +32,21 @@
   left: 50px;
   transition: 0.4s ease-out;
 }
-
 .title {
-  color: white;
-  font-weight: 300;
-  position: absolute;
-  left: 20px;
-  top: 15px;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size:1.6rem;
+  background-color: ghostwhite;
+  margin-top: 1rem;
+  font-weight: 500;
+  position: relative;
 }
-
 .bar {
   position: absolute;
-  top: 100px;
-  left: 20px;
-  height: 5px;
-  width: 150px;
+  top: 6rem;
+  left: 2rem;
+  height: 6px;
+  width: 12rem;
 }
 
 .emptybar {
@@ -83,10 +81,11 @@
   transition: 0.6s ease-out;
 }
 .card-content {
-    position: absolute;
-    top: 150px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: white;
-    line-height: 1.7rem;
+  position: absolute;
+  top: 8rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 2rem;
 }

@@ -28,6 +28,7 @@ import { GameThreeComponent } from './games/game-three/game-three.component';
 import { GameThreeUnitComponent } from './games/game-three-unit/game-three-unit.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     TyperResultComponent,
     GameThreeComponent,
     GameThreeUnitComponent,
-    CarouselComponent,    
+    CarouselComponent,
+    FooterComponent,    
   ],
   imports: [
     BrowserModule,
