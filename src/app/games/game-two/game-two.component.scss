@@ -1,60 +1,74 @@
-.row {
+#bg {
   display: flex;
   width: 100%;
   height: 100%;
   background-image: url("../../../assets/game-ghost-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
-  .col1 {
-    width: 70%;
-    float: left;
-    padding: 10%;
-    .type-text {
-      padding: 0;
-      margin: 0;
-
-      #text {
-        margin: 10vh 10vw 10vh;
-        text-align: left;
-      //  text-shadow: 2px 2px 2px rgb(11, 186, 199);
-        padding: 3vh 1vw 1vh;
-        height: 5vh;
-        width: auto;
-      }
-    }
-  }
-  .col2 {
-    width: 30%;
-    height:100rem;
-    text-align: center;
-    font-size: 2rem;
-    float: right;
-    background: #B24592;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-  }
 }
 
-.timer {
-  border: 0;
-  line-height: 2.5;
-  padding: 0 20px;
-  font-size: 1rem;
+#main-container {
+  width: 70%;
+  float: left;
+  padding-left: 10%;
+  padding-top: 4%;
+}
+
+#difficulty-container {
+width:20% 
+}
+
+.btnGroup button {
+  padding: 4px ;
+  margin-bottom: 5px;
+  width: 100%;
+  color: white;
+  border-radius: 4px;
+}
+
+#easy-btn {
+  background: linear-gradient(to bottom, #73ff08 ,#0e5e05 );
+}
+
+#medium-btn {
+  background: linear-gradient(to bottom, #ff6308 ,black );
+}
+
+#hard-btn {
+  background: linear-gradient(to bottom, #ff0808 ,black );
+}
+
+.card{
+  background-color: rgb(255, 248, 248);
+  width: 4rem;
+  height: 3rem;
+  padding: 2%;
+  border-radius: 9px;
+}
+
+.text{
+  font-size: 1.5rem ;
+  font-weight: 400;
+  color: white;
+}
+
+#difficulty-title{
   text-align: center;
-  text-shadow: 1px 1px 1px #000;
-  border-radius: 10px;
-  background-color: rgb(19, 90, 245);
-  background-image: linear-gradient(to top left,
-                                    rgba(0, 0, 0, .2),
-                                    rgba(0, 0, 0, .2) 30%,
-                                    rgba(0, 0, 0, 0));
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-              inset -2px -2px 3px rgba(0, 0, 0, .6);
+  font-size: 1rem ;
+ // font-weight: 500;
+  color: white;
+
 }
 
-label {
-  padding-right: 10px;
+#top-section {
+  display: flex;
+}
+
+#description1 {
+  margin-top: 4rem;
+  padding-right: 5rem;
+  color: white;
+  float:left;
   font-size: 1rem;
 }
 
