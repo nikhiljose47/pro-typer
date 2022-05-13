@@ -1,20 +1,37 @@
 .topnav {
     background-color: rgb(251, 253, 255);
     overflow: hidden;
-    height: 2.7rem;
+    height: 6rem;
+    padding-right: 4rem;
+    padding-left: 20rem;
+    background: linear-gradient(92.04deg,#4560F5 24.18%,#1c47b4 50.95%,#1b1ba7 110.32%);
+    box-shadow: 0 4px 8px 0 hsl(0deg 0% 7% / 50%);
+    border:  #3498db;
   }  
 
-  .topnav a {
-    float: left;
-    color: #000000;
+  .brand-logo {
+    height: 6rem;
+    float:left;
+    margin-top: 0.7rem;
+  }
+
+  .navbar-menu {
+    margin-right:3rem;
+    float :right;
+    display: flex;
+  }
+
+  .navbar-menu a {
+    color: #fff;
     text-align: center;
-    padding: 14px 16px;
+    margin-top: 2rem;
+    margin-right: 3rem;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1.5rem;
   }
   
   //title 
-  .topnav p {
+  .navbar-menu p {
     color: #ffffff;
     text-align: center;
     text-decoration: none;
@@ -22,12 +39,8 @@
   }
 
   /* Change the color of links on hover */
-  .topnav a:hover {
+  .navbar-menu a:hover {
     color: rgb(78, 205, 255);
-  }
-
-  .active {
-    background-color: rgb(219, 214, 214);
   }
 
 .dropdown-content {

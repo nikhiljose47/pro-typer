@@ -6,7 +6,7 @@ $blue: #3498db;
   float: left;
   background: radial-gradient(
     at 90% 90%,
-    rgba(37, 207, 207, 0.6) 0%,
+    rgb(41, 175, 228) 0%,
     rgba(0, 255, 0, 0) 80%
   );
 }
@@ -61,6 +61,10 @@ $blue: #3498db;
   align-items: center;
 }
 
+.circleStyle {
+  height: 10rem;
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -113,4 +117,26 @@ svg#clouds {
     box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
     color: black;
   }
+}
+
+.title {
+  text-align: center;
+  padding-top: 5rem;
+}
+
+.title h1 {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: .1rem;
+  padding-bottom:3rem;
+  font-weight: 500;
+  color: #4a4a56;
+}
+
+.title h2 {
+  font-size: 3rem;
+  font-family: sans-serif;
+  padding-bottom:4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }

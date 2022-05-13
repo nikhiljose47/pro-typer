@@ -1,15 +1,20 @@
 <div class="col1">
+  <div class="title">
+    <h1>TYPER PRO</h1>
+    <h2>CHECK YOUR TYPING SPEED NOW</h2>
+  </div>
+
   <div class="widgets">
-    <div>
+    <div class="circleStyle">
       <circle-progress
       [percent]= 100-timerPercent
       [maxPercent]= 200
       [showUnits]=false
       [showZeroOuterStroke]=false
-      [radius]="6"
+      [radius]="50"
       [title] = 'timerLabel'
       [titleFormat]="formatTitle"
-      [outerStrokeWidth]="2"
+      [outerStrokeWidth]="10"
       [outerStrokeColor]= customColor
       [startFromZero]=false
       [renderOnClick]=false

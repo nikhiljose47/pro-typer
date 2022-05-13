@@ -1,4 +1,14 @@
 <div class="topnav">
+  <div class="brand-logo">
+    <img
+      src="../assets/brand.ico"
+      alt="Typer Pro logo"
+      height="75px"
+      width="120px"
+    />
+  </div>
+
+  <div class="navbar-menu">
     <a routerLinkActive="active" routerLink="/home">Home</a>
     <a routerLinkActive="active" (click)="openDropDown()" (pointerleave)="closeDropDown()">
         <label>Games</label>
@@ -9,8 +19,6 @@
         </div>
     </a>
     <a routerLinkActive="active" routerLink="/typer-practice">Practice</a>
-    <!-- <a routerLink="/app-login">Login</a> -->
-    <br>
-    <p> Typer Pro</p>
+  </div>
 </div>
 <router-outlet></router-outlet>
