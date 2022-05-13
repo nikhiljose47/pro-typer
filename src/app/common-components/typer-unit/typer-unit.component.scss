@@ -1,4 +1,4 @@
-.cell-blink {
+#cell-blink {
     animation: blinker 1.6s linear infinite;
     background-color: #ffc79a;
     border-radius: 8px;
@@ -13,11 +13,11 @@
     50% { background-color: transparent; }
   }
 
-  .cell-undone {
+  #cell-undone {
     color:black;
   }
 
-  .cell-done {
+  #cell-done {
     background-color: #b1e4a1;
     border-radius: 8px;
     height: 5rem;

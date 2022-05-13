@@ -1,7 +1,7 @@
 <div class="container">
     <cdk-virtual-scroll-viewport itemSize="" orientation="horizontal" class="viewport"> 
         <typer-unit class="typer" *cdkVirtualFor="let val of typerUnits; let i = index; trackBy: trackByItems"
-            [value]="val">
+            [value]="val" (blinkerPos)="getLeftOffset($event)">
         </typer-unit>
     </cdk-virtual-scroll-viewport>
 </div>

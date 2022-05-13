@@ -18,8 +18,13 @@ export class TyperComponent implements OnInit {
   @Output() wordUpdate = new EventEmitter<void>();
   @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
 
+
   index: number = 0;
   hasFinished: boolean = false;
+  initialLeftOffset: number = 0.0;
+  leftOffset: number = 0.0;
+  isInitialOffsetVal: boolean = true;
+  offsetSum: number = 0;
 
   trackByItems(index: number, item: TyperUnit): number { return item.state; }
 
@@ -27,6 +32,18 @@ export class TyperComponent implements OnInit {
 
   ngOnInit(): void {
     this.createTyper(this.data);
+  }
+
+  getLeftOffset(value) {
+    this.leftOffset = value;
+    this.initialOffsetCalc();
+  }
+
+  initialOffsetCalc() {
+    if (this.isInitialOffsetVal) {
+      this.isInitialOffsetVal = false;
+      this.initialLeftOffset = this.leftOffset;
+    }
   }
 
   createTyper(data: string) {
@@ -61,7 +78,13 @@ export class TyperComponent implements OnInit {
         this.wordUpdate.emit();
       }
       this.updateVal.emit(true);
-      this.viewport.scrollTo({ start: this.index * 12 });
+      // console.log("inital", this.initialLeftOffset)
+      // console.log("left", this.leftOffset)
+      //  console.log("diff",this.leftOffset - this.initialLeftOffset)
+      if ((this.leftOffset - this.initialLeftOffset) > 0) {
+        this.offsetSum += this.leftOffset - this.initialLeftOffset;
+        this.viewport.scrollTo({ start: (this.offsetSum) });
+      }
     }
     else {
       this.typerUnits[this.index].status.push(input);
