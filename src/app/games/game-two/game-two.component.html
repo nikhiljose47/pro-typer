@@ -1,21 +1,18 @@
 <div id="bg">
   <div id="main-container">
     <section id="top-section">
-      <div id="description1">
-        <h2>
+        <h2 id="description1">
           "Hi, It is time to beat the ghost!, The blue pointer is played by a ghost!"
         </h2>
         <span> {{ bestScore }} </span>
-      </div>
       <div id="difficulty-container">
         <p class="text" id="difficulty-title">Select your Difficulty</p>
-        <div class="btnGroup">
           <button id="easy-btn" class="btnGroup-unit" type="button"  (click)="setDifficulty('easy-btn')">EASY</button>
           <button id="medium-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('medium-btn')">MEDIUM</button>
           <button id="hard-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('hard-btn')">HARD</button>
           <button id="extreme-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('extreme-btn')">EXTREME</button>
         </div>
-      </div>
+
     </section>
 
     <!-- below -->
