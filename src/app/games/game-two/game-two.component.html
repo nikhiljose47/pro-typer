@@ -3,18 +3,17 @@
     <section id="top-section">
       <div id="description1">
         <h2>
-          "Hi, It is time to beat yourself!, The blue pointer shows your current
-          best."
+          "Hi, It is time to beat the ghost!, The blue pointer is played by a ghost!"
         </h2>
         <span> {{ bestScore }} </span>
       </div>
       <div id="difficulty-container">
         <p class="text" id="difficulty-title">Select your Difficulty</p>
         <div class="btnGroup">
-          <button id="easy-btn" type="button" [disabled]="!mediumGameEnabled || !hardGameEnabled || !extremeGameEnabled" (click)="loadEasyGame()">EASY</button>
-          <button id="medium-btn" type="button" (click)="loadMediumGame()">MEDIUM</button>
-          <button id="hard-btn"  type="button" (click)="loadHardGame()">HARD</button>
-          <button id="extreme-btn" type="button" (click)="loadExtremeGame()">EXTREME</button>
+          <button id="easy-btn" class="btnGroup-unit" type="button"  (click)="setDifficulty('easy-btn')">EASY</button>
+          <button id="medium-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('medium-btn')">MEDIUM</button>
+          <button id="hard-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('hard-btn')">HARD</button>
+          <button id="extreme-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('extreme-btn')">EXTREME</button>
         </div>
       </div>
     </section>
@@ -24,31 +23,45 @@
       Begin typing to start the game!
     </div>
     <ng-template #elseBlock>
-      <div id="progress-status" *ngIf="index > ghostIndex; else elseBehind">
-        <div id="ahead"></div>
-        <div>&nbsp;</div>
-        <div>You are ahead by</div>
-        <div>&nbsp;</div>
-
-        <div>{{ index - ghostIndex }}</div>
-        <div>&nbsp;</div>
-
-        <div>letters !</div>
-      </div>
-      <ng-template #elseBehind>
-        <div id="progress-status">
-          <div id="behind"></div>
+      <section id="game-start-dash">
+    
+        <div id="progress-status" *ngIf="index > ghostIndex; else elseBehind">
+          <div id="ahead"></div>
           <div>&nbsp;</div>
-          <div>You are behind by</div>
+          <div>You are ahead by</div>
           <div>&nbsp;</div>
-
-          <div>{{ ghostIndex - index }}</div>
+  
+          <div>{{ index - ghostIndex }}</div>
           <div>&nbsp;</div>
-
-          <div>letters</div>
+  
+          <div>letters !</div>
         </div>
-      </ng-template>
+        <ng-template #elseBehind>
+          <div id="progress-status">
+            <div id="behind"></div>
+            <div>&nbsp;</div>
+            <div>You are behind by</div>
+            <div>&nbsp;</div>
+  
+            <div>{{ ghostIndex - index }}</div>
+            <div>&nbsp;</div>
+  
+            <div>letters</div>
+          </div>
+        </ng-template>
+        <button id="abort-btn" type="button" (click)="abort()" >
+          Start Again
+        </button>
+      </section>
+
+      
+    
     </ng-template>
+
+
+
+    
+    
     <span style="display: block; height: 20px"></span>
     <section id="typer-container">
       <game-two-unit
@@ -58,9 +71,7 @@
       </game-two-unit>
     </section>
 
-    <button id="reset" class="typerBtn" type="button" (click)="restartGame()">
-      Abort
-    </button>
+    
     <!-- <button class="change" id="change" type="button" (click)="changeTyper()">Change Text</button>         -->
   </div>
 </div>
