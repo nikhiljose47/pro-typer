@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'typer-practice', component: TyperPracticeComponent },
   { path: 'game-one', component: GameOneComponent },
-  { path: 'game-two', component: GameTwoComponent },
+  { path: 'game', component: GameTwoComponent },
   { path: 'game-three', component: GameThreeComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'app-login', component: LoginComponent },
@@ -22,7 +22,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

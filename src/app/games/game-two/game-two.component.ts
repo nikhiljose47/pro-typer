@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
+import { Meta, Title } from '@angular/platform-browser';
 import { TyperResultComponent } from 'src/app/typer-result/typer-result.component';
 import { GameTwoUnit, GameTwoUnitState } from '../../shared/classes';
 
@@ -39,13 +39,29 @@ export class GameTwoComponent implements OnInit {
   //for restart
   ghostIntervalId: ReturnType<typeof setTimeout>;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private titleService: Title,
+    private metaTagService: Meta
+    ) { }
 
   trackByItems(index: number, item: GameTwoUnit): number { return item.state; }
 
   ngOnInit(): void {
     this.createTyper(this.text);
     this.ghostData = this.easyLevel;
+
+
+    this.titleService.setTitle("Game Page of Typer Pro");  
+    this.metaTagService.addTags([  
+      { name: 'keywords', content: 'Typing speed game, Ghost game typing, Beat the typing ghost, Typing speed game, Easy typing game, Medium typing game, Hard typing game , Extreme typing game' },  
+      { name: 'robots', content: 'index, follow' },  
+      { name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      { name: 'description', content: 'Typer Pro introduces Ghost game, where you can compete with ghost and improve typing speed. Become a fast typer with high accuracy. Easy typing game, Medium typing game, Hard typing game , Extreme typing game'},
+      { name: 'og:description', content: 'Welcome to the #1 Fun Speed Test! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed'},
+      { name:'og:type', content: 'website'},
+      { charset: 'UTF-8' }  
+    ]); 
+
     // this.ghostData = [0,550,1000]
   }
 

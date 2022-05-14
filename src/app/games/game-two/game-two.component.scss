@@ -85,8 +85,8 @@ width:20%
 }
 
 #description1 {
-  margin-top: 4rem;
-  padding-right: 5rem;
+  margin-top: 6rem;
+  padding-right: 20rem;
   color: white;
   float:left;
   font-size: 1rem;
@@ -146,5 +146,9 @@ width:20%
   height: 20px;
   width: 20px;
   background-color: rgb(197, 31, 31);
+}
+
+@media (min-width:320px) and (max-width:480px) {
+  
 }
 

@@ -5,7 +5,7 @@ import { TyperUnit } from '../shared/classes';
 import { TyperReplayComponent } from '../typer-replay/typer-replay.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TyperResultComponent } from '../typer-result/typer-result.component';
-
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -35,10 +35,22 @@ export class HomeComponent implements OnInit {
   percentIndicator: number;
   timerFinishIndicator: boolean;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private metaTagService: Meta,
+    private titleService: Title) { }
 
 
   ngOnInit(): void {
+    this.titleService.setTitle("Home Page of Typer Pro");  
+    this.metaTagService.addTags([  
+      { name: 'keywords', content: 'Typing speed check in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing' },  
+      { name: 'robots', content: 'index, follow' },  
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'description', content: 'With our free typing speed test, you can check your WPM and accuracy in a flash!. Become a fast typer with high accuracy'},
+      { name: 'og:description', content: 'Welcome to the #1 Fun Speed Test! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed'},
+      { name:'og:type', content: 'website'},
+      { charset: 'UTF-8' }  
+    ]);  
     this.typerText = this.typerData[this.typerDataCounter].value;
   }
 
