@@ -39,6 +39,9 @@ export class GameTwoComponent implements OnInit {
   //for restart
   ghostIntervalId: ReturnType<typeof setTimeout>;
 
+  //for audio
+  ghostBgAudio: any = new Audio();
+
   constructor(public dialog: MatDialog,
     private titleService: Title,
     private metaTagService: Meta
@@ -63,6 +66,9 @@ export class GameTwoComponent implements OnInit {
     ]); 
 
     // this.ghostData = [0,550,1000]
+    this.ghostBgAudio.src = "assets/audio/ghost_bg.mp3";
+    this.ghostBgAudio.load();
+    this.ghostBgAudio.loop = true
   }
 
   reset() { }
@@ -154,10 +160,13 @@ export class GameTwoComponent implements OnInit {
       if (!this.oncePlayed) {
         this.oncePlayed = true;
         this.playAudio()
+        this.ghostBgAudio.play();
       }
     }
     if (this.ghostIndex < this.index) {
       this.oncePlayed = false;
+      this.ghostBgAudio.pause();
+
     }
     this.gameTwoUnits[index].state = this.ghostStates[index] ? this.getGhostState(index) : this.gameTwoStates[index];
   }
@@ -216,5 +225,6 @@ export class GameTwoComponent implements OnInit {
     this.ghostIndex = 0;
     this.prevGhostIndex = -1;
     this.index=0;
+    this.ghostBgAudio.pause();
   }
 }

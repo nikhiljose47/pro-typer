@@ -2,8 +2,8 @@
     animation: blinker 1.6s linear infinite;
     background-color: #ffc79a;
     border-radius: 8px;
-    height: 5rem;
-    width: 2rem;
+    height: 7rem;
+    width: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,14 +27,14 @@
   }
 
 .text{
-  font-size: 2.5rem;
-  font-weight: 300;
+  font-size: 5.6rem;
+  font-weight: 325;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal 
 }
 
 .blink-text{
-  font-size: 3rem;
-  font-weight: 300;
-  padding-bottom: 10%;
+  font-size: 5.8rem;
+  font-weight: 325;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

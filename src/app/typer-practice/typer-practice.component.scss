@@ -6,38 +6,43 @@
         background-repeat: no-repeat;
 }
 
-#content {
-  position: absolute;
-  top: 45%;
-  left: 14%;
+.item1 {
+  display: block;
+ justify-content: center;
 }
 
-#widgets {
-  display: flex;
-  align-items: center;
-  margin-top: 0;
-  margin-bottom: 3rem;
-  margin-left: 20rem;
-  justify-content: center;
+#accuracy-container {
+  margin-left: 41% ;
+  margin-top: 1%;
+  background-color: rgb(226, 226, 226);
+  width: 20rem;
+  height: 3rem;
+  border-radius: 8px;
 }
 
-#accuracy {
-  background: linear-gradient(to right, rgb(91, 166, 236), rgb(22, 120, 200), );
-  width: 50%;
+.accuracy {
+  background: linear-gradient(to right, rgb(91, 166, 236), rgb(22, 120, 200));
+  width: 20rem;
   color: rgb(255, 255, 255);
   padding-left: 2%;
   padding-bottom: 1%;
+  padding-top: 5%;
   text-align: start;
-  font-size: 16px;
+  font-size: 200;
+  font-size: 2rem;
   border-radius: 8px;
-  max-height: 16px;
+  height: 2rem;
 }
 
 #typer {
-  background-color: rgba(162, 207, 164, 0.822);
+  display: flex;
+  flex-direction: row;
+  margin-top: 7%;
+  justify-content: center;
 }
 
-.textFont {
+
+.text {
   text-align: center;
   padding-top: 6rem;
   padding-right: 1.5rem;

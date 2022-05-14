@@ -1,20 +1,17 @@
 <div class="bg">
-  <div class="textFont">Practice Match</div>
-  <div class="textFont">Accuracy</div>
-  <section id="content">
-    <section id="widgets">
-      <div id="accuracy">
-        <div class="accuracy" [ngStyle]="{ width: accuracyVal + '%' }">
-          {{ accuracyVal }}%
-        </div>
+  <h1 class="text">Practice  Match</h1>
+
+
+  <section id="top-container">
+    <div class="item1">
+      <div class="text">Accuracy</div>
+      <div id="accuracy-container">
+        <div class="accuracy" [ngStyle]="{'width': accuracyVal+'%'}">{{accuracyVal}}%</div>
       </div>
-    </section>
-  
-    <section id="typer">
-      <app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="typerUpdate($event)"></app-typer>
-    </section>
+    </div>
+
   </section>
-
- 
-
+  <section id="typer">
+    <app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="typerUpdate($event)"></app-typer>
+  </section>
 </div>
