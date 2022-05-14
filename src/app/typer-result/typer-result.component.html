@@ -1,7 +1,17 @@
-<div *ngIf="data; else elseBlock">
-    <img style="height: 24rem;" src="/assets/gif/slow-turtle.gif" />
+<div *ngIf="showMarks; else showGameResult">
+
+    <h1 class="text">Your result</h1>
+    <p class="text">Wpm: {{this.data.wpm}}</p>
+    <p class="text">Accuracy: {{this.data.accuracy}}</p>
+
 </div>
 
-<ng-template #elseBlock>
-    <img style="height: 24rem;" src="/assets/gif/success-fireworks.gif" />
+<ng-template #showGameResult>
+    <div *ngIf="this.data.compWin; else elseBlock">
+        <img style="height: 24rem;" src="/assets/gif/slow-turtle.gif" />
+    </div>
+    
+    <ng-template #elseBlock>
+        <img style="height: 24rem;" src="/assets/gif/success-fireworks.gif" />
+    </ng-template>
 </ng-template>

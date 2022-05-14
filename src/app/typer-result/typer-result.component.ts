@@ -7,15 +7,20 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./typer-result.component.scss']
 })
 export class TyperResultComponent implements OnInit {
-  @Inject(MAT_DIALOG_DATA) public data: boolean;
-  isLoading: boolean = false;
+  isLoading: boolean = true;
+  showMarks: boolean = false;
 
-  constructor() { }
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    setTimeout(() => this.isLoading = false, 2000)
+    if(this.data.wpm){
+      this.showMarks = true;
+      setTimeout(() => this.isLoading = false, 2000)
+      
+    }
+    else{
+
+    }
   }
-
-
-
 }

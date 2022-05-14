@@ -61,8 +61,12 @@ export class HomeComponent implements OnInit {
   timerFinish() {
     this.timerFinishIndicator = true;
     let dialogRef = this.dialog.open(TyperResultComponent, {
-      height: '400px',
+      height: '300px',
       width: '600px',
+      data:{
+        wpm: this.wpmLabel,
+        accuracy: this.accuracyVal
+      }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

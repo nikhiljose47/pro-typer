@@ -21,7 +21,7 @@ export class GameTwoComponent implements OnInit {
   extremeLevel: number[] = [0, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 36, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 36, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 36, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 36, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 36, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 6, 36, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 36, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 36, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 36, 564, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 42, 259, 554, 92, 165, 531, 116, 692, 114, 188, 148, 71, 119, 86, 176, 73, 89, 95, 421, 110, 95, 421, 110, 191, 105, 147, 393, 62, 97, 222, 63, 38, 592, 57, 90, 59, 457, 1159, 105, 333, 110, 89, 148, 48, 554, 106, 155, 201, 57, 124, 95, 85, 417, 47, 87, 530, 37, 97, 487, 139, 84, 110, 120, 137, 67, 90, 613, 59, 222, 49, 53, 553, 67, 19, 89, 135, 291, 52, 128, 224, 59];
   ghostData: number[];
   text = "Jim goes ashore and returns to the stockade, where he is horrified to find only Silver and the pirates. Silver tells Jim that when everyone found the ship was gone, Captain Flint's party had agreed to a truce whereby they take the map and allow the besieged party to leave. In the morning, Livesey arrives to treat the wounded and sick pirates and tells Silver to look out for trouble once he's found the site of the treasure.";
-  //text="Jim "; 
+  //text="Jim goes ashore"; 
   ghostIndex: number = 0;
   prevGhostIndex: number = -1;
   hasStartedTyping: boolean = false;
@@ -64,10 +64,10 @@ export class GameTwoComponent implements OnInit {
       { charset: 'UTF-8' }  
     ]); 
 
-    // this.ghostData = [0,550,1000]
+  //   this.ghostData = [0,50,1000, 1000,1050,1000, 100,50,10, 0,550,10, 0,550,]
     this.ghostBgAudio.src = "assets/audio/ghost_bg.mp3";
     this.ghostBgAudio.load();
-    this.ghostBgAudio.loop = true
+    this.ghostBgAudio.loop = true;
   }
 
   reset() { }
@@ -133,15 +133,19 @@ export class GameTwoComponent implements OnInit {
   }
 
   onGameFinish(winner) {
-    console.log("came", winner);
+     this.ghostBgAudio.pause();
     if (winner == "player") {
       let dialogRef = this.dialog.open(TyperResultComponent, {
-        data: false,
+        data: {
+          compWin: false
+        },
       });
     }
     else {
       let dialogRef = this.dialog.open(TyperResultComponent, {
-        data: true,
+        data: {
+          compWin: true
+        },
       });
     }
   }
@@ -158,9 +162,9 @@ export class GameTwoComponent implements OnInit {
     if (this.ghostIndex > this.index) {
       if (!this.oncePlayed) {
         this.oncePlayed = true;
-        this.playAudio()
+        this.playAudio();
         this.ghostBgAudio.play();
-      }
+      }        
     }
     if (this.ghostIndex < this.index) {
       this.oncePlayed = false;
