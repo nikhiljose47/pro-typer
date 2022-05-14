@@ -18,36 +18,36 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userLogin();
+    // this.userLogin();
   }
-  userLogin() {
-    this.loginForm = new FormGroup({
-      username: new FormControl('',Validators.compose[Validators.required,Validators.name]),
-      password: new FormControl('', Validators.compose[Validators.required,Validators.minLength[8],Validators.maxLength[32]]),
-    })
-  }
-  Login() {
-    this.loginForm.getRawValue();
-    console.log(this.loginForm);
-    let httpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+  // userLogin() {
+  //   this.loginForm = new FormGroup({
+  //     username: new FormControl('',Validators.compose[Validators.required,Validators.name]),
+  //     password: new FormControl('', Validators.compose[Validators.required,Validators.minLength[8],Validators.maxLength[32]]),
+  //   })
+  // }
+  // Login() {
+  //   this.loginForm.getRawValue();
+  //   console.log(this.loginForm);
+  //   let httpHeaders = new HttpHeaders({
+  //     'Content-Type': 'application/json'
+  //   });
 
-    let options = {
-      headers: httpHeaders
-    };
-    this.http.post(environment.baseUrl + '/login', this.loginForm.value, options)
-      .subscribe(
-        (data) => {
-          console.log(data)
-            console.log("POST IS SUCCESSFUL", data);
-            alert("Logged in successfully");
-            this.router.navigate(['/leaderboard']);
-        },
-        (error) => {
-          console.log('Error', error);
-          alert("Incorrect Username/Password");
-        }
-      );
-  }
+  //   let options = {
+  //     headers: httpHeaders
+  //   };
+  //   this.http.post(environment.baseUrl + '/login', this.loginForm.value, options)
+  //     .subscribe(
+  //       (data) => {
+  //         console.log(data)
+  //           console.log("POST IS SUCCESSFUL", data);
+  //           alert("Logged in successfully");
+  //           this.router.navigate(['/leaderboard']);
+  //       },
+  //       (error) => {
+  //         console.log('Error', error);
+  //         alert("Incorrect Username/Password");
+  //       }
+  //     );
+  // }
 }

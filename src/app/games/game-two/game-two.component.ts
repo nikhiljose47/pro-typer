@@ -54,13 +54,12 @@ export class GameTwoComponent implements OnInit {
     this.ghostData = this.easyLevel;
 
 
-    this.titleService.setTitle("Game Page of Typer Pro");  
+    this.titleService.setTitle("Typing Speed Test: Beat the ghost | Typer PRO");  
     this.metaTagService.addTags([  
-      { name: 'keywords', content: 'Typing speed game, Ghost game typing, Beat the typing ghost, Typing speed game, Easy typing game, Medium typing game, Hard typing game , Extreme typing game' },  
-      { name: 'robots', content: 'index, follow' },  
+      { name: 'keywords', content: 'Typing speed game, Online Free Typing Test, Typer Pro, Take free typing test online, Typing online test, Ghost game typing, Beat the typing ghost, Typing speed test, Easy typing test, Medium typing test, Hard typing test , Extreme typing testTyping speed game, Online Typing, Typing online test, Easy typing test, Medium typing test, Hard typing test , Extreme typing test' },  
       { name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      { name: 'description', content: 'Typer Pro introduces Ghost game, where you can compete with ghost and improve typing speed. Become a fast typer with high accuracy. Easy typing game, Medium typing game, Hard typing game , Extreme typing game'},
-      { name: 'og:description', content: 'Welcome to the #1 Fun Speed Test! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed'},
+      { name: 'description', content: 'Begin typing to start the online typing game free, here you can compete with a ghost in 4 different levels of typing test. Have fun as well as improve typing speed. Test your speed in 4 difficulty levels : Easy, Medium, Hard and Extreme tests.' },
+      { name: 'og:description', content: 'Welcome to the #1 Fun Online Typing Speed Test! Check your true typing speed, accuracy and skill level here at Typer Pro. Also play games or take typing test which improves your typing speed'},
       { name:'og:type', content: 'website'},
       { charset: 'UTF-8' }  
     ]); 

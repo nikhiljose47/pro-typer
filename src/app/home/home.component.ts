@@ -41,12 +41,11 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.titleService.setTitle("Home Page of Typer Pro");  
+    this.titleService.setTitle("Typing Speed Online test in 60 Seconds | Typer-Pro");  
     this.metaTagService.addTags([  
-      { name: 'keywords', content: 'Typing speed check in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing' },  
-      { name: 'robots', content: 'index, follow' },  
+      { name: 'keywords', content: 'Free Online Typing speed test in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing' },  
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'description', content: 'With our free typing speed test, you can check your WPM and accuracy in a flash!. Become a fast typer with high accuracy'},
+      { name: 'description', content: 'With our free online typing speed test, you can check your Words Per Minute and accuracy in a flash!. Become a fast typer with high accuracy with our typing test and typing games.'},
       { name: 'og:description', content: 'Welcome to the #1 Fun Speed Test! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed'},
       { name:'og:type', content: 'website'},
       { charset: 'UTF-8' }  

@@ -13,12 +13,13 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'typer-practice', component: TyperPracticeComponent },
-  { path: 'game-one', component: GameOneComponent },
   { path: 'game', component: GameTwoComponent },
-  { path: 'game-three', component: GameThreeComponent },
-  { path: 'signup', component: RegisterComponent },
-  { path: 'app-login', component: LoginComponent },
-  { path: 'leaderboard', component: LeaderboardComponent }
+  // { path: '**',}
+    // { path: 'game-one', component: GameOneComponent },
+  // { path: 'game-three', component: GameThreeComponent },
+  // { path: 'signup', component: RegisterComponent },
+  // { path: 'app-login', component: LoginComponent },
+  // { path: 'leaderboard', component: LeaderboardComponent }
 ];
 
 @NgModule({

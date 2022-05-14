@@ -20,43 +20,43 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.createForm();
+    // this.createForm();
   }
-  createForm() {
-    this.registrationForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
-      phoneNumber: new FormControl('', Validators.required)
+  // createForm() {
+  //   this.registrationForm = new FormGroup({
+  //     username: new FormControl('', Validators.required),
+  //     password: new FormControl('', Validators.required),
+  //     email: new FormControl('', Validators.required),
+  //     address: new FormControl('', Validators.required),
+  //     phoneNumber: new FormControl('', Validators.required)
 
-    });
-  }
-  userRegistration() {
-    this.registrationForm.getRawValue();
-    console.log(this.registrationForm);
+  //   });
+  // }
+  // userRegistration() {
+  //   this.registrationForm.getRawValue();
+  //   console.log(this.registrationForm);
     
-    let httpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-    console.log(this.registrationForm.value);
+  //   let httpHeaders = new HttpHeaders({
+  //     'Content-Type': 'application/json'
+  //   });
+  //   console.log(this.registrationForm.value);
 
-    let options = {
-      headers: httpHeaders
-    };
+  //   let options = {
+  //     headers: httpHeaders
+  //   };
 
-    this.http
-      .post(environment.baseUrl + '/register', this.registrationForm.value, options)
-      .subscribe(
-        data => {
-          console.log('POST Request is successful ', data);
-          this.router.navigate(['/home']);
-        },
-        error => {
-          console.log('Error', error);
-        }
-      );
+  //   this.http
+  //     .post(environment.baseUrl + '/register', this.registrationForm.value, options)
+  //     .subscribe(
+  //       data => {
+  //         console.log('POST Request is successful ', data);
+  //         this.router.navigate(['/home']);
+  //       },
+  //       error => {
+  //         console.log('Error', error);
+  //       }
+  //     );
 
-  }
+  // }
 }
 
