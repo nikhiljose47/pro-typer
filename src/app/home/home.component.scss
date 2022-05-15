@@ -1,28 +1,25 @@
 $blue: #3498db;
+$size-small: 2rem;
 
 .col1 {
   width: 100%;
   height: 100rem;
   float: left;
-  background: radial-gradient(
-    at 180% 90%,
-    #7CB9E8 0%,
-    rgba(0, 255, 0, 0) 80%
-  );
+  background: radial-gradient(at 180% 90%, #7cb9e8 0%, rgba(0, 255, 0, 0) 80%);
 }
 
 .widgets {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: $size-small;
   justify-content: center;
 }
 
 .col-2 {
   width: 100%;
   text-align: center;
-  font-size: 2rem;
+  font-size: $size-small;
   float: right;
   background: whitesmoke;
   border-radius: 20px;
@@ -94,7 +91,7 @@ $blue: #3498db;
 
 svg#clouds {
   position: absolute;
-  bottom: 2rem;
+  bottom: $size-small;
   left: 0px;
   z-index: -1;
   width: 110rem;
@@ -103,13 +100,13 @@ svg#clouds {
 .typerBtn {
   border-color: #3498db;
   font-size: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: $size-small;
   color: #fff;
   border-radius: 12px;
   padding: 1.5rem 4rem 1.5rem 4rem;
   box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
   transition: all 150ms ease-in-out;
-  margin-right: 2rem;
+  margin-right: $size-small;
 
   &:hover {
     box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
@@ -130,7 +127,7 @@ svg#clouds {
 .title h1 {
   font-size: 3rem;
   font-family: sans-serif;
-  padding-bottom:4rem;
+  padding-bottom: 4rem;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
@@ -138,10 +135,60 @@ svg#clouds {
 .title h2 {
   text-transform: uppercase;
   font-size: 1.6rem;
-  letter-spacing: .1rem;
-  padding-bottom:3rem;
+  letter-spacing: 0.1rem;
+  padding-bottom: 3rem;
   font-weight: 500;
   color: #4a4a56;
 }
 
 
+
+
+/* Laptop screen small to large */
+@media only screen 
+  and (min-device-width: 1025px) {
+
+  
+  .title {
+    text-align: center;
+    padding-top: 4rem;
+
+    h1 {
+      padding-bottom:3rem;
+    }
+  }
+}
+
+/* For Tablets */
+@media screen and (min-width: 540px) and (max-width: 834px) {
+
+  .title h1 {
+    font-size: $size-small;
+  }
+  .circleStyle {
+    height : 13rem;
+  }
+  .item1 {
+    padding-left: $size-small;
+    .accuracy-text {
+      font-size: $size-small;
+      margin-bottom: $size-small;
+    }
+    .accuracy {
+      height: $size-small;
+      max-height: $size-small;
+      font-size: 20px;
+    }
+  }
+  .widgets {
+    margin-bottom: 3rem;
+  }
+  .card-container {
+    margin-top: 5rem;
+  }
+  .typerBtn {
+    padding: 1.5rem 2.8rem 1.5rem 2.8rem;
+    font-size: $size-small;
+  }
+
+}
