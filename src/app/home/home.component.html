@@ -50,8 +50,11 @@
     <button id="replay" class="typerBtn" type="button" [disabled]="!timerFinishIndicator" (click)="replay()">
       Show Replay
     </button>
-    <button id="reset" class="typerBtn" type="button" [disabled]="!timerFinishIndicator" (click)="PlayAgain()">
+    <button id="reset" class="typerBtn" type="button" [disabled]="!timerFinishIndicator" (click)="playAgain()">
       Play Again
+    </button>
+    <button id="reset" class="typerBtn" type="button" [disabled]="!timerFinishIndicator" (click)="changeTyper()">
+     Change Text
     </button>
   </div>
 

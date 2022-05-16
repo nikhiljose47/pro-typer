@@ -6,6 +6,7 @@ import { TyperReplayComponent } from '../typer-replay/typer-replay.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TyperResultComponent } from '../typer-result/typer-result.component';
 import { Title, Meta } from '@angular/platform-browser';
+import { getLocaleFirstDayOfWeek } from '@angular/common';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -49,13 +50,23 @@ export class HomeComponent implements OnInit {
       { name: 'og:description', content: 'Welcome to the #1 Fun Speed Test! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed'},
       { name:'og:type', content: 'website'},
       { charset: 'UTF-8' }  
-    ]);  
-    this.typerText = this.typerData[this.typerDataCounter].value;
+    ]); 
+    if(localStorage.getItem('typerCounter') == null)
+    localStorage.setItem('typerCounter','0');
+    this.setTyper(); 
+  }
+
+  setTyper(){
+    let counter = localStorage.getItem('typerCounter')??'0';
+    this.typerText = this.typerData[parseInt(counter)].value;
   }
 
   changeTyper() {
-    this.typerDataCounter = (++this.typerDataCounter) % this.typerData.length;
-    this.ngOnInit();
+    let data = localStorage.getItem('typerCounter')??'0';
+    let counter = parseInt(data);
+    let newCounter = (++counter) % this.typerData.length;
+    localStorage.setItem('typerCounter', newCounter.toString());
+    this.playAgain()
   }
 
   timerFinish() {
@@ -73,7 +84,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  PlayAgain() {
+  playAgain() {
     window.location.reload();
   }
 
@@ -137,7 +148,10 @@ export class HomeComponent implements OnInit {
     let dialogRef = this.dialog.open(TyperReplayComponent, {
       height: '500px',
       width: '800px',
-      data: this.delays
+      data: {
+        typerText: this.typerText,
+        trailList: this.delays
+      }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
