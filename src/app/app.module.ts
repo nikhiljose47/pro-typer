@@ -29,6 +29,8 @@ import { GameThreeUnitComponent } from './games/game-three-unit/game-three-unit.
 import { CarouselComponent } from './carousel/carousel.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FooterComponent } from './footer/footer.component';
+import { GameFourComponent } from './games/game-four/game-four.component';
+import { DialogBoxComponent } from './common-components/dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { FooterComponent } from './footer/footer.component';
     GameThreeComponent,
     GameThreeUnitComponent,
     CarouselComponent,
-    FooterComponent,    
+    FooterComponent,
+    GameFourComponent,
+    DialogBoxComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

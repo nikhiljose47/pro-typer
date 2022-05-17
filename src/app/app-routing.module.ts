@@ -8,12 +8,14 @@ import { TyperPracticeComponent } from './typer-practice/typer-practice.componen
 import { RegisterComponent } from './register/register.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { GameThreeComponent } from './games/game-three/game-three.component';
+import { GameFourComponent } from './games/game-four/game-four.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'typer-practice', component: TyperPracticeComponent },
   { path: 'game', component: GameTwoComponent },
+  { path: 'beat-self', component: GameFourComponent },
   // { path: '**',}
     // { path: 'game-one', component: GameOneComponent },
   // { path: 'game-three', component: GameThreeComponent },
