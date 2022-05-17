@@ -10,7 +10,6 @@ import { GameTwoUnit, GameTwoUnitState } from '../../shared/classes';
   styleUrls: ['./game-two.component.scss']
 })
 export class GameTwoComponent implements OnInit {
-  bestScore: number;
   hardLevel: number[] = [0, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 45, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 45, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 53, 324, 692, 114, 207, 664, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 45, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 45, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 45, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143,
     234, 185, 88, 148, 219, 91, 111, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 8, 45, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 53, 324, 692, 114, 207, 664, 145, 865, 143,
     234, 185, 88, 148, 107, 219, 91, 111, 45, 705, 53, 324, 692, 114, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219, 91, 111, 207, 664, 145, 865, 143, 234, 185, 88, 148, 107, 219,
@@ -30,17 +29,12 @@ export class GameTwoComponent implements OnInit {
   ghostStates: boolean[] = [];
   gameTwoStates: GameTwoUnitState[] = [];
   hasFinished: boolean = false;
-  winner: String = "";
   oncePlayed: boolean = false;
-  easyGameEnabled: boolean = true;
-  mediumGameEnabled: boolean = true;
-  hardGameEnabled: boolean = true;
-  extremeGameEnabled: boolean = true;
+  isGhostLeading: boolean = false;
+  ghostBgAudio: any = new Audio();
+  ghostBellAudio:any = new Audio();
   //for restart
   ghostIntervalId: ReturnType<typeof setTimeout>;
-
-  //for audio
-  ghostBgAudio: any = new Audio();
 
   constructor(public dialog: MatDialog,
     private titleService: Title,
@@ -68,11 +62,9 @@ export class GameTwoComponent implements OnInit {
     this.ghostBgAudio.src = "assets/audio/ghost_bg.mp3";
     this.ghostBgAudio.load();
     this.ghostBgAudio.loop = true;
+    this.ghostBellAudio.src = "assets/ghost-alert.mp3";
+    this.ghostBellAudio.load();
   }
-
-  reset() { }
-
-  changeTyper() { }
 
 
   setDifficulty(name: string) {
@@ -150,26 +142,19 @@ export class GameTwoComponent implements OnInit {
     }
   }
 
-  playAudio() {
-    let audio = new Audio();
-    audio.src = "assets/ghost-alert.mp3";
-    audio.load();
-    audio.play();
-  }
-
   setState(index: number) {
-    // console.log(this.ghostStates);
     if (this.ghostIndex > this.index) {
+      this.isGhostLeading = true;
       if (!this.oncePlayed) {
         this.oncePlayed = true;
-        this.playAudio();
+        this.ghostBellAudio.play();   
         this.ghostBgAudio.play();
-      }        
+      }   
     }
     if (this.ghostIndex < this.index) {
+      this.isGhostLeading = false;
       this.oncePlayed = false;
       this.ghostBgAudio.pause();
-
     }
     this.gameTwoUnits[index].state = this.ghostStates[index] ? this.getGhostState(index) : this.gameTwoStates[index];
   }

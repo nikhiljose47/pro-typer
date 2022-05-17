@@ -4,14 +4,34 @@
   height: 100%;
   background-image: url("../../../assets/game-ghost-bg.avif");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;  
+  position: relative;
 }
+
+//ghost-leading-animation
+.shadow{
+  height: 100%;
+  width: 100%;
+  animation: ghost-blinker 6s linear infinite;
+  background-color: rgba(255, 0, 0, 0.153);
+}
+
+@keyframes ghost-blinker {
+
+  50% {
+    background-color: rgba(255, 0, 0, 0.642);
+  }
+}
+//end-ghost-leading-animation
+
 
 #main-container {
   width: 70%;
   float: left;
   margin-left: 10%;
   margin-top: 5%;
+ // position: relative;
+  //z-index: 1;
 }
 
 #top-section {
@@ -144,3 +164,4 @@
   width: 20px;
   background-color: rgb(197, 31, 31);
 }
+
