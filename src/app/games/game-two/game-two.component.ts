@@ -214,5 +214,6 @@ export class GameTwoComponent implements OnInit {
     this.prevGhostIndex = -1;
     this.index=0;
     this.ghostBgAudio.pause();
+    this.isGhostLeading=false;
   }
 }
