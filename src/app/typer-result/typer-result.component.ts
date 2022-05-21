@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-typer-result',
@@ -11,16 +12,17 @@ export class TyperResultComponent implements OnInit {
   showMarks: boolean = false;
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<HomeComponent>) { }
 
   ngOnInit(): void {
-    if(this.data.wpm){
+    if (this.data.wpm) {
       this.showMarks = true;
       setTimeout(() => this.isLoading = false, 2000)
-      
     }
-    else{
+  }
 
-    }
+  onSubmit(){
+    this.dialogRef.close();
   }
 }

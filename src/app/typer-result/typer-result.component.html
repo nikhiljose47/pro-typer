@@ -1,8 +1,11 @@
 <div *ngIf="showMarks; else showGameResult">
 
-    <h1 class="text">Your result</h1>
-    <p class="text">Wpm: {{this.data.wpm}}</p>
-    <p class="text">Accuracy: {{this.data.accuracy}}</p>
+    <p class="heading2"><u>Your result</u></p>
+    <br><br>
+    <p class="heading2">Wpm: {{this.data.wpm}}</p>
+    <p class="heading2">Accuracy: {{this.data.accuracy}}</p>
+
+    <button class="button-G0" id="submit-btn" (click)="onSubmit()">OK</button>
 
 </div>
 
@@ -17,3 +20,4 @@
         <img style="height: 24rem;" src="/assets/gif/success-fireworks.gif" />
     </ng-template>
 </ng-template>
+

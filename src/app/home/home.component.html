@@ -42,7 +42,7 @@
   </div>
 
   <div class="widgets">
-    <app-typer [data]="typerText" (result)="typerFinish($event)" (wordUpdate)="wordUpdate()"
+    <app-typer [data]="typerText" [timeUp]="timerFinishIndicator" (result)="typerFinish($event)" (wordUpdate)="wordUpdate()"
     (updateVal)="typerUpdate($event)"></app-typer>
   </div>
 

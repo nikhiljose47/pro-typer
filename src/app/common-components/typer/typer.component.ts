@@ -13,6 +13,7 @@ import { TyperUnitState, TyperUnit } from '../../shared/classes';
 
 export class TyperComponent implements OnInit {
   @Input() data: string;
+  @Input() timeUp: boolean;
   @Output() result = new EventEmitter<TyperUnit[]>();
   @Output() updateVal = new EventEmitter<boolean>();
   @Output() wordUpdate = new EventEmitter<void>();
@@ -33,6 +34,8 @@ export class TyperComponent implements OnInit {
   ngOnInit(): void {
     this.createTyper(this.data);
   }
+
+
 
   getLeftOffset(value) {
     this.leftOffset = value;
@@ -58,7 +61,7 @@ export class TyperComponent implements OnInit {
 
   @HostListener('document:keypress', ['$event'])
   handleInput(event: KeyboardEvent) {
-    if (!this.hasFinished) {
+    if (!this.hasFinished && !this.timeUp) {
       if (event.key === " " || event.target === document.body) {
         event.preventDefault();
       }

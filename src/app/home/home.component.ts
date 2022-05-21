@@ -14,11 +14,8 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
   typerText: string = "";
-  str: string;
   customColor : string;
-  typerLen: number;
   typerData: any = (data as any).default;
-  typerDataCounter: number = 0;
   isTyping: boolean = false;
   accuracyVal: number = 100;
   rightCount: number = 0;
@@ -34,7 +31,7 @@ export class HomeComponent implements OnInit {
   startms: number = 0;
   timerlabel: string;
   percentIndicator: number;
-  timerFinishIndicator: boolean;
+  timerFinishIndicator: boolean = false;
 
   constructor(public dialog: MatDialog,
     private metaTagService: Meta,

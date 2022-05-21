@@ -91,20 +91,13 @@
   border-radius: 9px;
 }
 
+#description {
+  margin-top: 5rem;
+  font-weight: bold;
+}
 #difficulty-title {
   text-align: center;
-  font-size: 1rem;
-  // font-weight: 500;
   color: white;
-
-}
-
-#description1 {
-  margin-top: 6rem;
-  padding-right: 20rem;
-  color: white;
-  float:left;
-  font-size: 1rem;
 }
 
 #typer-container {
@@ -165,3 +158,8 @@
   background-color: rgb(197, 31, 31);
 }
 
+#typer {
+ margin-bottom: 5px;
+ padding-bottom: 5px;
+ height: 10px;
+}

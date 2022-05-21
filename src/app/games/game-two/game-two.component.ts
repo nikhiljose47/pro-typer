@@ -45,7 +45,9 @@ export class GameTwoComponent implements OnInit {
 
   ngOnInit(): void {
     this.createTyper(this.text);
-    this.ghostData = this.easyLevel;
+    //Set medium mode as initial
+    this.ghostData = this.mediumLevel;
+    document.getElementById("medium-btn").classList.add("active1")
 
 
     this.titleService.setTitle("Typing Speed Test: Beat the ghost | Typer PRO");  
@@ -64,6 +66,9 @@ export class GameTwoComponent implements OnInit {
     this.ghostBgAudio.loop = true;
     this.ghostBellAudio.src = "assets/ghost-alert.mp3";
     this.ghostBellAudio.load();
+
+    window.addEventListener('blur', () => this.ghostBgAudio.pause())
+
   }
 
 
@@ -214,5 +219,6 @@ export class GameTwoComponent implements OnInit {
     this.prevGhostIndex = -1;
     this.index=0;
     this.ghostBgAudio.pause();
+    this.isGhostLeading = false;
   }
 }
