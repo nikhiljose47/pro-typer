@@ -47,3 +47,9 @@ export class GameBot {
     hardness: number;
 }
 
+export class PlayerDetails {
+    username : number;
+    wpm : String;
+    accuracy : number;
+}
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Meta, Title } from '@angular/platform-browser';
 import { TyperUnit } from 'src/app/shared/classes';
+import {PlayerDetails} from 'src/app/shared/classes';
 import { TIMER } from 'src/app/shared/constants';
 import * as data from 'src/app/data/typer-data.json';
 import { TyperResultComponent } from 'src/app/typer-result/typer-result.component';
@@ -14,9 +15,8 @@ import { DialogBoxComponent } from 'src/app/common-components/dialog-box/dialog-
 })
 export class GameFourComponent implements OnInit {
   typerText: string = "";
-  str: string;
   customColor : string;
-  typerLen: number;
+  playerName: number;
   typerData: any = (data as any).default;
   typerDataCounter: number = 0;
   isTyping: boolean = false;
@@ -32,9 +32,13 @@ export class GameFourComponent implements OnInit {
   delays: Array<number> = [];
   prevDelay: number = 0;
   startms: number = 0;
+  playerDetails : PlayerDetails[];
   timerlabel: string;
   percentIndicator: number;
   timerFinishIndicator: boolean;
+
+  //game-player
+  currentPlayer: number;
 
   constructor(public dialog: MatDialog,
     private metaTagService: Meta,
@@ -51,11 +55,16 @@ export class GameFourComponent implements OnInit {
     //   { name:'og:type', content: 'website'},
     //   { charset: 'UTF-8' }  
     // ]); 
+    if(!localStorage.getItem("currentPlayer"))
+    {
     this.openDialog();
+    }
     if(localStorage.getItem('typerCounter') == null)
     localStorage.setItem('typerCounter','0');
-    this.setTyper(); 
+    this.setTyper();
+    this.startGame();
   }
+
 
   openDialog(){
     let dialogRef = this.dialog.open(DialogBoxComponent, {
@@ -67,10 +76,28 @@ export class GameFourComponent implements OnInit {
       }
       
     });
-    dialogRef.disableClose = false;
+    dialogRef.disableClose = true;
     dialogRef.afterClosed().subscribe(result => {
+      this.setPlayerCount(result);
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  setPlayerCount(value : String){
+    localStorage.setItem("playerCount",value.toString());
+    localStorage.setItem("currentPlayer",'1');
+    console.log(value);
+  }
+
+  startGame(){
+    this.currentPlayer = parseInt(localStorage.getItem("currentPlayer"));
+    this.playerName = this.currentPlayer;
+  }
+
+    nextPlayer(){
+     this.currentPlayer++;
+     localStorage.setItem("currentPlayer",this.currentPlayer.toString());
+     window.location.reload();
   }
 
   setTyper(){
@@ -96,9 +123,18 @@ export class GameFourComponent implements OnInit {
         accuracy: this.accuracyVal
       }
     });
+
+    this.playerDetails[0] = {
+      username: this.currentPlayer,
+      wpm: this.wpmLabel,
+      accuracy: this.accuracyVal
+    }
+    console.log(this.playerDetails);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.nextPlayer();
     });
+
   }
 
   playAgain() {

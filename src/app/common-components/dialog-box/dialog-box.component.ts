@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-box',
@@ -6,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog-box.component.scss']
 })
 export class DialogBoxComponent implements OnInit {
+  constructor(public matDialogRef: MatDialogRef<DialogBoxComponent>) {}
 
-  constructor() { }
+  noOfPlayers : number;
+  
 
   ngOnInit(): void {
   }
 
   onClick(){
     console.log("clicked");
+    this.matDialogRef.close(this.noOfPlayers);
   }
 
 }
