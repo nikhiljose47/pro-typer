@@ -1,7 +1,10 @@
+$percentage: 100%;
+$twentypixel: 20px;
+
 #bg {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: $percentage;
+  height: $percentage;
   background-image: url("../../../assets/game-ghost-bg.avif");
   background-size: cover;
   background-repeat: no-repeat;  
@@ -10,8 +13,8 @@
 
 //ghost-leading-animation
 .shadow{
-  height: 100%;
-  width: 100%;
+  height: $percentage;
+  width: $percentage;
   animation: ghost-blinker 6s linear infinite;
   background-color: rgba(255, 0, 0, 0.153);
 }
@@ -57,13 +60,13 @@
 
   &:hover {
     box-shadow: 0 0 15px 0 greenyellow inset, 0 0 15px 4px greenyellow;
-    width: 100%;
+    width: $percentage;
     color: white;
   }
 }
 
 .active1 {
-  width: 100%;
+  width: $percentage;
   box-shadow: 0 0 15px 0 greenyellow inset, 0 0 15px 4px greenyellow;
 }
 
@@ -147,14 +150,14 @@
 }
 
 #ahead {
-  height: 20px;
-  width: 20px;
+  height: $twentypixel;
+  width: $twentypixel;
   background-color: green;
 }
 
 #behind {
-  height: 20px;
-  width: 20px;
+  height: $twentypixel;
+  width: $twentypixel;
   background-color: rgb(197, 31, 31);
 }
 

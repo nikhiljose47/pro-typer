@@ -1,231 +1,227 @@
 $blue: #3498db;
 $size-small: 2rem;
+$percentage: 100%;
+$center: center;
 
 #bg {
-    width: 100%;
-    height: 100%;
-    background: #FABC20;
-
+  width: $percentage;
+  height: $percentage;
+  background: #fabc20;
 }
 
 .col1 {
-    width: 80%;
-    height: 100%;
-    float: left;
+  width: 80%;
+  height: $percentage;
+  float: left;
 }
 
 .dashboardSection {
-    width: 20%;
-    height: 100%;
-    float: right;
-    display: block;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    color: #000;
-    background-color: #097054;
+  width: 20%;
+  height: $percentage;
+  float: right;
+  display: block;
+  text-align: $center;
+  justify-content: $center;
+  align-items: $center;
+  color: #000;
+  background-color: #097054;
 }
 
 .widgets {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: $size-small;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: $center;
+  margin-bottom: $size-small;
+  justify-content: $center;
 }
 
 .item1 {
-    padding-left: 3rem;
+  padding-left: 3rem;
 }
 
 #accuracy-container {
-    background-color: rgb(226, 226, 226);
-    width: 10rem;
-    border-radius: 8px;
+  background-color: rgb(226, 226, 226);
+  width: 10rem;
+  border-radius: 8px;
 }
 
 .accuracy {
-    background: linear-gradient(to right, rgb(91, 166, 236), rgb(22, 120, 200));
-    width: 50%;
-    color: rgb(255, 255, 255);
-    padding-left: 2%;
-    padding-bottom: 1%;
-    text-align: start;
-    font-size: 16px;
-    border-radius: 8px;
-    max-height: 16px;
+  background: linear-gradient(to right, rgb(91, 166, 236), rgb(22, 120, 200));
+  width: 50%;
+  color: rgb(255, 255, 255);
+  padding-left: 2%;
+  padding-bottom: 1%;
+  text-align: start;
+  font-size: 16px;
+  border-radius: 8px;
+  max-height: 16px;
 }
 
 .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: $center;
 }
 
 .circleStyle {
-    height: 10rem;
+  height: 10rem;
 }
 
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $center;
+  margin-top: 4rem;
 }
 
 .card {
-    all: unset;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
+  all: unset;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  margin: 0 8px 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
 }
 
 .card-container .card:not(.highlight-card) {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
 
-
 .typerBtn {
-    border-color: #3498db;
-    font-size: 1rem;
-    margin-bottom: $size-small;
-    color: #fff;
-    border-radius: 12px;
-    padding: 1.5rem 4rem 1.5rem 4rem;
-    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-    transition: all 150ms ease-in-out;
-    margin-right: $size-small;
+  border-color: #3498db;
+  font-size: 1rem;
+  margin-bottom: $size-small;
+  color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem 4rem 1.5rem 4rem;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  transition: all 150ms ease-in-out;
+  margin-right: $size-small;
 
-    &:hover {
-        box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
-        color: black;
-    }
+  &:hover {
+    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+    color: black;
+  }
 
-    &:disabled {
-        box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px #7b8389;
-        color: black;
-    }
+  &:disabled {
+    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px #7b8389;
+    color: black;
+  }
 }
 
 .title {
-    text-align: center;
-    padding-top: 5rem;
+  text-align: $center;
+  padding-top: 5rem;
 }
 
 .title h1 {
-    font-size: 3rem;
-    font-family: sans-serif;
-    padding-bottom: 4rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+  font-size: 3rem;
+  font-family: sans-serif;
+  padding-bottom: 4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .title h2 {
-    text-transform: uppercase;
-    font-size: 1.6rem;
-    letter-spacing: 0.1rem;
-    padding-bottom: 3rem;
-    font-weight: 500;
-    color: #4a4a56;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  padding-bottom: 3rem;
+  font-weight: 500;
+  color: #4a4a56;
 }
 
 //Col-2-chips
 .chip {
-    display: inline-block;
-    padding: 0 25px;
-    height: 50px;
-    font-size: 16px;
-    line-height: 50px;
-    border-radius: 25px;
-    background-color: #f1f1f1;
-  }
-  
-  .chip img {
-    float: left;
-    margin: 0 10px 0 -25px;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-  }
-  .closebtn {
-    padding-left: 10px;
-    color: #888;
-    font-weight: bold;
-    float: right;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .closebtn:hover {
-    color: #000;
-  }
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.closebtn {
+  padding-left: 10px;
+  color: #888;
+  font-weight: bold;
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: #000;
+}
 //End-Col-2-chips
 
 /* Laptop screen small to large */
 @media only screen and (min-device-width: 1025px) {
+  .title {
+    text-align: $center;
+    padding-top: 4rem;
 
-
-    .title {
-        text-align: center;
-        padding-top: 4rem;
-
-        h1 {
-            padding-bottom: 3rem;
-        }
+    h1 {
+      padding-bottom: 3rem;
     }
+  }
 }
 
 /* For Tablets */
 @media screen and (min-width: 540px) and (max-width: 834px) {
+  .title h1 {
+    font-size: $size-small;
+  }
 
-    .title h1 {
-        font-size: $size-small;
+  .circleStyle {
+    height: 13rem;
+  }
+
+  .item1 {
+    padding-left: $size-small;
+
+    .accuracy-text {
+      font-size: $size-small;
+      margin-bottom: $size-small;
     }
 
-    .circleStyle {
-        height: 13rem;
+    .accuracy {
+      height: $size-small;
+      max-height: $size-small;
+      font-size: 20px;
     }
+  }
 
-    .item1 {
-        padding-left: $size-small;
+  .widgets {
+    margin-bottom: 3rem;
+  }
 
-        .accuracy-text {
-            font-size: $size-small;
-            margin-bottom: $size-small;
-        }
+  .card-container {
+    margin-top: 5rem;
+  }
 
-        .accuracy {
-            height: $size-small;
-            max-height: $size-small;
-            font-size: 20px;
-        }
-    }
-
-    .widgets {
-        margin-bottom: 3rem;
-    }
-
-    .card-container {
-        margin-top: 5rem;
-    }
-
-    .typerBtn {
-        padding: 1.5rem 2.8rem 1.5rem 2.8rem;
-        font-size: $size-small;
-    }
-
+  .typerBtn {
+    padding: 1.5rem 2.8rem 1.5rem 2.8rem;
+    font-size: $size-small;
+  }
 }
