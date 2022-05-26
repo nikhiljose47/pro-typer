@@ -9,15 +9,14 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class DialogBoxComponent implements OnInit {
   constructor(public matDialogRef: MatDialogRef<DialogBoxComponent>) {}
 
-  noOfPlayers : number;
-  
+  playerCount : number;
+
 
   ngOnInit(): void {
   }
 
   onClick(){
-    console.log("clicked");
-    this.matDialogRef.close(this.noOfPlayers);
+    this.matDialogRef.close(this.playerCount);
   }
 
 }

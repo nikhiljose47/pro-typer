@@ -1,7 +1,16 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { TyperUnitState, TyperUnit } from '../../shared/classes';
-
 
 @Component({
   selector: 'app-typer',
@@ -10,15 +19,14 @@ import { TyperUnitState, TyperUnit } from '../../shared/classes';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class TyperComponent implements OnInit {
   @Input() data: string;
   @Input() timeUp: boolean;
+  @Input() typerActive: boolean = true;
   @Output() result = new EventEmitter<TyperUnit[]>();
   @Output() updateVal = new EventEmitter<boolean>();
   @Output() wordUpdate = new EventEmitter<void>();
   @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
-
 
   index: number = 0;
   hasFinished: boolean = false;
@@ -27,15 +35,15 @@ export class TyperComponent implements OnInit {
   isInitialOffsetVal: boolean = true;
   offsetSum: number = 0;
 
-  trackByItems(index: number, item: TyperUnit): number { return item.state; }
+  trackByItems(index: number, item: TyperUnit): number {
+    return item.state;
+  }
 
   typerUnits: TyperUnit[] = [];
 
   ngOnInit(): void {
     this.createTyper(this.data);
   }
-
-
 
   getLeftOffset(value) {
     this.leftOffset = value;
@@ -50,19 +58,20 @@ export class TyperComponent implements OnInit {
   }
 
   createTyper(data: string) {
-    let arr = data.split("");
+    let arr = data.split('');
     for (let i = 0; i < arr.length; i++) {
       let unit = new TyperUnit();
       unit.val = arr[i];
-      i == 0 ? unit.state = TyperUnitState.blink : TyperUnitState.undone;
+      i == 0 ? (unit.state = TyperUnitState.blink) : TyperUnitState.undone;
       this.typerUnits.push(unit);
     }
   }
 
   @HostListener('document:keypress', ['$event'])
   handleInput(event: KeyboardEvent) {
-    if (!this.hasFinished && !this.timeUp) {
-      if (event.key === " " || event.target === document.body) {
+    console.log('kart' + this.typerActive);
+    if (!this.hasFinished && !this.timeUp && this.typerActive) {
+      if (event.key === ' ' || event.target === document.body) {
         event.preventDefault();
       }
       this.updateTyper(event.key);
@@ -70,6 +79,9 @@ export class TyperComponent implements OnInit {
         this.hasFinished = true;
       }
     }
+    // else if(this.isTyperEnabled){
+    //   this.updateTyper(event.key);
+    // }
   }
 
   updateTyper(input: string) {
@@ -84,12 +96,11 @@ export class TyperComponent implements OnInit {
       // console.log("inital", this.initialLeftOffset)
       // console.log("left", this.leftOffset)
       //  console.log("diff",this.leftOffset - this.initialLeftOffset)
-      if ((this.leftOffset - this.initialLeftOffset) > 0) {
+      if (this.leftOffset - this.initialLeftOffset > 0) {
         this.offsetSum += this.leftOffset - this.initialLeftOffset;
-        this.viewport.scrollTo({ start: (this.offsetSum) });
+        this.viewport.scrollTo({ start: this.offsetSum });
       }
-    }
-    else {
+    } else {
       this.typerUnits[this.index].status.push(input);
       this.updateVal.emit(false);
     }
