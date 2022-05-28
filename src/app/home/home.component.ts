@@ -6,6 +6,7 @@ import { TyperReplayComponent } from '../typer-replay/typer-replay.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TyperResultComponent } from '../typer-result/typer-result.component';
 import { Title, Meta } from '@angular/platform-browser';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,10 @@ export class HomeComponent implements OnInit {
   timerlabel: string;
   percentIndicator: number;
   timerFinishIndicator: boolean = false;
+ //c-progress-bar
+  progressColor: ThemePalette = 'primary';
+  progressLabel: number=100;
+
 
   constructor(public dialog: MatDialog,
     private metaTagService: Meta,
@@ -87,7 +92,7 @@ export class HomeComponent implements OnInit {
 
 
   startTimer() {
-     this.timer = TIMER;
+    this.timer = TIMER;
     let interval = setInterval(() => {
       if (this.timer <= 0) {
         clearInterval(interval);
@@ -95,9 +100,21 @@ export class HomeComponent implements OnInit {
         this.isTyping = false;
       }
       if (this.timer > 0) {
+        if(this.timer<40){
+          this.progressColor = 'warn';
+          console.log("nik",document.getElementById("progress-label"))
+        }
+        else if(this.timer<31){
+          this.progressColor = 'primary';
+        //  document.getElementById('progress-label')?.setAttribute('color','orange');
+        }
+        else{
+          this.progressColor = 'accent';
+        }
         this.timer--;
         this.timerPercent = 100 * (TIMER - this.timer) / TIMER;
         this.timerLabel = this.timer.toString();
+        this.progressLabel = 100-this.timerPercent;
       }
     }, 1000)
   }
