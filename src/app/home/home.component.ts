@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   percentIndicator: number;
   timerFinishIndicator: boolean = false;
  //c-progress-bar
-  progressColor: ThemePalette = 'primary';
+  progressColor: ThemePalette;
   progressLabel: number=100;
 
 
@@ -100,16 +100,14 @@ export class HomeComponent implements OnInit {
         this.isTyping = false;
       }
       if (this.timer > 0) {
-        if(this.timer<40){
-          this.progressColor = 'warn';
-          console.log("nik",document.getElementById("progress-label"))
-        }
-        else if(this.timer<31){
+        if(this.timerPercent>=0 && this.timerPercent<50){
           this.progressColor = 'primary';
-        //  document.getElementById('progress-label')?.setAttribute('color','orange');
+        }
+        else if(this.timerPercent>=50 && this.timerPercent<=70){
+          this.progressColor = 'accent';
         }
         else{
-          this.progressColor = 'accent';
+          this.progressColor = 'warn';
         }
         this.timer--;
         this.timerPercent = 100 * (TIMER - this.timer) / TIMER;
@@ -120,24 +118,24 @@ export class HomeComponent implements OnInit {
   }
 
   /* Progress circle timer color change logic */
-  formatTitle = (percent: number) : string => {
-  if(this.timerPercent>=0 && this.timerPercent<=50) {
-    this.timerlabel = this.timer.toString();
-    this.customColor = "#32CD32";
-    return this.timerlabel;
-  }
-  else if(this.timerPercent>50 && this.timerPercent<75)
-  {
-    this.timerlabel = this.timer.toString();
-    this.customColor = "Orange";
-    return this.timerlabel;
-  }
-  else {
-    this.timerlabel = this.timer.toString();
-    this.customColor = "Red";
-    return this.timerlabel;
-  }
-}
+//   formatTitle = (percent: number) : string => {
+//   if(this.timerPercent>=0 && this.timerPercent<=50) {
+//     this.timerlabel = this.timer.toString();
+//     this.customColor = "#32CD32";
+//     return this.timerlabel;
+//   }
+//   else if(this.timerPercent>50 && this.timerPercent<75)
+//   {
+//     this.timerlabel = this.timer.toString();
+//     this.customColor = "Orange";
+//     return this.timerlabel;
+//   }
+//   else {
+//     this.timerlabel = this.timer.toString();
+//     this.customColor = "Red";
+//     return this.timerlabel;
+//   }
+// }
   /* Progress circle timer color change logic */
   
   typerFinish(typerUnits: TyperUnit[]) { 
