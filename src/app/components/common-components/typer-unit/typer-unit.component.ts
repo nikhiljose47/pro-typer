@@ -1,5 +1,5 @@
 import { AfterViewChecked, Component, EventEmitter, Input, Output} from '@angular/core';
-import { TyperUnit, TyperUnitState } from '../../shared/classes';
+import { TyperUnit, TyperUnitState } from '../../../shared-model/classes';
 
 @Component({
   selector: 'typer-unit',

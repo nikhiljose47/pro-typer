@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TyperUnit } from '../shared/classes';
-import * as data from "../data/typer-data.json";
+import { TyperUnit } from '../../shared-model/classes';
+import * as data from "../../data/typer-data.json";
 import {Title, Meta} from '@angular/platform-browser';
 
 @Component({

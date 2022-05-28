@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { GameTwoUnit, GameTwoUnitState, TyperUnitState } from '../../shared/classes';
+import { GameTwoUnit, GameTwoUnitState, TyperUnitState } from '../../../shared-model/classes';
 
 @Component({
   selector: 'game-two',

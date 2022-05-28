@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { GameOneUnit, TyperUnit } from 'src/app/shared/classes';
-import { GAME_ONE_OPPONENT_COUNT } from 'src/app/shared/constants';
+import { GameOneUnit, TyperUnit } from 'src/app/shared-model/classes';
+import { GAME_ONE_OPPONENT_COUNT } from 'src/app/shared-model/constants';
 import { GameOneUnitComponent } from '../game-one-unit/game-one-unit.component';
 
 @Component({

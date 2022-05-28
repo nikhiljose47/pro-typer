@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TIMER } from '../shared/constants';
-import * as data from "../data/typer-data.json";
-import { TyperUnit } from '../shared/classes';
+import { TIMER } from '../../shared-model/constants';
+import * as data from "../../data/typer-data.json";
+import { TyperUnit } from '../../shared-model/classes';
 import { TyperReplayComponent } from '../typer-replay/typer-replay.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TyperResultComponent } from '../typer-result/typer-result.component';

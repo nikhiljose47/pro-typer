@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GameTwoComponent } from './games/game-two/game-two.component';
-import { LoginComponent } from './login/login.component';
-import { GameOneComponent } from './games/game-one/game-one.component';
-import { HomeComponent } from './home/home.component';
-import { TyperPracticeComponent } from './typer-practice/typer-practice.component';
-import { RegisterComponent } from './register/register.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { GameThreeComponent } from './games/game-three/game-three.component';
-import { GameFourComponent } from './games/game-four/game-four.component';
+import { GameTwoComponent } from './components/games/game-two/game-two.component';
+import { LoginComponent } from './components/login/login.component';
+import { GameOneComponent } from './components/games/game-one/game-one.component';
+import { HomeComponent } from './components/home/home.component';
+import { TyperPracticeComponent } from './components/typer-practice/typer-practice.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { GameThreeComponent } from './components/games/game-three/game-three.component';
+import { GameFourComponent } from './components/games/game-four/game-four.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

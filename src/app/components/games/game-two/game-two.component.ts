@@ -1,8 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Meta, Title } from '@angular/platform-browser';
-import { TyperResultComponent } from 'src/app/typer-result/typer-result.component';
-import { GameTwoUnit, GameTwoUnitState } from '../../shared/classes';
+import { TyperResultComponent } from 'src/app/components/typer-result/typer-result.component';
+import { GameTwoUnit, GameTwoUnitState } from '../../../shared-model/classes';
 
 @Component({
   selector: 'game-two',

@@ -10,7 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { TyperUnitState, TyperUnit } from '../../shared/classes';
+import { TyperUnitState, TyperUnit } from '../../../shared-model/classes';
 
 @Component({
   selector: 'app-typer',

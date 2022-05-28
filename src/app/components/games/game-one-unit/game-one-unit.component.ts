@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GameOneUnit, TyperUnit, TyperUnitState } from 'src/app/shared/classes';
+import { GameOneUnit, TyperUnit, TyperUnitState } from 'src/app/shared-model/classes';
 
 @Component({
   selector: 'game-one-unit',

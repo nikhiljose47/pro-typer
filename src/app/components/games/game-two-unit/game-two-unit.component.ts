@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GameTwoUnit } from 'src/app/shared/classes';
+import { GameTwoUnit } from 'src/app/shared-model/classes';
 
 @Component({
   selector: 'game-two-unit',

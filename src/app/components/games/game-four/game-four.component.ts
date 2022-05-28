@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Meta, Title } from '@angular/platform-browser';
-import { TyperUnit } from 'src/app/shared/classes';
-import { PlayerDetails } from 'src/app/shared/classes';
-import { TIMER } from 'src/app/shared/constants';
+import { TyperUnit } from 'src/app/shared-model/classes';
+import { PlayerDetails } from 'src/app/shared-model/classes';
+import { TIMER } from 'src/app/shared-model/constants';
 import * as data from 'src/app/data/typer-data.json';
-import { TyperResultComponent } from 'src/app/typer-result/typer-result.component';
-import { DialogBoxComponent } from 'src/app/common-components/dialog-box/dialog-box.component';
+import { TyperResultComponent } from 'src/app/components/typer-result/typer-result.component';
+import { DialogBoxComponent } from 'src/app/components/common-components/dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-game-four',
