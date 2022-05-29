@@ -34,8 +34,11 @@ export class HomeComponent implements OnInit {
   percentIndicator: number;
   timerFinishIndicator: boolean = false;
  //c-progress-bar
-  progressColor: ThemePalette;
+  progressColor: ThemePalette = 'accent';
   progressLabel: number=100;
+
+  //accuracy
+  accuracyColor: ThemePalette = 'accent';
 
 
   constructor(public dialog: MatDialog,
@@ -100,15 +103,7 @@ export class HomeComponent implements OnInit {
         this.isTyping = false;
       }
       if (this.timer > 0) {
-        if(this.timerPercent>=0 && this.timerPercent<50){
-          this.progressColor = 'primary';
-        }
-        else if(this.timerPercent>=50 && this.timerPercent<=70){
-          this.progressColor = 'accent';
-        }
-        else{
-          this.progressColor = 'warn';
-        }
+        this.progressColor = this.timerPercent>69?'warn':this.timerPercent>49?'primary':'accent';
         this.timer--;
         this.timerPercent = 100 * (TIMER - this.timer) / TIMER;
         this.timerLabel = this.timer.toString();
@@ -183,6 +178,7 @@ export class HomeComponent implements OnInit {
 
   accuracyUpdate() {
     this.accuracyVal = (Math.round((this.rightCount / this.charactersTyped) * 100));
+    this.accuracyColor = this.accuracyVal<20?'warn':this.accuracyVal<60?'primary':'accent';
   }
 
   //re-work needed

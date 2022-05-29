@@ -25,6 +25,7 @@ mat-dialog-container {
     font-size: 1.2 rem;
     font-family: 'Noto_Sans', sans-serif;
     text-align: center;
+    color: #000;
 }
 
 //Generic button
@@ -60,3 +61,5 @@ mat-dialog-container {
         font-size: 1.6rem;
     }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
