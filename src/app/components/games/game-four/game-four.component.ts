@@ -30,6 +30,7 @@ export class GameFourComponent implements OnInit {
   isTyperInitial: boolean = true;
   wpmLabel: string = '0';
   delays: Array<number> = [];
+  welcomeAudio: any = new Audio();
   prevDelay: number = 0;
   startms: number = 0;
   playerDetails: PlayerDetails[];
@@ -37,7 +38,7 @@ export class GameFourComponent implements OnInit {
   percentIndicator: number;
   timerFinishIndicator: boolean;
   isTyperEnabled: boolean = true;
-
+  results: any;
   //game-player
   currentPlayer: number;
   localStorageKey = 'playersList';
@@ -59,18 +60,28 @@ export class GameFourComponent implements OnInit {
     //   { name:'og:type', content: 'website'},
     //   { charset: 'UTF-8' }
     // ]);
-
     if (!localStorage.getItem('currentPlayer')) {
       localStorage.setItem('currentPlayer', '1');
       this.openDialog();
     }
+    this.welcomeAudio.src = 'assets/audio/Level_Select.mp3';
+    this.welcomeAudio.load();
+    this.welcomeAudio.loop = false;
+    this.welcomeAudio.play();
     if (localStorage.getItem('typerCounter') == null) {
       localStorage.setItem('typerCounter', '0');
       localStorage.setItem('playerCount', '0');
     }
     //this.isTyperEnabled = true;
     this.setTyper();
-    this.startGame();
+    if (
+      localStorage.getItem('currentPlayer') <=
+      localStorage.getItem('playerCount')
+    ) {
+      this.nextPlayer()
+    } else {
+      this.showResults();
+    }
   }
 
   openDialog() {
@@ -99,7 +110,12 @@ export class GameFourComponent implements OnInit {
     console.log(value);
   }
 
+  showResults() {
+    const results = JSON.parse(localStorage.getItem('playersList'));
+  }
+
   startGame() {
+
     this.currentPlayer = parseInt(localStorage.getItem('currentPlayer'));
     this.playerName = this.currentPlayer;
   }
@@ -126,6 +142,7 @@ export class GameFourComponent implements OnInit {
 
   timerFinish() {
     this.timerFinishIndicator = true;
+    this.welcomeAudio.pause();
     let dialogRef = this.dialog.open(TyperResultComponent, {
       height: '300px',
       width: '600px',
@@ -245,5 +262,9 @@ export class GameFourComponent implements OnInit {
     let wpm = parseInt(this.wpmLabel);
     wpm++;
     this.wpmLabel = wpm.toString();
+  }
+
+  ngOnDestroy() {
+    this.welcomeAudio.pause();
   }
 }

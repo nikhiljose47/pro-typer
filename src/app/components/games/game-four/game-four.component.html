@@ -86,7 +86,7 @@
 
   <section class="dashboardSection">
     <div class="chip" >
-       <ul *ngFor="let players of playerDetails">
+       <ul *ngFor="let players in results">
          <li><img src="img_avatar.jpg" alt="Person" width="96" height="96" /></li>
          <li>{{ players.username }}</li>
         <li>{{ players.wpm }}</li>

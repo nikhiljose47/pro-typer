@@ -32,6 +32,7 @@ export class GameTwoComponent implements OnInit {
   oncePlayed: boolean = false;
   isGhostLeading: boolean = false;
   ghostBgAudio: any = new Audio();
+  difficultySelectionAudio: any = new Audio();
   ghostBellAudio:any = new Audio();
   //for restart
   ghostIntervalId: ReturnType<typeof setTimeout>;
@@ -73,6 +74,7 @@ export class GameTwoComponent implements OnInit {
 
 
   setDifficulty(name: string) {
+    this.ghostBgAudio.load();
     let k = document.getElementsByClassName('btnGroup-unit');
     for (let i = 0; i < k.length; i++) {
       let item = k[i].classList;
@@ -81,6 +83,9 @@ export class GameTwoComponent implements OnInit {
         item.remove("active1");
       }
       document.getElementById(name).classList.add("active1");
+      this.difficultySelectionAudio.src = "assets/audio/play_btn.mp3";
+      this.difficultySelectionAudio.load();
+      this.difficultySelectionAudio.play();
     }
 
     switch (name) {
