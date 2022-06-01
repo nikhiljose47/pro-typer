@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   typerText: string = "";
   customColor : string;
   typerData: any = (data as any).default;
-  isTyping: boolean = false;
+  hasGameBegun: boolean = false;
   accuracyVal: number = 100;
   rightCount: number = 0;
   charactersTyped: number = 0;
@@ -93,6 +93,13 @@ export class HomeComponent implements OnInit {
     window.location.reload();
   }
 
+  gameStart(){
+    this.hasGameBegun = true;
+    window.scroll({
+      top: 200,
+      behavior: 'smooth'
+    });
+  }
 
   startTimer() {
     this.timer = TIMER;
@@ -100,7 +107,7 @@ export class HomeComponent implements OnInit {
       if (this.timer <= 0) {
         clearInterval(interval);
         this.timerFinish();
-        this.isTyping = false;
+        this.hasGameBegun = true;
       }
       if (this.timer > 0) {
         this.progressColor = this.timerPercent>69?'warn':this.timerPercent>49?'primary':'accent';

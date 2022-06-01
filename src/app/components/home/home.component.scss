@@ -6,9 +6,8 @@ $size-small: 2rem;
   height: 100rem;
   float: left;
   background: linear-gradient(to bottom,
-    #e2ebf001 ,
-    rgba(28, 134, 134, 0.5)
-  );
+      #e2ebf001,
+      rgba(127, 215, 215, 0.5));
   // background: radial-gradient(
   //   at 180% 90%,
   //   #0e3655 35%,
@@ -17,14 +16,13 @@ $size-small: 2rem;
 }
 
 .title {
-  text-align: center;
-  padding-top: 5rem;
+  margin-top: 6rem;
 }
 
+
 .title h1 {
-  font-size: 3rem;
-  font-family: sans-serif;
-  font-weight: 700;
+  font-size: 4.5rem;
+  font-weight: 800;
   letter-spacing: 0.5px;
 }
 
@@ -39,7 +37,7 @@ $size-small: 2rem;
 
 .widgets {
   display: flex;
-  margin-top: 8rem;
+  margin-top: 10rem;
   flex-direction: row;
   align-items: center;
   margin-bottom: $size-small;
@@ -76,6 +74,46 @@ $size-small: 2rem;
   margin-top: 4rem;
 }
 
+.startBtn {
+  border-radius: 14px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  margin: 5px;
+  animation: easeIn 1.6s linear infinite;
+}
+
+.startBtn span {
+  animation: blinker 1.6s linear infinite;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.startBtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+@keyframes easeIn {
+  25% {
+    padding-left: 45px
+  }
+}
+
+#startBtn-div{
+  margin-left: 35%;
+}
+
 .dashboard {
   display: flex;
   position: absolute;
@@ -83,7 +121,7 @@ $size-small: 2rem;
   left: 35rem;
   height: 12rem;
   width: 40rem;
- // background-color: rgba(46, 46, 46, 0.521);
+  // background-color: rgba(46, 46, 46, 0.521);
   border-radius: 9rem;
 }
 
@@ -92,6 +130,7 @@ $size-small: 2rem;
   top: 12px;
   left: 48px;
 }
+
 .progress-bg {
   top: 20px;
   left: 3rem;
@@ -219,6 +258,7 @@ svg#clouds {
     position: absolute;
     left: 30px;
   }
+
   .progress-bg {
     left: 570px;
   }
@@ -263,7 +303,7 @@ svg#clouds {
     justify-content: center;
     position: absolute;
     left: 487px;
-    top: 8px;  
+    top: 8px;
     height: 11rem;
     width: 11rem;
     border-radius: 50%;
@@ -298,27 +338,34 @@ svg#clouds {
   .title h1 {
     font-size: $size-small;
   }
+
   .circleStyle {
     height: 13rem;
   }
+
   .item1 {
     padding-left: $size-small;
+
     .accuracy-text {
       font-size: $size-small;
       margin-bottom: $size-small;
     }
+
     .accuracy {
       height: $size-small;
       max-height: $size-small;
       font-size: 20px;
     }
   }
+
   .widgets {
     margin-bottom: 3rem;
   }
+
   .card-container {
     margin-top: 5rem;
   }
+
   .typerBtn {
     padding: 1.5rem 2.8rem 1.5rem 2.8rem;
     font-size: $size-small;
