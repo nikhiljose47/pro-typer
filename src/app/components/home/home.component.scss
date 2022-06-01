@@ -200,7 +200,7 @@ svg#clouds {
   height: 12rem;
 }
 
-/* Laptop screen small to large */
+/* Desktop screen */
 @media only screen and (min-width: 1780px) {
   .title {
     text-align: center;
@@ -213,19 +213,17 @@ svg#clouds {
 
   .mat-spinner {
     position: absolute;
-    top: 350px;
     left: 650px;
   }
   .progress-bg {
-    top: 360px;
     left: 570px;
   }
 
   .dashboard {
-    top: 330px;
-    left: 400px;
+    margin-top: 2rem;
+    left: 600px;
     height: 13rem;
-    width: 39rem;
+    width: 45rem;
   }
 
   #progress-label {
@@ -240,19 +238,16 @@ svg#clouds {
   }
 
   .timer {
-    top: 360px;
     left: 660px;
   }
 
   .wpm {
-    top: 360px;
     left: 860px;
   }
 
   //accuracy
   .accuracy-mat-spinner {
     position: absolute;
-    top: 350px;
     left: 1070px;
     transform: rotate(0.75turn);
   }
@@ -263,7 +258,6 @@ svg#clouds {
     text-align: center;
     justify-content: center;
     position: absolute;
-    top: 345px;
     left: 1068px;
     height: 11rem;
     width: 11rem;
