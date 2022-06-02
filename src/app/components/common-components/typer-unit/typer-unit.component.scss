@@ -1,12 +1,13 @@
 #cell-blink {
     animation: blinker 1.6s linear infinite;
-    background-color: #36a8f4ba;
+    background-color: #36f465ba;
     border-radius: 8px;
     height: 7rem;
     width: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    color:rgb(255, 255, 255);
   }
   
   @keyframes blinker {  
@@ -14,16 +15,11 @@
   }
 
   #cell-undone {
-    color:black;
+    color:rgb(255, 255, 255);
   }
 
-  .cell-done {
-    border-radius: 8px;
-    height: 5rem;
-    width: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  #cell-done {
+    color:rgba(240, 238, 238, 0.46);
   }
 
 .text{

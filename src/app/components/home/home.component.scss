@@ -5,9 +5,7 @@ $size-small: 2rem;
   width: 100%;
   height: 100rem;
   float: left;
-  background: linear-gradient(to bottom,
-      #e2ebf001,
-      rgba(127, 215, 215, 0.5));
+  background-color: rgba(44, 162, 213, 0.91);
   // background: radial-gradient(
   //   at 180% 90%,
   //   #0e3655 35%,
@@ -85,6 +83,7 @@ $size-small: 2rem;
   width: 200px;
   transition: all 0.5s;
   margin: 5px;
+  cursor: pointer;
   animation: easeIn 1.6s linear infinite;
 }
 
@@ -95,22 +94,13 @@ $size-small: 2rem;
   transition: 0.5s;
 }
 
-.startBtn span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
 @keyframes easeIn {
   25% {
     padding-left: 45px
   }
 }
 
-#startBtn-div{
+#startBtn-div {
   margin-left: 35%;
 }
 
@@ -243,6 +233,7 @@ svg#clouds {
   height: 12rem;
 }
 
+
 /* Desktop screen */
 @media only screen and (min-width: 1780px) {
   .title {
@@ -274,7 +265,8 @@ svg#clouds {
     padding-top: 18px;
     padding-left: 11px;
     font-size: 4rem;
-    color: rgb(14, 70, 255);
+    font-weight: 800;
+    color: rgb(0, 0, 0);
   }
 
   #progress-label-sub {
@@ -307,15 +299,16 @@ svg#clouds {
     height: 11rem;
     width: 11rem;
     border-radius: 50%;
-    background-color: rgb(236, 236, 236);
-    //box-shadow:  1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   }
 
   #accuracy-label {
     padding-top: 50px;
     padding-left: 11px;
-    font-size: 3.9rem;
-    color: rgb(14, 70, 255);
+    font-size: 3.8rem;
+    font-weight: 800;
+    color: rgb(0, 0, 0);
   }
 
   #accuracy-label-sub-percent {

@@ -96,7 +96,7 @@ export class HomeComponent implements OnInit {
   gameStart(){
     this.hasGameBegun = true;
     window.scroll({
-      top: 200,
+      top: 350,
       behavior: 'smooth'
     });
   }
