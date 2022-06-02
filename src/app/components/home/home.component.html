@@ -1,4 +1,5 @@
-<div class="section-body" [style.background]="!hasGameBegun? 'linear-gradient(to bottom, #e2ebf001, rgba(127, 215, 215, 0.5))' : 'rgba(44, 162, 213, 0.91)'">
+<div class="section-body" [style.background]="!hasGameBegun? 'linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)' 
+: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'">
   <div class="title">
     <h2>TYPER PRO</h2>
     <h1>Check your typing speed now</h1>
@@ -52,7 +53,7 @@
 
   <ng-template #elseBlock>
     <div id="startBtn-div">
-      <button class="startBtn" (click)="gameStart()"><span>Start &#187;</span></button>
+      <button class="startBtn" (click)="gameStart()"><span>Start </span></button>
     </div>
   
   </ng-template>

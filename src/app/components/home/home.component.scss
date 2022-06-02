@@ -5,7 +5,9 @@ $size-small: 2rem;
   width: 100%;
   height: 100rem;
   float: left;
-  background-color: rgba(44, 162, 213, 0.91);
+  //background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  //background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+  background-image: radial-gradient( #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
   // background: radial-gradient(
   //   at 180% 90%,
   //   #0e3655 35%,
