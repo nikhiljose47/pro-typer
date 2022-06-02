@@ -3,14 +3,16 @@
     <h1>OFFLINE MULTIPLAYER TYPING GAME</h1>
   </div>
 
-  <section *ngIf="disableForm">
-    <div id="imageLeft"></div>
+  <section id="multiplayerSection" *ngIf="disableForm">
+    <span class="fle">
+      <img src="../../../../assets/BrazucaLeft.png" alt="">
+      </span>
     <div id="playArea">
     <div *ngIf="disableForm" class="form__group">
       <input  #playerCount type="number" class="form__input" name="playerCount" placeholder="No of Players" required="" />
       <label for="number" class="form__label">Players Count</label>
     </div>
-    <button class="playGame" (click)="onSubmit()">Play Game</button>
+    <button class="playGame" (click)="onSubmit()">Let's Play</button>
   </div>
 </section>
 
