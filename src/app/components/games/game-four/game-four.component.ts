@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Meta, Title } from '@angular/platform-browser';
 import { TyperUnit } from 'src/app/shared-model/classes';
@@ -15,6 +15,8 @@ import { DialogBoxComponent } from 'src/app/components/common-components/dialog-
 })
 export class GameFourComponent implements OnInit {
   typerText: string = '';
+  disableForm = true;;
+  showTyper: boolean;
   customColor: string;
   playerName: number;
   typerData: any = (data as any).default;
@@ -44,6 +46,8 @@ export class GameFourComponent implements OnInit {
   localStorageKey = 'playersList';
   playersTotalList: any = [];
 
+  @ViewChild('playerCount') playerCount:ElementRef;
+
   constructor(
     public dialog: MatDialog,
     private metaTagService: Meta,
@@ -60,28 +64,25 @@ export class GameFourComponent implements OnInit {
     //   { name:'og:type', content: 'website'},
     //   { charset: 'UTF-8' }
     // ]);
-    if (!localStorage.getItem('currentPlayer')) {
-      localStorage.setItem('currentPlayer', '1');
-      this.openDialog();
-    }
+ 
     this.welcomeAudio.src = 'assets/audio/Level_Select.mp3';
     this.welcomeAudio.load();
     this.welcomeAudio.loop = false;
     this.welcomeAudio.play();
-    if (localStorage.getItem('typerCounter') == null) {
-      localStorage.setItem('typerCounter', '0');
-      localStorage.setItem('playerCount', '0');
-    }
+    // if (localStorage.getItem('typerCounter') == null) {
+    //   localStorage.setItem('typerCounter', '0');
+    //   localStorage.setItem('playerCount', '0');
+    // }
     //this.isTyperEnabled = true;
-    this.setTyper();
-    if (
-      localStorage.getItem('currentPlayer') <=
-      localStorage.getItem('playerCount')
-    ) {
-      this.nextPlayer()
-    } else {
-      this.showResults();
-    }
+    // this.setTyper();
+    // if (
+    //   localStorage.getItem('currentPlayer') <=
+    //   localStorage.getItem('playerCount')
+    // ) {
+    //   this.nextPlayer()
+    // } else {
+    //   this.showResults();
+    // }
   }
 
   openDialog() {
@@ -94,20 +95,9 @@ export class GameFourComponent implements OnInit {
         accuracy: this.accuracyVal,
       },
     });
-    dialogRef.disableClose = true;
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-
-      this.setPlayerCount(result);
 
       this.isTyperEnabled = true;
       // localStorage.setItem('typerCounter','1');
-    });
-  }
-
-  setPlayerCount(value: String) {
-    localStorage.setItem('playerCount', value.toString());
-    console.log(value);
   }
 
   showResults() {
@@ -264,6 +254,17 @@ export class GameFourComponent implements OnInit {
     this.wpmLabel = wpm.toString();
   }
 
+
+  onSubmit() {
+    this.showTyper = true;
+    this.disableForm = false;
+    localStorage.setItem('playerCount', this.playerCount.nativeElement.value.toString());
+       if (!localStorage.getItem('currentPlayer')) {
+      localStorage.setItem('currentPlayer', '1');
+    }
+
+ }
+ 
   ngOnDestroy() {
     this.welcomeAudio.pause();
   }

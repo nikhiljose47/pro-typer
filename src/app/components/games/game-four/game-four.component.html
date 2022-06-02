@@ -1,5 +1,22 @@
 <div id="bg">
-  <section class="col1">
+  <div class="title">
+    <h1>OFFLINE MULTIPLAYER TYPING GAME</h1>
+  </div>
+
+  <section *ngIf="disableForm">
+    <div id="imageLeft"></div>
+    <div id="playArea">
+    <div *ngIf="disableForm" class="form__group">
+      <input  #playerCount type="number" class="form__input" name="playerCount" placeholder="No of Players" required="" />
+      <label for="number" class="form__label">Players Count</label>
+    </div>
+    <button class="playGame" (click)="onSubmit()">Play Game</button>
+  </div>
+</section>
+
+<!-- Start of typer section -->
+<div *ngIf="showTyper">
+   <section class="col1">
     <div class="widgets">
       <div class="circleStyle">
         <circle-progress
@@ -84,17 +101,6 @@
     </div>
   </section>
 
-  <section class="dashboardSection">
-    <div class="chip" >
-       <ul *ngFor="let players in results">
-         <li><img src="img_avatar.jpg" alt="Person" width="96" height="96" /></li>
-         <li>{{ players.username }}</li>
-        <li>{{ players.wpm }}</li>
-        <li>{{ players.accuracy }}</li>
-      </ul>
-      <span class="closebtn" onclick="this.parentElement.style.display='none'"
-        >&times;</span
-      >
-    </div>
-  </section>
+</div>
+<!-- End of typer section -->
 </div>
