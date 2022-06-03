@@ -287,7 +287,31 @@ svg#clouds {
   .accuracy-mat-spinner {
     position: absolute;
     left: 490px;
+    // bottom:-5;
     transform: rotate(0.75turn);
+  }
+
+  .accuracy-bg-radials{
+    position: absolute;
+  }
+
+  .start{
+   left:0;
+   top: 76px;
+   transform: rotate(1deg);
+
+  }
+  .middle{
+    left: 80px;
+    top: 1px;
+    transform: rotate(90deg);
+
+  }
+  .end{
+    left: 152px;
+    top: 76px;
+    transform: rotate(-1deg);
+
   }
 
   .accuracy-bg {
