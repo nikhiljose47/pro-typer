@@ -64,7 +64,7 @@ export class GameFourComponent implements OnInit {
     //   { name:'og:type', content: 'website'},
     //   { charset: 'UTF-8' }
     // ]);
- 
+    console.log("typerData", this.typerData);
     this.welcomeAudio.src = 'assets/audio/Level_Select.mp3';
     this.welcomeAudio.load();
     this.welcomeAudio.loop = false;
@@ -74,7 +74,7 @@ export class GameFourComponent implements OnInit {
     //   localStorage.setItem('playerCount', '0');
     // }
     //this.isTyperEnabled = true;
-    // this.setTyper();
+    this.setTyper();
     // if (
     //   localStorage.getItem('currentPlayer') <=
     //   localStorage.getItem('playerCount')
