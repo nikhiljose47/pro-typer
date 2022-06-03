@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TyperResultComponent } from '../typer-result/typer-result.component';
 import { Title, Meta } from '@angular/platform-browser';
 import { ThemePalette } from '@angular/material/core';
-
+import { ViewportScroller } from "@angular/common";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
 
 
   constructor(public dialog: MatDialog,
+    private scroller: ViewportScroller,
     private metaTagService: Meta,
     private titleService: Title) { }
 
@@ -117,6 +118,10 @@ export class HomeComponent implements OnInit {
         this.progressLabel = 100-this.timerPercent;
       }
     }, 1000)
+  }
+
+  scrollDown() {
+   this.scroller.scrollToAnchor("targetScroll");
   }
 
   /* Progress circle timer color change logic */

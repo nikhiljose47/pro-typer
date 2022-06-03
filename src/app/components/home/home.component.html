@@ -59,15 +59,19 @@
     <div id="startBtn-div">
       <button class="startBtn" (click)="gameStart()"><span>Start </span></button>
     </div>
-  
   </ng-template>
-
 </div>
 
 
-<div class="col-2">
+<a (click)="scrollDown()" class="arrow-container">
+  <div class="arrow"></div>
+  <div class="arrow"></div>
+</a>
+
+<div class="col-2" id="targetScroll">
   <app-carousel></app-carousel>
 </div>
+
 
 <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
   <title>Gray Clouds Background</title>
