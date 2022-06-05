@@ -15,8 +15,7 @@ import { DialogBoxComponent } from 'src/app/components/common-components/dialog-
 })
 export class GameFourComponent implements OnInit {
   typerText: string = '';
-  disableForm = true;;
-  showTyper: boolean;
+  showTyper: boolean = false;
   customColor: string;
   playerName: number;
   typerData: any = (data as any).default;
@@ -41,12 +40,13 @@ export class GameFourComponent implements OnInit {
   timerFinishIndicator: boolean;
   isTyperEnabled: boolean = true;
   results: any;
-  //game-player
+  showPlayArea = true;
+  showDashboard: boolean = false;
   currentPlayer: number;
   localStorageKey = 'playersList';
   playersTotalList: any = [];
 
-  @ViewChild('playerCount') playerCount:ElementRef;
+  @ViewChild('playerCount') playerCount: ElementRef;
 
   constructor(
     public dialog: MatDialog,
@@ -55,34 +55,66 @@ export class GameFourComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.titleService.setTitle("Typing Speed Online test in 60 Seconds | Typer-Pro");
-    // this.metaTagService.addTags([
-    //   { name: 'keywords', content: 'Free Online Typing speed test in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing' },
-    //   { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    //   { name: 'description', content: 'With our free online typing speed test, you can check your Words Per Minute and accuracy in a flash!. Become a fast typer with high accuracy with our typing test and typing games.'},
-    //   { name: 'og:description', content: 'Welcome to the #1 Fun Speed Test! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed'},
-    //   { name:'og:type', content: 'website'},
-    //   { charset: 'UTF-8' }
-    // ]);
-    console.log("typerData", this.typerData);
+    this.titleService.setTitle("Free offline multiplayer typing test | Typer-Pro");
+    this.metaTagService.addTags([
+      { name: 'keywords', content: 'Free Online Typing speed test in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing, Offline multiplayer typing test' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'description', content: 'With the multiplayer game, you can compete with your friends, you can check your Words Per Minute and accuracy in a flash!. The more you compete and practise, the more chances to improve your typing speed.'},
+      { name: 'og:description', content: 'Welcome to the #1 Typing Speed Multiplayer game! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed'},
+      { name:'og:type', content: 'website'},
+      { charset: 'UTF-8' }
+    ]);
+
+    console.log("showDashboard", this.showDashboard);
+
     this.welcomeAudio.src = 'assets/audio/Level_Select.mp3';
     this.welcomeAudio.load();
     this.welcomeAudio.loop = false;
     this.welcomeAudio.play();
-    // if (localStorage.getItem('typerCounter') == null) {
-    //   localStorage.setItem('typerCounter', '0');
-    //   localStorage.setItem('playerCount', '0');
-    // }
-    //this.isTyperEnabled = true;
+
+    this.isTyperEnabled = true;
     this.setTyper();
-    // if (
-    //   localStorage.getItem('currentPlayer') <=
-    //   localStorage.getItem('playerCount')
-    // ) {
-    //   this.nextPlayer()
-    // } else {
-    //   this.showResults();
-    // }
+
+    if (
+      parseInt(localStorage.getItem('currentPlayer')) <=
+      parseInt(localStorage.getItem('playerCount'))
+    ) {
+      this.showTyper = true;
+      this.setTyper();
+    } else {
+      this.results = JSON.parse(localStorage.getItem('playersList'));
+      this.showResults();
+      if (localStorage.getItem('currentPlayer')) {
+        localStorage.removeItem('currentPlayer');
+        localStorage.removeItem('playerCount');
+      }
+    }
+  }
+
+  setTyper() {
+    let counter = localStorage.getItem('typerCounter') ?? '0';
+    this.typerText = this.typerData[parseInt(counter)].value;
+  }
+
+  startGame() {
+    this.currentPlayer = parseInt(localStorage.getItem('currentPlayer'));
+    this.playerName = this.currentPlayer;
+  }
+
+  startTimer() {
+    this.timer = TIMER;
+    let interval = setInterval(() => {
+      if (this.timer <= 0) {
+        clearInterval(interval);
+        this.timerFinish();
+        this.isTyping = false;
+      }
+      if (this.timer > 0) {
+        this.timer--;
+        this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
+        this.timerLabel = this.timer.toString();
+      }
+    }, 1000);
   }
 
   openDialog() {
@@ -96,30 +128,21 @@ export class GameFourComponent implements OnInit {
       },
     });
 
-      this.isTyperEnabled = true;
-      // localStorage.setItem('typerCounter','1');
-  }
-
-  showResults() {
-    const results = JSON.parse(localStorage.getItem('playersList'));
-  }
-
-  startGame() {
-
-    this.currentPlayer = parseInt(localStorage.getItem('currentPlayer'));
-    this.playerName = this.currentPlayer;
+    this.isTyperEnabled = true;
+    // localStorage.setItem('typerCounter','1');
   }
 
   nextPlayer() {
     let cPlayer = parseInt(localStorage.getItem('currentPlayer'));
     cPlayer++;
     localStorage.setItem('currentPlayer', cPlayer.toString());
+    // this.showPlayArea = false;
     window.location.reload();
   }
 
-  setTyper() {
-    let counter = localStorage.getItem('typerCounter') ?? '0';
-    this.typerText = this.typerData[parseInt(counter)].value;
+  showResults() {
+    this.showDashboard = true;
+    // this.showPlayArea = false;
   }
 
   changeTyper() {
@@ -173,29 +196,12 @@ export class GameFourComponent implements OnInit {
     );
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
       this.nextPlayer();
     });
   }
 
   playAgain() {
     window.location.reload();
-  }
-
-  startTimer() {
-    this.timer = TIMER;
-    let interval = setInterval(() => {
-      if (this.timer <= 0) {
-        clearInterval(interval);
-        this.timerFinish();
-        this.isTyping = false;
-      }
-      if (this.timer > 0) {
-        this.timer--;
-        this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
-        this.timerLabel = this.timer.toString();
-      }
-    }, 1000);
   }
 
   /* Progress circle timer color change logic */
@@ -254,18 +260,23 @@ export class GameFourComponent implements OnInit {
     this.wpmLabel = wpm.toString();
   }
 
-
   onSubmit() {
     this.showTyper = true;
-    this.disableForm = false;
-    localStorage.setItem('playerCount', this.playerCount.nativeElement.value.toString());
-       if (!localStorage.getItem('currentPlayer')) {
+    this.showDashboard = false;
+    localStorage.setItem(
+      'playerCount',
+      this.playerCount.nativeElement.value.toString()
+    );
+    if (!localStorage.getItem('currentPlayer')) {
       localStorage.setItem('currentPlayer', '1');
     }
+    if (localStorage.getItem('playersList')) {
+      localStorage.removeItem('playersList');
+    }
+  }
 
- }
- 
   ngOnDestroy() {
     this.welcomeAudio.pause();
+    localStorage.clear();
   }
 }

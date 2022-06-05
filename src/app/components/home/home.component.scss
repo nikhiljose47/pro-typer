@@ -13,18 +13,10 @@ $arrow-line-width: 4px;
   width: 100%;
   height: 80rem;
   float: left;
-  //background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
-  //background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
-  //background-image: radial-gradient( #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
-  // background: radial-gradient(
-  //   at 180% 90%,
-  //   #0e3655 35%,
-  //   rgba(12, 141, 180, 0) 65%
-  // );
 }
 
 .title {
-  margin-top: 6rem;
+  margin-top: 3rem;
 }
 
 // arrows
@@ -33,7 +25,7 @@ $arrow-line-width: 4px;
   width: 80px;
   height: 100px;
   position: absolute;
-  top: 90%;
+  top: 93%;
   left: 50%;
   @include arrow-transitions(0deg);
   &:hover {
@@ -82,11 +74,13 @@ $arrow-line-width: 4px;
   font-size: 4.5rem;
   font-weight: 800;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .title h2 {
   text-transform: uppercase;
   font-size: 1.6rem;
+  text-align: center;
   letter-spacing: 0.1rem;
   padding-bottom: 3rem;
   font-weight: 500;
@@ -95,7 +89,7 @@ $arrow-line-width: 4px;
 
 .widgets {
   display: flex;
-  margin-top: 10rem;
+  margin-top: 8rem;
   flex-direction: row;
   align-items: center;
   margin-bottom: $size-small;
@@ -108,9 +102,17 @@ $arrow-line-width: 4px;
   text-align: center;
   font-size: $size-small;
   float: right;
-  background: #1D976C;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #1d976c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #93f9b9,
+    #1d976c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #93f9b9,
+    #1d976c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 10px;
 }
 
@@ -133,6 +135,7 @@ $arrow-line-width: 4px;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 4rem;
+  margin-bottom: 3rem;
 }
 
 .startBtn {
@@ -351,27 +354,24 @@ svg#clouds {
     transform: rotate(0.75turn);
   }
 
-  .accuracy-bg-radials{
+  .accuracy-bg-radials {
     position: absolute;
   }
 
-  .start{
-   left:0;
-   top: 76px;
-   transform: rotate(1deg);
-
+  .start {
+    left: 0;
+    top: 76px;
+    transform: rotate(1deg);
   }
-  .middle{
+  .middle {
     left: 80px;
     top: 1px;
     transform: rotate(90deg);
-
   }
-  .end{
+  .end {
     left: 152px;
     top: 76px;
     transform: rotate(-1deg);
-
   }
 
   .accuracy-bg {

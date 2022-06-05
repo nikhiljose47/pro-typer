@@ -1,108 +1,151 @@
 <div id="bg">
   <div class="title">
-    <h1>OFFLINE MULTIPLAYER TYPING GAME</h1>
+    <h1 class="headings">OFFLINE MULTIPLAYER TYPING GAME</h1>
   </div>
 
-  <section id="multiplayerSection" *ngIf="disableForm">
+  <section id="multiplayerSection" *ngIf="this.showDashboard">
     <span class="fle">
-      <img src="../../../../assets/BrazucaLeft.png" alt="">
-      </span>
+      <img src="../../../../assets/BrazucaLeft.png" alt="" />
+    </span>
     <div id="playArea">
-    <div *ngIf="disableForm" class="form__group">
-      <input  #playerCount type="number" class="form__input" name="playerCount" placeholder="No of Players" required="" />
-      <label for="number" class="form__label">Players Count</label>
-    </div>
-    <button class="playGame" (click)="onSubmit()">Let's Play</button>
-  </div>
-</section>
-
-<!-- Start of typer section -->
-<div *ngIf="showTyper">
-   <section class="col1">
-    <div class="widgets">
-      <div class="circleStyle">
-        <circle-progress
-          [percent]="100 - timerPercent"
-          [maxPercent]="200"
-          [showUnits]="false"
-          [showZeroOuterStroke]="false"
-          [radius]="50"
-          [title]="timerLabel"
-          [titleFormat]="formatTitle"
-          [outerStrokeWidth]="10"
-          [outerStrokeColor]="customColor"
-          [startFromZero]="false"
-          [renderOnClick]="false"
-          [animation]="true"
-          [animationDuration]="300"
-          [lazy]="false"
-          [showBackground]="true"
-        ></circle-progress>
+      <div class="form__group">
+        <input
+          #playerCount
+          type="number"
+          class="form__input"
+          name="playerCount"
+          placeholder="No of Players"
+          pattern="\d*"
+          min="2"
+          max="5"
+          required=""
+        />
+        <label for="number" class="form__label">Players Count</label>
       </div>
-
-      <svg
-        version="1.1"
-        width="250"
-        height="200"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="120" cy="100" r="70" fill="#eee" />
-        <text x="120" y="120" font-size="60" text-anchor="middle" fill="black">
-          {{ wpmLabel }}
-        </text>
-        <text x="120" y="145" font-size="20" text-anchor="middle" fill="black">
-          wpm
-        </text>
-      </svg>
-
-      <div class="item1">
-        <div class="accuracy-text">ACCURACY</div>
-        <div id="accuracy-container">
-          <div class="accuracy" [ngStyle]="{ width: accuracyVal + '%' }">
-            {{ accuracyVal }}%
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="widgets">
-      <app-typer
-        [data]="typerText"
-        (result)="typerFinish($event)"
-        (wordUpdate)="wordUpdate()"
-        (updateVal)="typerUpdate($event)"
-        [typerActive]="isTyperEnabled"
-      ></app-typer>
-    </div>
-
-    <div class="card-container">
-      <button
-        id="reset"
-        class="typerBtn"
-        type="button"
-        [disabled]="!timerFinishIndicator"
-        (click)="playAgain()"
-      >
-        Play Again
-      </button>
-      <button
-        id="reset"
-        class="typerBtn"
-        type="button"
-        [disabled]="!timerFinishIndicator"
-        (click)="changeTyper()"
-      >
-        Change Text
-      </button>
-    </div>
-
-    <div clas="svg-icon-area">
-      <svg class="icon icon-angle-down">
-        <use xlink:href="#icon-angle-down"></use>
-      </svg>
+      <button class="playGame" (click)="onSubmit()">Let's Play</button>
     </div>
   </section>
 
-</div>
-<!-- End of typer section -->
+  <!-- Start of typer section -->
+  <div *ngIf="showTyper">
+    <section class="col1">
+      <div class="widgets">
+        <div class="circleStyle">
+          <circle-progress
+            [percent]="100 - timerPercent"
+            [maxPercent]="200"
+            [showUnits]="false"
+            [showZeroOuterStroke]="false"
+            [radius]="50"
+            [title]="timerLabel"
+            [titleFormat]="formatTitle"
+            [outerStrokeWidth]="10"
+            [outerStrokeColor]="customColor"
+            [startFromZero]="false"
+            [renderOnClick]="false"
+            [animation]="true"
+            [animationDuration]="300"
+            [lazy]="false"
+            [showBackground]="true"
+          ></circle-progress>
+        </div>
+
+        <svg
+          version="1.1"
+          width="250"
+          height="200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="120" cy="100" r="70" fill="#eee" />
+          <text
+            x="120"
+            y="120"
+            font-size="60"
+            text-anchor="middle"
+            fill="black"
+          >
+            {{ wpmLabel }}
+          </text>
+          <text
+            x="120"
+            y="145"
+            font-size="20"
+            text-anchor="middle"
+            fill="black"
+          >
+            wpm
+          </text>
+        </svg>
+
+        <div class="item1">
+          <div class="accuracy-text">ACCURACY</div>
+          <div id="accuracy-container">
+            <div class="accuracy" [ngStyle]="{ width: accuracyVal + '%' }">
+              {{ accuracyVal }}%
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="widgets">
+        <app-typer
+          [data]="typerText"
+          (result)="typerFinish($event)"
+          (wordUpdate)="wordUpdate()"
+          (updateVal)="typerUpdate($event)"
+          [typerActive]="isTyperEnabled"
+        ></app-typer>
+      </div>
+
+      <div class="card-container">
+        <button
+          id="reset"
+          class="typerBtn"
+          type="button"
+          [disabled]="!timerFinishIndicator"
+          (click)="playAgain()"
+        >
+          Play Again
+        </button>
+        <button
+          id="reset"
+          class="typerBtn"
+          type="button"
+          [disabled]="!timerFinishIndicator"
+          (click)="changeTyper()"
+        >
+          Change Text
+        </button>
+      </div>
+
+      <div clas="svg-icon-area">
+        <svg class="icon icon-angle-down">
+          <use xlink:href="#icon-angle-down"></use>
+        </svg>
+      </div>
+    </section>
+  </div>
+  <!-- End of typer section -->
+
+    <div class="resultsTable" *ngIf="this.showDashboard"> 
+      <h1 class="headings">LAST GAME RESULTS</h1>
+      
+      <table>
+          <thead>
+              <tr>
+                  <th>PLAYER</th>
+                  <th>ACCURACY</th>
+                  <th>WPM</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let result of results">
+                  <th>{{ result.username }}</th>
+                  <td>{{ result.accuracy }}</td>
+                  <td>{{ result.wpm }}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
 </div>
