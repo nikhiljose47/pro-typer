@@ -40,6 +40,7 @@ export class GameFourComponent implements OnInit {
   timerFinishIndicator: boolean;
   isTyperEnabled: boolean = true;
   results: any;
+  btnstate: boolean=false;
   showPlayArea = true;
   showDashboard: boolean = false;
   currentPlayer: number;
@@ -71,7 +72,7 @@ export class GameFourComponent implements OnInit {
     this.welcomeAudio.load();
     this.welcomeAudio.loop = false;
     this.welcomeAudio.play();
-
+    this.btnstate = true;
     this.isTyperEnabled = true;
     this.setTyper();
 
@@ -261,6 +262,15 @@ export class GameFourComponent implements OnInit {
   }
 
   onSubmit() {
+
+   const enteredValue = this.playerCount.nativeElement.value;
+   console.log("entered value", enteredValue);
+  //  if(enteredValue <2 && enteredValue>8) {
+  //    this.btnstate = true;
+  //  }
+  //  else {
+  //   this.btnstate = false;
+  //  }
     this.showTyper = true;
     this.showDashboard = false;
     localStorage.setItem(

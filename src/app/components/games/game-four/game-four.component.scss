@@ -57,6 +57,27 @@ $center: center;
   transition: all 0.3s;
 }
 
+input:invalid+span:after {
+  content: '✖';
+  color: red;
+  position: absolute;
+  top: 74%;
+  left: 85%;
+  font-size: 2rem;
+  background-color: white;
+  padding-left: 15px;
+}
+
+input:valid+span:after {
+  content: "✓";
+  color: green;
+  position: absolute;
+  top: 74%;
+  left: 85%;
+  font-size: 2rem;
+  background-color: white;
+}
+
 .playGame {
   width: 150px;
   height: 50px;

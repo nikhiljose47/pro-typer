@@ -15,11 +15,13 @@
           class="form__input"
           name="playerCount"
           placeholder="No of Players"
-          pattern="\d*"
+          pattern="[2-8]"
           min="2"
-          max="5"
+          max="8"
+          value="2"
           required=""
         />
+        <span class="validity"></span>
         <label for="number" class="form__label">Players Count</label>
       </div>
       <button class="playGame" (click)="onSubmit()">Let's Play</button>
