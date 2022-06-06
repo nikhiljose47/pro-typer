@@ -7,11 +7,6 @@ $rain: #2c3845;
 $poppy: #bd2a4e;
 $center: center;
 
-#multiplayerSection {
-  left: 35%;
-  position: absolute;
-}
-
 #bg {
   width: 100%;
   height: 70rem;
@@ -29,6 +24,33 @@ $center: center;
   justify-content: center;
   align-items: center;
   color: #fff;
+}
+
+.title {
+  text-align: $center;
+  padding-top: 5rem;
+}
+
+.headings {
+  font-size: 2.5rem;
+  font-family: sans-serif;
+  padding-bottom: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.title h2 {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  padding-bottom: 3rem;
+  font-weight: 500;
+  color: #4a4a56;
+}
+
+#multiplayerSection {
+  left: 35%;
+  position: absolute;
 }
 
 .form__label {
@@ -78,32 +100,10 @@ input:valid+span:after {
   background-color: white;
 }
 
-.playGame {
-  width: 150px;
-  height: 50px;
-  margin-left:5vw;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  background: white;
-  border: 2px solid black;
-  box-shadow: 5px 5px 0 black, -5px -5px 0 black, -5px 5px 0 black,
-    5px -5px 0 black;
-  transition: 500ms ease-in-out;
-}
-
-.playGame:hover {
-  box-shadow: 20px 5px 0 rgb(31, 224, 176), -20px -5px 0 rgb(177, 26, 236);
-}
-
-.playGame:focus {
-  outline: none;
-}
-
 .resultsTable {
   position: absolute;
   color: black;
+  padding-top: 2rem;
   padding-bottom: 2rem;
   top: 30%;
   width: 35rem;
@@ -165,6 +165,8 @@ input:valid+span:after {
   padding-bottom: 2rem;
 }
 
+/***************** End of Multiplayer opening page **************************/
+
 .col1 {
   width: 100%;
   height: 100%;
@@ -173,46 +175,132 @@ input:valid+span:after {
 
 .widgets {
   display: flex;
+  margin-top: 10rem;
   flex-direction: row;
-  align-items: $center;
-  margin-bottom: $size-small;
-  justify-content: $center;
+  align-items: center;
+  margin-bottom: 4rem;
+  justify-content: center;
 }
 
-.item1 {
-  padding-left: 3rem;
-}
-
-#accuracy-container {
-  background-color: rgb(226, 226, 226);
-  width: 10rem;
-  border-radius: 8px;
-}
-
-.accuracy {
-  background: linear-gradient(to right, rgb(91, 166, 236), rgb(22, 120, 200));
-  width: 50%;
-  color: rgb(255, 255, 255);
-  padding-left: 2%;
-  padding-bottom: 1%;
-  text-align: start;
-  font-size: 16px;
-  border-radius: 8px;
-  max-height: 16px;
-}
-
-.content {
+.progress-bg {
   display: flex;
-  margin: 82px auto 32px;
-  padding: 0 16px;
-  max-width: 960px;
   flex-direction: column;
-  align-items: $center;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  height: 9.5rem;
+  width: 9.5rem;
+  border-radius: 50%;
+  background-color: rgb(239, 242, 239);
+  box-shadow: 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.mat-spinner {
+  position: absolute;
+  top: 12px;
+  left: 48px;
+}
+
+.timer {
+  top: 23px;
+  left: 56px;
+}
+
+.wpm {
+  top: 20px;
+  left: 250px;
+}
+
+#progress-label {
+  padding-top: 18px;
+  padding-left: 11px;
+  font-size: 4rem;
+  color: rgb(14, 70, 255);
+}
+
+#progress-label-sub {
+  font-size: 1rem;
+  color:black;
+}
+
+.accuracy-bg {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  left: 433px;
+  top: 8px;
+  height: 11rem;
+  width: 11rem;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#accuracy-label {
+  padding-top: 18px;
+  padding-left: 11px;
+  font-size: 3.2rem;
+  color: rgb(14, 70, 255);
+}
+
+.accuracy-bg-radials {
+  position: absolute;
+}
+
+#accuracy-label-sub-percent {
+  font-size: 1.8rem;
+  color: black;
+}
+
+#accuracy-label-sub {
+  padding-top: 10px;
+  font-size: 1rem;
+  color: black;
+}
+
+.accuracy-mat-spinner {
+  position: absolute;
+  top: 12px;
+  left: 435px;
+  transform: rotate(0.75turn);
+}
+
+.start {
+  left: 0;
+  top: 76px;
+  color:black;
+  transform: rotate(1deg);
+}
+
+.end {
+  left: 152px;
+  top: 76px;
+  color:black;
+  transform: rotate(-1deg);
+}
+
+#spacer {
+  height: 12rem;
+}
+
+.dashboard {
+  display: flex;
+  position: absolute;
+  margin-top: 1rem;
+  left: 35rem;
+  height: 12rem;
+  width: 40rem;
+  // background-color: rgba(46, 46, 46, 0.521);
+  border-radius: 9rem;
 }
 
 .circleStyle {
   height: 10rem;
 }
+
+/* !!!!!!!!!!!!! Start of Card section !!!!!!!!!!!!!!! */
 
 .card-container {
   display: flex;
@@ -242,6 +330,9 @@ input:valid+span:after {
   transform: translateY(-3px);
   box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
+/* !!!!!!!!!!!!! End of Card section !!!!!!!!!!!!!!! */
+
+/********* Start of Button section ************/
 
 .typerBtn {
   border-color: #3498db;
@@ -266,29 +357,31 @@ input:valid+span:after {
   }
 }
 
-.title {
-  text-align: $center;
-  padding-top: 5rem;
+.playGame {
+  width: 150px;
+  height: 50px;
+  margin-left:5vw;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  background: white;
+  border: 2px solid black;
+  box-shadow: 5px 5px 0 black, -5px -5px 0 black, -5px 5px 0 black,
+    5px -5px 0 black;
+  transition: 500ms ease-in-out;
 }
 
-.headings {
-  font-size: 2.5rem;
-  font-family: sans-serif;
-  padding-bottom: 3rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.playGame:hover {
+  box-shadow: 20px 5px 0 rgb(31, 224, 176), -20px -5px 0 rgb(177, 26, 236);
 }
 
-.title h2 {
-  text-transform: uppercase;
-  font-size: 1.6rem;
-  letter-spacing: 0.1rem;
-  padding-bottom: 3rem;
-  font-weight: 500;
-  color: #4a4a56;
+.playGame:focus {
+  outline: none;
 }
+/********* End of Button section ************/
 
-/* Laptop screen small to large */
+/******************************************* Laptop screen small to large ************************************************/
 @media only screen and (min-device-width: 1025px) {
   .title {
     text-align: $center;

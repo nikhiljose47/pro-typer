@@ -7,6 +7,7 @@ import { TIMER } from 'src/app/shared-model/constants';
 import * as data from 'src/app/data/typer-data.json';
 import { TyperResultComponent } from 'src/app/components/typer-result/typer-result.component';
 import { DialogBoxComponent } from 'src/app/components/common-components/dialog-box/dialog-box.component';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-game-four',
@@ -15,30 +16,37 @@ import { DialogBoxComponent } from 'src/app/components/common-components/dialog-
 })
 export class GameFourComponent implements OnInit {
   typerText: string = '';
-  showTyper: boolean = false;
-  customColor: string;
-  playerName: number;
   typerData: any = (data as any).default;
-  typerDataCounter: number = 0;
-  isTyping: boolean = false;
+  hasGameBegun: boolean = false;
   accuracyVal: number = 100;
   rightCount: number = 0;
   charactersTyped: number = 0;
   timer: number = TIMER;
-  seconds: string = 'Sec';
+  seconds: string = "Sec";
   timerPercent: number = 0;
   timerLabel: string = TIMER.toString();
   isTyperInitial: boolean = true;
-  wpmLabel: string = '0';
+  wpmLabel: string = "0";
   delays: Array<number> = [];
-  welcomeAudio: any = new Audio();
   prevDelay: number = 0;
   startms: number = 0;
-  playerDetails: PlayerDetails[];
   timerlabel: string;
   percentIndicator: number;
-  timerFinishIndicator: boolean;
+  timerFinishIndicator: boolean = false;
+ //c-progress-bar
+  progressColor: ThemePalette = 'accent';
+  progressLabel: number=100;
+
+  //accuracy
+  accuracyColor: ThemePalette = 'accent';
+  showTyper: boolean = false;
+  playerName: number;
+  typerDataCounter: number = 0;
+  isTyping: boolean = false;
+  welcomeAudio: any = new Audio();
+  playerDetails: PlayerDetails[];
   isTyperEnabled: boolean = true;
+  // show results
   results: any;
   finalResult: any;
   validInput: boolean = true;
@@ -113,14 +121,16 @@ export class GameFourComponent implements OnInit {
       if (this.timer <= 0) {
         clearInterval(interval);
         this.timerFinish();
-        this.isTyping = false;
+        this.hasGameBegun = true;
       }
       if (this.timer > 0) {
+        this.progressColor = this.timerPercent>69?'warn':this.timerPercent>49?'primary':'accent';
         this.timer--;
-        this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
+        this.timerPercent = 100 * (TIMER - this.timer) / TIMER;
         this.timerLabel = this.timer.toString();
+        this.progressLabel = 100-this.timerPercent;
       }
-    }, 1000);
+    }, 1000)
   }
 
   openDialog() {
@@ -210,24 +220,6 @@ export class GameFourComponent implements OnInit {
     window.location.reload();
   }
 
-  /* Progress circle timer color change logic */
-  formatTitle = (percent: number): string => {
-    if (this.timerPercent >= 0 && this.timerPercent <= 50) {
-      this.timerlabel = this.timer.toString();
-      this.customColor = '#32CD32';
-      return this.timerlabel;
-    } else if (this.timerPercent > 50 && this.timerPercent < 75) {
-      this.timerlabel = this.timer.toString();
-      this.customColor = 'Orange';
-      return this.timerlabel;
-    } else {
-      this.timerlabel = this.timer.toString();
-      this.customColor = 'Red';
-      return this.timerlabel;
-    }
-  };
-  /* Progress circle timer color change logic */
-
   typerFinish(typerUnits: TyperUnit[]) {
     this.typerData = '';
   }
@@ -254,9 +246,8 @@ export class GameFourComponent implements OnInit {
   }
 
   accuracyUpdate() {
-    this.accuracyVal = Math.round(
-      (this.rightCount / this.charactersTyped) * 100
-    );
+    this.accuracyVal = (Math.round((this.rightCount / this.charactersTyped) * 100));
+    this.accuracyColor = this.accuracyVal<20?'warn':this.accuracyVal<60?'primary':'accent';
   }
 
   //re-work needed

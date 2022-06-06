@@ -32,60 +32,35 @@
   <div *ngIf="showTyper">
     <section class="col1">
       <div class="widgets">
-        <div class="circleStyle">
-          <circle-progress
-            [percent]="100 - timerPercent"
-            [maxPercent]="200"
-            [showUnits]="false"
-            [showZeroOuterStroke]="false"
-            [radius]="50"
-            [title]="timerLabel"
-            [titleFormat]="formatTitle"
-            [outerStrokeWidth]="10"
-            [outerStrokeColor]="customColor"
-            [startFromZero]="false"
-            [renderOnClick]="false"
-            [animation]="true"
-            [animationDuration]="300"
-            [lazy]="false"
-            [showBackground]="true"
-          ></circle-progress>
-        </div>
-
-        <svg
-          version="1.1"
-          width="250"
-          height="200"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="120" cy="100" r="70" fill="#eee" />
-          <text
-            x="120"
-            y="120"
-            font-size="60"
-            text-anchor="middle"
-            fill="black"
-          >
-            {{ wpmLabel }}
-          </text>
-          <text
-            x="120"
-            y="145"
-            font-size="20"
-            text-anchor="middle"
-            fill="black"
-          >
-            wpm
-          </text>
-        </svg>
-
-        <div class="item1">
-          <div class="accuracy-text">ACCURACY</div>
-          <div id="accuracy-container">
-            <div class="accuracy" [ngStyle]="{ width: accuracyVal + '%' }">
-              {{ accuracyVal }}%
-            </div>
+        <div class="dashboard">
+          
+          <div class="progress-bg timer">
+            <span id="progress-label">{{ timer }}<span id="progress-label-sub">sec</span></span>
           </div>
+    
+          <mat-progress-spinner class="mat-spinner" [color]="progressColor" [diameter]="170" [strokeWidth]="14"
+            [mode]="'determinate'" [value]="progressLabel">
+          </mat-progress-spinner>
+    
+          <div class="progress-bg wpm">
+            <span id="progress-label">{{ wpmLabel }}<span id="progress-label-sub">wpm</span></span>
+          </div>
+    
+          <div class="accuracy-bg">
+            <span id="accuracy-label">{{ accuracyVal }}<span id="accuracy-label-sub-percent">%</span>
+            </span>
+            <div id="accuracy-label-sub">accuracy</div>
+    
+            <div class = "accuracy-bg-radials start"><b>____</b></div>
+            <div class = "accuracy-bg-radials middle"><b>___</b></div>
+            <div class = "accuracy-bg-radials end"><b>____</b></div>
+          </div>
+    
+          <mat-progress-spinner class="accuracy-mat-spinner" [color]="accuracyColor" [diameter]="170" [strokeWidth]="14"
+            [mode]="'determinate'" [value]="accuracyVal/2">
+          </mat-progress-spinner>
+    
+          <div id="spacer"></div>
         </div>
       </div>
 
@@ -120,11 +95,6 @@
         </button>
       </div>
 
-      <div clas="svg-icon-area">
-        <svg class="icon icon-angle-down">
-          <use xlink:href="#icon-angle-down"></use>
-        </svg>
-      </div>
     </section>
   </div>
   <!-- End of typer section -->

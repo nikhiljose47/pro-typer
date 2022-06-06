@@ -15,7 +15,6 @@ import { ViewportScroller } from "@angular/common";
 })
 export class HomeComponent implements OnInit {
   typerText: string = "";
-  customColor : string;
   typerData: any = (data as any).default;
   hasGameBegun: boolean = false;
   accuracyVal: number = 100;
@@ -119,31 +118,6 @@ export class HomeComponent implements OnInit {
       }
     }, 1000)
   }
-
-  scrollDown() {
-   this.scroller.scrollToAnchor("targetScroll");
-  }
-
-  /* Progress circle timer color change logic */
-//   formatTitle = (percent: number) : string => {
-//   if(this.timerPercent>=0 && this.timerPercent<=50) {
-//     this.timerlabel = this.timer.toString();
-//     this.customColor = "#32CD32";
-//     return this.timerlabel;
-//   }
-//   else if(this.timerPercent>50 && this.timerPercent<75)
-//   {
-//     this.timerlabel = this.timer.toString();
-//     this.customColor = "Orange";
-//     return this.timerlabel;
-//   }
-//   else {
-//     this.timerlabel = this.timer.toString();
-//     this.customColor = "Red";
-//     return this.timerlabel;
-//   }
-// }
-  /* Progress circle timer color change logic */
   
   typerFinish(typerUnits: TyperUnit[]) { 
     this.typerData = '';
