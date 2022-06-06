@@ -40,6 +40,7 @@ export class GameFourComponent implements OnInit {
   timerFinishIndicator: boolean;
   isTyperEnabled: boolean = true;
   results: any;
+  finalResult: any;
   btnstate: boolean=false;
   showPlayArea = true;
   showDashboard: boolean = false;
@@ -83,7 +84,8 @@ export class GameFourComponent implements OnInit {
       this.showTyper = true;
       this.setTyper();
     } else {
-      this.results = JSON.parse(localStorage.getItem('playersList'));
+      this.finalResult = JSON.parse(localStorage.getItem('playersList'));
+      this.results = this.finalResult.reverse();
       this.showResults();
       if (localStorage.getItem('currentPlayer')) {
         localStorage.removeItem('currentPlayer');
