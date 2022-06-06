@@ -43,13 +43,13 @@ $absolute-position: absolute;
 }
 
 #multiplayerSection {
-  left: 35%;
+  left: 30%;
   position: $absolute-position;
 }
 
 .form__label {
   font-family: "Arial, Helvetica, sans-serif";
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-left: 2rem;
   margin-top: 0.7rem;
   margin-bottom: 2rem;
@@ -63,6 +63,7 @@ $absolute-position: absolute;
   color: #333;
   font-size: 1.2rem;
   margin: 0 auto;
+  text-align: $center;
   display: $block;
   padding: 20px 45px;
   border-radius: 0.2rem;
@@ -77,9 +78,9 @@ input:invalid + span:after {
   content: "✖";
   color: red;
   position: $absolute-position;
-  top: 70%;
-  left: 67%;
-  font-size: 2rem;
+  top: 69%;
+  left: 70%;
+  font-size: 1.9rem;
   background-color: white;
   padding-left: 15px;
 }
@@ -88,9 +89,9 @@ input:valid + span:after {
   content: "✓";
   color: green;
   position: $absolute-position;
-  top: 70%;
-  left: 67%;
-  font-size: 2rem;
+  top: 69%;
+  left: 70%;
+  font-size: 1.9rem;
   background-color: white;
 }
 
@@ -156,7 +157,7 @@ input:valid + span:after {
 }
 
 .fle img {
-  padding-bottom: 4rem;
+  padding-bottom: 5vh;
 }
 
 /***************** End of Multiplayer opening page **************************/
@@ -357,16 +358,21 @@ input:valid + span:after {
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
-  color: black;
-  background: white;
+  background-color: rgb(42, 21, 233);
+  color:whitesmoke;
+  border-radius: 5px;
   border: 2px solid black;
-  box-shadow: 5px 5px 0 black, -5px -5px 0 black, -5px 5px 0 black,
-    5px -5px 0 black;
-  transition: 500ms ease-in-out;
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
 
 .playGame:hover {
-  box-shadow: 20px 5px 0 rgb(31, 224, 176), -20px -5px 0 rgb(177, 26, 236);
+  color: black;
+  background: aqua;
+  border: 2px solid black;
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 black, -5px -5px 0 black, -5px 5px 0 black,
+    5px -5px 0 black;
+  transition: 500ms ease-in-out;
 }
 
 .playGame:focus {
