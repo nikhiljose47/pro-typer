@@ -2,27 +2,21 @@ $blue: #3498db;
 $size-small: 2rem;
 $percentage: 100%;
 $base: #5bb9b8;
-$subtle: #54a1a0;
 $rain: #2c3845;
 $poppy: #bd2a4e;
 $center: center;
+$block: block;
+$ten-pixels: 10px;
+$absolute-position: absolute;
 
 #bg {
-  width: 100%;
+  width: $percentage;
   height: 70rem;
-  background: #000428; 
-  background: -webkit-linear-gradient(
-    to right,
-    #004e92,
-    #000428
-  );
-  background: linear-gradient(
-    to right,
-    #004e92,
-    #000428
-  ); 
-  justify-content: center;
-  align-items: center;
+  background: #000428;
+  background: -webkit-linear-gradient(to right, #004e92, #000428);
+  background: linear-gradient(to right, #004e92, #000428);
+  justify-content: $center;
+  align-items: $center;
   color: #fff;
 }
 
@@ -50,17 +44,17 @@ $center: center;
 
 #multiplayerSection {
   left: 35%;
-  position: absolute;
+  position: $absolute-position;
 }
 
 .form__label {
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial, Helvetica, sans-serif";
   font-size: 1.2rem;
   margin-left: 2rem;
   margin-top: 0.7rem;
   margin-bottom: 2rem;
-  text-align: center;
-  display: block;
+  text-align: $center;
+  display: $block;
   transition: all 0.3s;
   transform: translateY(0rem);
 }
@@ -69,39 +63,39 @@ $center: center;
   color: #333;
   font-size: 1.2rem;
   margin: 0 auto;
-  display: block;
-  padding: 1.5rem 2rem;
+  display: $block;
+  padding: 20px 45px;
   border-radius: 0.2rem;
   background-color: rgb(255, 255, 255);
   border: none;
-  width: 100%;
+  width: 60%;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
 }
 
-input:invalid+span:after {
-  content: '✖';
+input:invalid + span:after {
+  content: "✖";
   color: red;
-  position: absolute;
-  top: 74%;
-  left: 85%;
+  position: $absolute-position;
+  top: 70%;
+  left: 67%;
   font-size: 2rem;
   background-color: white;
   padding-left: 15px;
 }
 
-input:valid+span:after {
+input:valid + span:after {
   content: "✓";
   color: green;
-  position: absolute;
-  top: 74%;
-  left: 85%;
+  position: $absolute-position;
+  top: 70%;
+  left: 67%;
   font-size: 2rem;
   background-color: white;
 }
 
 .resultsTable {
-  position: absolute;
+  position: $absolute-position;
   color: black;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -113,41 +107,41 @@ input:valid+span:after {
 
   h1 {
     font-size: 2rem;
-    text-align: center;
+    text-align: $center;
   }
   tr {
-    padding-bottom: 10px;
+    padding-bottom: $ten-pixels;
   }
 
   tbody {
     font-size: 1.3rem;
   }
   td {
-    padding: 10px 10px 0;
-    text-align: center;
+    padding: $ten-pixels $ten-pixels 0;
+    text-align: $center;
     &:before {
       content: attr(data-title);
       color: lighten($rain, 35%);
       text-transform: uppercase;
       font-size: 1.6rem;
-      padding-right: 10px;
-      display: block;
+      padding-right: $ten-pixels;
+      display: $block;
     }
   }
   table {
-    width: 100%;
+    width: $percentage;
   }
 
   th {
-    text-align: center;
-    padding-right: 10px;
+    text-align: $center;
+    padding-right: $ten-pixels;
     font-weight: 700;
   }
   thead {
     font-size: 1.3rem;
     th {
       background-color: darken($rain, 6%);
-      padding-right: 10px;
+      padding-right: $ten-pixels;
       color: #fff;
       border: 1px solid darken($rain, 6%);
     }
@@ -162,14 +156,14 @@ input:valid+span:after {
 }
 
 .fle img {
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 }
 
 /***************** End of Multiplayer opening page **************************/
 
 .col1 {
-  width: 100%;
-  height: 100%;
+  width: $percentage;
+  height: $percentage;
   float: left;
 }
 
@@ -177,17 +171,17 @@ input:valid+span:after {
   display: flex;
   margin-top: 10rem;
   flex-direction: row;
-  align-items: center;
+  align-items: $center;
   margin-bottom: 4rem;
-  justify-content: center;
+  justify-content: $center;
 }
 
 .progress-bg {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  position: absolute;
+  text-align: $center;
+  justify-content: $center;
+  position: $absolute-position;
   height: 9.5rem;
   width: 9.5rem;
   border-radius: 50%;
@@ -196,7 +190,7 @@ input:valid+span:after {
 }
 
 .mat-spinner {
-  position: absolute;
+  position: $absolute-position;
   top: 12px;
   left: 48px;
 }
@@ -220,15 +214,15 @@ input:valid+span:after {
 
 #progress-label-sub {
   font-size: 1rem;
-  color:black;
+  color: black;
 }
 
 .accuracy-bg {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  position: absolute;
+  text-align: $center;
+  justify-content: $center;
+  position: $absolute-position;
   left: 433px;
   top: 8px;
   height: 11rem;
@@ -246,7 +240,7 @@ input:valid+span:after {
 }
 
 .accuracy-bg-radials {
-  position: absolute;
+  position: $absolute-position;
 }
 
 #accuracy-label-sub-percent {
@@ -255,13 +249,13 @@ input:valid+span:after {
 }
 
 #accuracy-label-sub {
-  padding-top: 10px;
+  padding-top: $ten-pixels;
   font-size: 1rem;
   color: black;
 }
 
 .accuracy-mat-spinner {
-  position: absolute;
+  position: $absolute-position;
   top: 12px;
   left: 435px;
   transform: rotate(0.75turn);
@@ -270,14 +264,14 @@ input:valid+span:after {
 .start {
   left: 0;
   top: 76px;
-  color:black;
+  color: black;
   transform: rotate(1deg);
 }
 
 .end {
   left: 152px;
   top: 76px;
-  color:black;
+  color: black;
   transform: rotate(-1deg);
 }
 
@@ -287,12 +281,11 @@ input:valid+span:after {
 
 .dashboard {
   display: flex;
-  position: absolute;
+  position: $absolute-position;
   margin-top: 1rem;
   left: 35rem;
   height: 12rem;
   width: 40rem;
-  // background-color: rgba(46, 46, 46, 0.521);
   border-radius: 9rem;
 }
 
@@ -347,12 +340,12 @@ input:valid+span:after {
   margin-right: $size-small;
 
   &:hover {
-    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+    box-shadow: 0 0 $ten-pixels 0 $blue inset, 0 0 $ten-pixels 4px $blue;
     color: black;
   }
 
   &:disabled {
-    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px #7b8389;
+    box-shadow: 0 0 $ten-pixels 0 $blue inset, 0 0 $ten-pixels 4px #7b8389;
     color: black;
   }
 }
@@ -360,7 +353,7 @@ input:valid+span:after {
 .playGame {
   width: 150px;
   height: 50px;
-  margin-left:5vw;
+  margin-left: 10vw;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
@@ -398,11 +391,9 @@ input:valid+span:after {
   .title h1 {
     font-size: $size-small;
   }
-
   .circleStyle {
     height: 13rem;
   }
-
   .item1 {
     padding-left: $size-small;
 
@@ -417,11 +408,9 @@ input:valid+span:after {
       font-size: 20px;
     }
   }
-
   .widgets {
     margin-bottom: 3rem;
   }
-
   .card-container {
     margin-top: 5rem;
   }

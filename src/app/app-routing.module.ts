@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'typer-practice', component: TyperPracticeComponent },
   { path: 'game', component: GameTwoComponent },
-  { path: 'beat-self', component: GameFourComponent },
+  { path: 'multiplayer-game', component: GameFourComponent },
   // { path: '**',}
     // { path: 'game-one', component: GameOneComponent },
   // { path: 'game-three', component: GameThreeComponent },
