@@ -79,7 +79,7 @@ input:invalid + span:after {
   color: red;
   position: $absolute-position;
   top: 69%;
-  left: 70%;
+  left: 68%;
   font-size: 1.9rem;
   background-color: white;
   padding-left: 15px;
@@ -90,7 +90,7 @@ input:valid + span:after {
   color: green;
   position: $absolute-position;
   top: 69%;
-  left: 70%;
+  left: 68%;
   font-size: 1.9rem;
   background-color: white;
 }
@@ -358,9 +358,9 @@ input:valid + span:after {
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
-  background-color: rgb(42, 21, 233);
-  color:whitesmoke;
-  border-radius: 5px;
+  background-color: rgb(152, 233, 21);
+  color:black;
+  border-radius: 10px;
   border: 2px solid black;
   box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }

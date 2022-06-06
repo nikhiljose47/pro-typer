@@ -81,15 +81,15 @@
       <thead>
         <tr>
           <th>PLAYER</th>
-          <th>ACCURACY</th>
           <th>WPM</th>
+          <th>ACCURACY</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let result of results">
           <th>{{ result.username }}</th>
-          <td>{{ result.accuracy }}</td>
           <td>{{ result.wpm }}</td>
+          <td>{{ result.accuracy }}</td>
         </tr>
       </tbody>
     </table>
