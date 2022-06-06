@@ -85,7 +85,9 @@ export class GameFourComponent implements OnInit {
       this.setTyper();
     } else {
       this.finalResult = JSON.parse(localStorage.getItem('playersList'));
-      this.results = this.finalResult.reverse();
+      if(this.finalResult && this.finalResult.length) {
+        this.results = this.finalResult.reverse();
+      }
       this.showResults();
       if (localStorage.getItem('currentPlayer')) {
         localStorage.removeItem('currentPlayer');
