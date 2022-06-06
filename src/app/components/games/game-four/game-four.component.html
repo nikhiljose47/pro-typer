@@ -14,7 +14,7 @@
           type="number"
           class="form__input"
           name="playerCount"
-          placeholder="No of Players"
+          placeholder="Choose 2-8 players"
           pattern="[2-8]"
           min="2"
           max="8"
@@ -24,7 +24,7 @@
         <span class="validity"></span>
         <label for="number" class="form__label">Players Count</label>
       </div>
-      <button class="playGame" (click)="onSubmit()">Let's Play</button>
+      <button class="playGame" [disabled]="!validInput" (click)="onSubmit()">Let's Play</button>
     </div>
   </section>
 

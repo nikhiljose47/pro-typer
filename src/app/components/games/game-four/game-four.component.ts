@@ -41,6 +41,7 @@ export class GameFourComponent implements OnInit {
   isTyperEnabled: boolean = true;
   results: any;
   finalResult: any;
+  validInput: boolean = true;
   btnstate: boolean=false;
   showPlayArea = true;
   showDashboard: boolean = false;
@@ -268,13 +269,6 @@ export class GameFourComponent implements OnInit {
   onSubmit() {
 
    const enteredValue = this.playerCount.nativeElement.value;
-   console.log("entered value", enteredValue);
-  //  if(enteredValue <2 && enteredValue>8) {
-  //    this.btnstate = true;
-  //  }
-  //  else {
-  //   this.btnstate = false;
-  //  }
     this.showTyper = true;
     this.showDashboard = false;
     localStorage.setItem(

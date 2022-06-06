@@ -25,8 +25,8 @@ $arrow-line-width: 4px;
   width: 80px;
   height: 100px;
   position: absolute;
-  top: 93%;
-  left: 50%;
+  top: 95%;
+  left: 90%;
   @include arrow-transitions(0deg);
   &:hover {
     cursor: pointer;
