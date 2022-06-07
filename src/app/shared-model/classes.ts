@@ -1,7 +1,8 @@
 export enum TyperUnitState {
     blink,
     done,
-    undone
+    undone,
+    wrong
 }
 
 export enum TyperMode {

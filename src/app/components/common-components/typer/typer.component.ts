@@ -34,15 +34,17 @@ export class TyperComponent implements OnInit {
   leftOffset: number = 0.0;
   isInitialOffsetVal: boolean = true;
   offsetSum: number = 0;
+  typerUnits: TyperUnit[] = [];
+  wrongAudio: any = new Audio();
 
   trackByItems(index: number, item: TyperUnit): number {
     return item.state;
   }
 
-  typerUnits: TyperUnit[] = [];
-
   ngOnInit(): void {
     this.createTyper(this.data);
+    this.wrongAudio.src = "assets/audio/typer_wrong.mp3";
+    this.wrongAudio.load();
   }
 
   getLeftOffset(value) {
@@ -79,9 +81,6 @@ export class TyperComponent implements OnInit {
         this.hasFinished = true;
       }
     }
-    // else if(this.isTyperEnabled){
-    //   this.updateTyper(event.key);
-    // }
   }
 
   updateTyper(input: string) {
@@ -101,6 +100,8 @@ export class TyperComponent implements OnInit {
         this.viewport.scrollTo({ start: this.offsetSum });
       }
     } else {
+      this.wrongAudio.play();
+      this.typerUnits[this.index].state = TyperUnitState.wrong;
       this.typerUnits[this.index].status.push(input);
       this.updateVal.emit(false);
     }

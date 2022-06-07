@@ -58,6 +58,12 @@ export class HomeComponent implements OnInit {
     ]); 
     if(localStorage.getItem('typerCounter') == null)
     localStorage.setItem('typerCounter','0');
+    if(localStorage.getItem('hasGameBegun') == null){
+      localStorage.setItem('hasGameBegun','1');
+    }
+    else{
+      this.hasGameBegun = true;
+    }
     this.setTyper(); 
   }
 
@@ -96,7 +102,7 @@ export class HomeComponent implements OnInit {
   gameStart(){
     this.hasGameBegun = true;
     window.scroll({
-      top: 350,
+      top: 100,
       behavior: 'smooth'
     });
   }

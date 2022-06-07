@@ -8,6 +8,9 @@
     <div id="cell-undone" *ngSwitchCase="'2'">
         <div class="text">{{ value.val }}</div>
     </div>
+    <div id="cell-wrong-blink" *ngSwitchCase="'3'">
+        <div class="blink-text">{{ value.val }}</div>
+    </div>
     <div id="cell-undone" *ngSwitchDefault>
         <div class="text">{{ value.val }}</div>
     </div>
