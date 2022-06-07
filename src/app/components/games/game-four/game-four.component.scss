@@ -105,18 +105,19 @@ input:valid + span:after {
   padding-bottom: 2rem;
   top: 24%;
   font-weight: 400;
-  width: 33rem;
+  width: 29rem;
   height: auto;
-  animation: blinker 5s linear infinite;
-    background-color: transparent;
-    font-size: 2.2rem;
-    color: aqua;
-  left: 26%;
+  animation: blinker 3s linear infinite;
+  background-color: transparent;
+  font-size: 2.2rem;
+  color: aqua;
+  left: 29%;
   background: transparent;
 
   h1 {
-    font-size: 2rem;
+    font-size: 24px;
     text-align: $center;
+    font: 500 32px sans-serif;
   }
   tr {
     padding-bottom: $ten-pixels;
@@ -124,16 +125,23 @@ input:valid + span:after {
 
   tbody {
     font-size: 1.3rem;
+    border-bottom: 1px solid darken($rain, 6%);
+    border-left:1px solid darken($rain, 6%);
+    border-right:1px solid darken($rain, 6%);
     font-weight: 500;
   }
   td {
     padding: 7px 7px 0;
     text-align: $center;
+    border-bottom: 1px solid darken($rain, 6%);
+    border-left:1px solid darken($rain, 6%);
+    border-right:1px solid darken($rain, 6%);
     &:before {
       content: attr(data-title);
       color: lighten($rain, 35%);
       text-transform: uppercase;
       font-size: 1.6rem;
+      font-weight: 500;
       padding-right: $ten-pixels;
       display: $block;
     }
@@ -146,6 +154,7 @@ input:valid + span:after {
     text-align: $center;
     padding-right: $ten-pixels;
     font-weight: 700;
+    border: 1px solid darken($rain, 6%);
   }
   thead {
     font-size: 1.3rem;
