@@ -4,9 +4,22 @@
   </div>
 
   <section id="multiplayerSection" *ngIf="this.showDashboard">
-    <span class="fle">
-      <img src="assets/racing.gif" alt="" />
-    </span>
+    <!-- <span class="fle">
+      <img src="assets/racing.gif" class="multiplayer-image" alt="" />
+    </span> -->
+
+    <div class="cars">
+      <img src="assets/cars6.jpg" alt="Static: Alan Partridge - would it be rude to stop listening to you?" loading="lazy">
+      <details open>
+        <!-- added role=button to summary to resolve iOS funkiness -->
+        <summary role="button" aria-label="static image"></summary>
+        <div class="cars1">
+          <img src="assets/racing.gif" alt="Animated: Alan Partridge - would it be rude to stop listening to you?" loading="lazy">
+        </div>
+      </details>
+    </div>
+
+
     <div id="playArea">
       <div class="form__group">
         <input #playerCount type="number" class="form__input" name="playerCount" placeholder="Choose 2-8 players"

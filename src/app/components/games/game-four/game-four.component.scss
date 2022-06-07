@@ -42,8 +42,13 @@ $absolute-position: absolute;
   color: #4a4a56;
 }
 
+#playArea {
+  margin-left: 2vw;
+  display: inline-flex;
+}
+
 #multiplayerSection {
-  left: 30%;
+  left: 28%;
   position: $absolute-position;
 }
 
@@ -62,14 +67,14 @@ $absolute-position: absolute;
 .form__input {
   color: #333;
   font-size: 1.2rem;
+  font-weight: 400;
   margin: 0 auto;
-  text-align: $center;
-  display: $block;
-  padding: 20px 45px;
+  display: block;
+  padding: 20px 120px;
   border-radius: 0.2rem;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border: none;
-  width: 60%;
+  width: 80%;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
 }
@@ -78,33 +83,36 @@ input:invalid + span:after {
   content: "✖";
   color: red;
   position: $absolute-position;
-  top: 69%;
-  left: 68%;
+  top: 84.5%;
+  left: 42%;
   font-size: 1.9rem;
   background-color: white;
-  padding-left: 15px;
 }
 
 input:valid + span:after {
   content: "✓";
   color: green;
   position: $absolute-position;
-  top: 69%;
-  left: 68%;
+  top: 84.5%;
+  left: 42%;
   font-size: 1.9rem;
   background-color: white;
 }
 
 .resultsTable {
   position: $absolute-position;
-  color: black;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  top: 30%;
-  width: 35rem;
+  top: 24%;
+  font-weight: 400;
+  width: 33rem;
   height: auto;
-  left: 65%;
-  background: greenyellow;
+  animation: blinker 5s linear infinite;
+    background-color: transparent;
+    font-size: 2.2rem;
+    color: aqua;
+  left: 26%;
+  background: transparent;
 
   h1 {
     font-size: 2rem;
@@ -116,9 +124,10 @@ input:valid + span:after {
 
   tbody {
     font-size: 1.3rem;
+    font-weight: 500;
   }
   td {
-    padding: $ten-pixels $ten-pixels 0;
+    padding: 7px 7px 0;
     text-align: $center;
     &:before {
       content: attr(data-title);
@@ -141,7 +150,7 @@ input:valid + span:after {
   thead {
     font-size: 1.3rem;
     th {
-      background-color: darken($rain, 6%);
+      background-color: transparent;
       padding-right: $ten-pixels;
       color: #fff;
       border: 1px solid darken($rain, 6%);
@@ -156,9 +165,62 @@ input:valid + span:after {
   transform: translateY(-4rem);
 }
 
-.fle img {
-  padding-bottom: 5vh;
+.fle {
+  display: inline-block;
+  position: relative;
 }
+
+.cars img {
+  padding-bottom: 5vh;
+  height: 32rem;
+  width: 48rem;
+}
+
+
+summary {
+  color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  border-radius: 50%;
+  content: round($number: 0);
+  background-size: 90% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(190, 35, 35);
+}
+
+[open] summary {
+ content: square;
+  box-shadow: 0 0 0 2px rgb(12, 11, 11);
+  background-color: rgb(37, 238, 70);
+}
+
+/* for blink/webkit */
+details summary::-webkit-details-marker {
+  display: none;
+}
+/* for firefox */
+details > summary:first-of-type {
+  list-style: none;
+}
+
+summary:focus {
+  box-shadow: 0 0 0 0.25rem #aade87;
+  outline: transparent;
+}
+
+.cars1 img {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: visible;
+}
+
 
 /***************** End of Multiplayer opening page **************************/
 
@@ -352,9 +414,9 @@ input:valid + span:after {
 }
 
 .playGame {
-  width: 150px;
-  height: 50px;
-  margin-left: 10vw;
+  width: 183px;
+  height: 66px;
+  margin-left: 15vw;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;

@@ -77,6 +77,12 @@ export class GameFourComponent implements OnInit {
     ]);
 
     console.log("showDashboard", this.showDashboard);
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce))");
+    const details = document.querySelector(".cars > details");
+    
+    if (mediaQuery.matches) {
+      details.removeAttribute("open");
+    }
 
     this.welcomeAudio.src = 'assets/audio/Level_Select.mp3';
     this.welcomeAudio.load();
@@ -276,6 +282,6 @@ export class GameFourComponent implements OnInit {
 
   ngOnDestroy() {
     this.welcomeAudio.pause();
-    localStorage.clear();
+    //localStorage.clear();
   }
 }
