@@ -451,8 +451,8 @@ summary:focus {
 }
 /********* End of Button section ************/
 
-/******************************************* Laptop screen small to large ************************************************/
-@media only screen and (min-device-width: 1025px) {
+/******************************************* Desktop screen small to large ************************************************/
+@media only screen and (min-width: 1780px) {
   .title {
     text-align: $center;
     padding-top: 4rem;

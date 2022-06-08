@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
@@ -6,7 +6,7 @@ import { Meta, Title } from '@angular/platform-browser';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,OnDestroy {
   title = 'Typer pro';
 
   constructor( private titleService: Title,
@@ -35,5 +35,9 @@ export class AppComponent implements OnInit {
     if (myDropdown.classList.contains('show')) {
       myDropdown.classList.remove('show');
     }
+  }
+
+  ngOnDestroy() {
+    localStorage.clear();
   }
 }
