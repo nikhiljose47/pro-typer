@@ -56,7 +56,6 @@ import { DialogBoxComponent } from './components/common-components/dialog-box/di
     DialogBoxComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
     MatFormFieldModule,
