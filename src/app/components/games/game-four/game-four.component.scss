@@ -25,6 +25,13 @@ $absolute-position: absolute;
   padding-top: 5rem;
 }
 
+.showPlayer {
+  text-align: $center;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  color: yellow;
+  padding-top: 2rem;
+}
 .headings {
   font-size: 2.5rem;
   font-family: sans-serif;
@@ -452,7 +459,7 @@ summary:focus {
 /********* End of Button section ************/
 
 /******************************************* Desktop screen small to large ************************************************/
-@media only screen and (min-width: 1780px) {
+@media only screen and (min-width: 1790px) {
   .title {
     text-align: $center;
     padding-top: 4rem;
@@ -460,12 +467,11 @@ summary:focus {
     h1 {
       padding-bottom: 3rem;
     }
-
-    #multiplayerSection {
-      left: 37%;
-      position: $absolute-position;
-    }
   }
+
+  // #multiplayerSection {
+  //   left: 37%;
+  // }
 }
 
 /* For Tablets */

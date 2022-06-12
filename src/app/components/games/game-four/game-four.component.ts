@@ -48,6 +48,7 @@ export class GameFourComponent implements OnInit {
   isTyperEnabled: boolean = true;
   // show results
   results: any;
+  showPlayer: number;
   finalResult: any;
   validInput: boolean = true;
   btnstate: boolean=false;
@@ -97,6 +98,7 @@ export class GameFourComponent implements OnInit {
       parseInt(localStorage.getItem('playerCount'))
     ) {
       this.showTyper = true;
+      this.showPlayer = parseInt(localStorage.getItem('currentPlayer'));
       this.setTyper();
     } else {
       this.finalResult = JSON.parse(localStorage.getItem('playersList'));
@@ -264,8 +266,6 @@ export class GameFourComponent implements OnInit {
   }
 
   onSubmit() {
-
-   const enteredValue = this.playerCount.nativeElement.value;
     this.showTyper = true;
     this.showDashboard = false;
     localStorage.setItem(
@@ -282,6 +282,7 @@ export class GameFourComponent implements OnInit {
 
   ngOnDestroy() {
     this.welcomeAudio.pause();
-    //localStorage.clear();
+    localStorage.removeItem('currentPlayer');
+    localStorage.removeItem('playersList');
   }
 }

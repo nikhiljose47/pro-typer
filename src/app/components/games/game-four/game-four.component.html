@@ -4,9 +4,6 @@
   </div>
 
   <section id="multiplayerSection" *ngIf="this.showDashboard">
-    <!-- <span class="fle">
-      <img src="assets/racing.gif" class="multiplayer-image" alt="" />
-    </span> -->
 
     <div class="cars">
       <img src="assets/cars6.jpg" alt="Static: Alan Partridge - would it be rude to stop listening to you?" loading="lazy">
@@ -27,7 +24,7 @@
         <span class="validity"></span>
         <label for="number" class="form__label">Players Count</label>
       </div>
-      <button class="playGame" [disabled]="!validInput" (click)="onSubmit()">
+      <button class="playGame" [disabled]="!playerCount.value" (click)="onSubmit()">
         Let's Play
       </button>
     </div>
@@ -36,7 +33,7 @@
   <!-- Start of typer section -->
   <div *ngIf="showTyper">
     <section class="col1">
-      <span> {{this.playerCount}}</span>
+      <div class="showPlayer">PLAYER <b>{{this.showPlayer? this.showPlayer: 1}}</b></div>
       <div class="widgets">
         <div class="dashboard">
           <div class="progress-bg timer">

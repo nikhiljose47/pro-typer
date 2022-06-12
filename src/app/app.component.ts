@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+declare const gtag: Function;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,10 +11,23 @@ import { Meta, Title } from '@angular/platform-browser';
 export class AppComponent implements OnInit,OnDestroy {
   title = 'Typer pro';
 
+
   constructor( private titleService: Title,
-    private metaTagService: Meta) {
+    private metaTagService: Meta,
+    private router: Router) {
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe((event: NavigationEnd) => {
+        /** START : Code to Track Page View  */
+         gtag('event', 'page_view', {
+            page_path: event.urlAfterRedirects
+         })
+        /** END */
+      })
 
   }
+
+
 
   ngOnInit() {
     this.titleService.setTitle("Type Fast: Free Online Typing Test | TyperPro");  

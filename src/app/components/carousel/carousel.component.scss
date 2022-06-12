@@ -1,20 +1,27 @@
 .carousel-container{
   display: inline-flex;
-  margin-top: 4rem;
+  margin-top: 4vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-container-two {
   display: inline-flex;
-  margin-top: 4rem;
-  margin-bottom:4rem;
+  margin-top: 4vh;
+  margin-bottom:4vh;
 }
 
 .card {
-  height: 23rem;
-  width: 18rem;
-  background-color: #89CFF0;
+  height: 45vh;
+  width: 38vh;
+  color: white;
+background: #5F91D3;
+background: -webkit-linear-gradient(top left, #5F91D3, #2EA6EA);
+background: -moz-linear-gradient(top left, #5F91D3, #2EA6EA);
+background: linear-gradient(to bottom right, #5F91D3, #2EA6EA);
   border-radius: 10px;
-  box-shadow: -1rem 0 3rem #000;
   transition: 0.4s ease-out;
   position: relative;
   left: 0px;
@@ -29,7 +36,7 @@
   transition: 0.4s ease-out;
 }
 .col-3 {
-  height: 25rem;
+  height: 35vh;
   justify-content: center;
   display: flex;
   background-color: whitesmoke;
@@ -45,7 +52,8 @@
 .title {
   color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size:1.3rem;
+  font-size: 2rem;
+  padding: 20px 0px 20px;
   background-color: ghostwhite;
   margin-top: 1rem;
   font-weight: 500;
@@ -53,10 +61,10 @@
 }
 .bar {
   position: absolute;
-  top: 4.5rem;
+  top: 10vh;
   left: 2rem;
   height: 6px;
-  width: 12rem;
+  width: 18vw;
 }
 
 .emptybar {
@@ -72,6 +80,7 @@
   position: absolute;
   color:white;
   line-height: 2rem;
+  width: 18vw;
   top: 0px;
   z-index: 3;
   width: 0px;
@@ -82,7 +91,7 @@
 }
 
 .card:hover .filledbar {
-  width: 120px;
+  width: 18vw;
   transition: 0.4s ease-out;
 }
 
@@ -92,7 +101,7 @@
 }
 .card-content {
   position: absolute;
-  top: 7.5rem;
+  top: 8.5rem;
   font-weight: 400;
   padding: 5%;
   letter-spacing: 1px;

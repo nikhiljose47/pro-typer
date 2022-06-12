@@ -86,6 +86,10 @@ export class GameTwoComponent implements OnInit {
       this.difficultySelectionAudio.src = "assets/audio/play_btn.mp3";
       this.difficultySelectionAudio.load();
       this.difficultySelectionAudio.play();
+     // this.difficultySelectionAudio.currentTime = 0;
+      document.getElementById(name).blur();
+     
+      
     }
 
     switch (name) {
@@ -193,6 +197,7 @@ export class GameTwoComponent implements OnInit {
   }
 
   startGhost() {
+    //this.difficultySelectionAudio.pause();
     let e = this.ghostData[this.ghostIndex];
     this.ghostIntervalId = setInterval(() => {
       if (this.prevGhostIndex != -1) {

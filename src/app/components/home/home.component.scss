@@ -51,17 +51,7 @@ $arrow-line-width: 4px;
   text-align: center;
   font-size: $size-small;
   float: right;
-  background: #1d976c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #93f9b9,
-    #1d976c
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #93f9b9,
-    #1d976c
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: rgb(226, 226, 226);
   border-radius: 10px;
 }
 
@@ -153,10 +143,10 @@ svg#clouds {
   border-color: #3498db;
   font-size: 1rem;
   margin-bottom: $size-small;
-  color: #fff;
+  color: black;
   border-radius: 12px;
   padding: 1.5rem 4rem 1.5rem 4rem;
-  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  box-shadow: 0 0 40px 40px #d1f339 inset, 0 0 0 0 #c2cdd4;
   transition: all 150ms ease-in-out;
   margin-right: $size-small;
 
@@ -166,8 +156,9 @@ svg#clouds {
   }
 
   &:disabled {
-    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px #7b8389;
+    box-shadow: none;
     color: black;
+    background-color: lightgray;
   }
 }
 
