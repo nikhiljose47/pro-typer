@@ -77,7 +77,6 @@ export class GameFourComponent implements OnInit {
       { charset: 'UTF-8' }
     ]);
 
-    console.log("showDashboard", this.showDashboard);
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce))");
     const details = document.querySelector(".cars > details");
     
