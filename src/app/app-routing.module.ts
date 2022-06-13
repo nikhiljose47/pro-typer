@@ -11,13 +11,14 @@ const routes: Routes = [
   { path: 'typer-practice', component: TyperPracticeComponent },
   { path: 'game', component: GameTwoComponent },
   { path: 'multiplayer-game', component: GameFourComponent },
+  { path: '**', redirectTo: '/home'}
   // { path: '**',}
     // { path: 'game-one', component: GameOneComponent },
   // { path: 'game-three', component: GameThreeComponent },
   // { path: 'signup', component: RegisterComponent },
   // { path: 'app-login', component: LoginComponent },
   // { path: 'leaderboard', component: LeaderboardComponent }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
