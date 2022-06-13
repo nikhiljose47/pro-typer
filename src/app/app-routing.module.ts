@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'typer-practice', component: TyperPracticeComponent },
   { path: 'game', component: GameTwoComponent },
   { path: 'multiplayer-game', component: GameFourComponent },
-  { path: '**', redirectTo: '/home'}
+  { path: '**', redirectTo: '/home'},
+  {
+    path: '404', redirectTo: '/home'}
   // { path: '**',}
     // { path: 'game-one', component: GameOneComponent },
   // { path: 'game-three', component: GameThreeComponent },
