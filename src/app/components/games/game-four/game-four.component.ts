@@ -36,6 +36,7 @@ export class GameFourComponent implements OnInit {
  //c-progress-bar
   progressColor: ThemePalette = 'accent';
   progressLabel: number=100;
+  timerInterval: ReturnType<typeof setInterval>;
 
   //accuracy
   accuracyColor: ThemePalette = 'accent';
@@ -124,9 +125,9 @@ export class GameFourComponent implements OnInit {
 
   startTimer() {
     this.timer = TIMER;
-    let interval = setInterval(() => {
+    this.timerInterval = setInterval(() => {
       if (this.timer <= 0) {
-        clearInterval(interval);
+        clearInterval(this.timerInterval);
         this.timerFinish();
         this.hasGameBegun = true;
       }
@@ -283,5 +284,6 @@ export class GameFourComponent implements OnInit {
     this.welcomeAudio.pause();
     localStorage.removeItem('currentPlayer');
     localStorage.removeItem('playersList');
+    clearInterval(this.timerInterval);
   }
 }
