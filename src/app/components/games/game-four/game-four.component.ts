@@ -266,18 +266,22 @@ export class GameFourComponent implements OnInit {
   }
 
   onSubmit() {
-    this.showTyper = true;
-    this.showDashboard = false;
-    localStorage.setItem(
-      'playerCount',
-      this.playerCount.nativeElement.value.toString()
-    );
-    if (!localStorage.getItem('currentPlayer')) {
-      localStorage.setItem('currentPlayer', '1');
+    let pCount = parseInt(this.playerCount.nativeElement.value);
+    if(pCount<9 && pCount >1){
+      this.showTyper = true;
+      this.showDashboard = false;
+      localStorage.setItem(
+        'playerCount',
+        this.playerCount.nativeElement.value.toString()
+      );
+      if (!localStorage.getItem('currentPlayer')) {
+        localStorage.setItem('currentPlayer', '1');
+      }
+      if (localStorage.getItem('playersList')) {
+        localStorage.removeItem('playersList');
+      }
     }
-    if (localStorage.getItem('playersList')) {
-      localStorage.removeItem('playersList');
-    }
+    
   }
 
   ngOnDestroy() {

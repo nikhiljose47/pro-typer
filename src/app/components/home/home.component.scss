@@ -151,8 +151,8 @@ svg#clouds {
   margin-right: $size-small;
 
   &:hover {
-    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
     color: black;
+    background-color: #d1ff04;
   }
 
   &:disabled {
