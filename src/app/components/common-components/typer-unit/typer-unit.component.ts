@@ -14,9 +14,11 @@ export class TyperUnitComponent implements AfterViewChecked{
   ngAfterViewChecked(): void {
     if(this.value.state == TyperUnitState.blink)
     {
-      let viewportOffset = document.getElementById('cell-blink').getBoundingClientRect();
-      console.log("raw offset"+viewportOffset.left);
-      this.blinkerPos.emit(viewportOffset.left)
+      setTimeout(()=>
+      {
+        let viewportOffset = document.getElementById('cell-blink').getBoundingClientRect();
+        this.blinkerPos.emit(viewportOffset.left);
+    },1) 
     }
   }
 }
