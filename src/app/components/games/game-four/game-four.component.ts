@@ -284,7 +284,7 @@ export class GameFourComponent implements OnInit {
     
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void{
     this.welcomeAudio.pause();
     localStorage.removeItem('currentPlayer');
     localStorage.removeItem('playersList');
