@@ -68,7 +68,7 @@ export class GameFourComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle("Free offline multiplayer typing test | Typer-Pro");
+    this.titleService.setTitle("Free offline multiplayer typing test | Typer Pro");
     this.metaTagService.addTags([
       { name: 'keywords', content: 'Free Online Typing speed test in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing, Offline multiplayer typing test' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

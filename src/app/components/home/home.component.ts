@@ -49,13 +49,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle(
-      'Typing Speed Online test in 60 Seconds | Typer-Pro'
+      'Typing Speed Online test in 60 Seconds | Typer Pro'
     );
     this.metaTagService.addTags([
       {
         name: 'keywords',
         content:
-          'Free Online Typing speed test in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing',
+          'Free Online Typing speed test in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing, Typer pro, Typing speed, Typing speed test',
       },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {

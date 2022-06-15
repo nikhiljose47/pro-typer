@@ -51,7 +51,7 @@ export class GameTwoComponent implements OnInit {
     document.getElementById("medium-btn").classList.add("active1")
 
 
-    this.titleService.setTitle("Typing Speed Test: Beat the ghost | Typer PRO");  
+    this.titleService.setTitle("Typing Speed Test: Beat the ghost | Typer Pro");  
     this.metaTagService.addTags([  
       { name: 'keywords', content: 'Typing speed game, Online Free Typing Test, Typer Pro, Take free typing test online, Typing online test, Ghost game typing, Beat the typing ghost, Typing speed test, Easy typing test, Medium typing test, Hard typing test , Extreme typing testTyping speed game, Online Typing, Typing online test, Easy typing test, Medium typing test, Hard typing test , Extreme typing test' },  
       { name: 'viewport', content: 'width=device-width, initial-scale=1'},

@@ -30,7 +30,7 @@ export class AppComponent implements OnInit,OnDestroy {
 
 
   ngOnInit() {
-    this.titleService.setTitle("Type Fast: Free Online Typing Test | TyperPro");  
+    this.titleService.setTitle("Type Fast: Free Online Typing Test | Typer Pro");  
     this.metaTagService.addTags([  
       { name: 'keywords', content: 'Free Online Typing Speed Test, Test Your Speed, Online Typing Speed Game,Check WPM, Online Typing Speed Test, WPM, Test Typing Speed in 60s' },  
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
