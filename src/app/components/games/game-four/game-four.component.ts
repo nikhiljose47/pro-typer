@@ -17,7 +17,6 @@ import { ThemePalette } from '@angular/material/core';
 export class GameFourComponent implements OnInit {
   typerText: string = '';
   typerData: any = (data as any).default;
-  hasGameBegun: boolean = false;
   accuracyVal: number = 100;
   rightCount: number = 0;
   charactersTyped: number = 0;
@@ -80,7 +79,10 @@ export class GameFourComponent implements OnInit {
 
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce))");
     const details = document.querySelector(".cars > details");
-    
+    if(localStorage.getItem('currentPlayer') && localStorage.getItem('playerCount')) {
+      localStorage.removeItem('currentPlayer');
+      localStorage.removeItem('playerCount');
+    }
     if (mediaQuery.matches) {
       details.removeAttribute("open");
     }
@@ -129,7 +131,6 @@ export class GameFourComponent implements OnInit {
       if (this.timer <= 0) {
         clearInterval(this.timerInterval);
         this.timerFinish();
-        this.hasGameBegun = true;
       }
       if (this.timer > 0) {
         this.progressColor = this.timerPercent>69?'warn':this.timerPercent>49?'primary':'accent';
@@ -179,7 +180,6 @@ export class GameFourComponent implements OnInit {
 
   timerFinish() {
     this.timerFinishIndicator = true;
-    this.welcomeAudio.pause();
     let dialogRef = this.dialog.open(TyperResultComponent, {
       height: '300px',
       width: '600px',
@@ -280,6 +280,7 @@ export class GameFourComponent implements OnInit {
       if (localStorage.getItem('playersList')) {
         localStorage.removeItem('playersList');
       }
+      this.welcomeAudio.pause();
     }
     
   }

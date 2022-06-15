@@ -1,6 +1,6 @@
-.carousel-container{
-  margin-top: 4vh;
-  height: 100vh;
+.carousel-container {
+  height: 80vh;
+  background-color: #45bcf7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,10 +10,10 @@
   height: 45vh;
   width: 38vh;
   color: white;
-background: #5F91D3;
-background: -webkit-linear-gradient(top left, #5F91D3, #2EA6EA);
-background: -moz-linear-gradient(top left, #5F91D3, #2EA6EA);
-background: linear-gradient(to bottom right, #5F91D3, #2EA6EA);
+  background: #5f91d3;
+  background: -webkit-linear-gradient(top left, #5f91d3, #2ea6ea);
+  background: -moz-linear-gradient(top left, #5f91d3, #2ea6ea);
+  background: linear-gradient(to bottom right, #5f91d3, #2ea6ea);
   border-radius: 10px;
   transition: 0.4s ease-out;
   position: relative;
@@ -21,7 +21,7 @@ background: linear-gradient(to bottom right, #5F91D3, #2EA6EA);
 }
 
 .card:not(:first-child) {
-    margin-left: 50px;
+  margin-left: 50px;
 }
 
 .card:hover {
@@ -32,10 +32,9 @@ background: linear-gradient(to bottom right, #5F91D3, #2EA6EA);
   height: 35vh;
   justify-content: center;
   display: flex;
-  background-color: whitesmoke;
+  background-color: rgb(212, 205, 205);
   align-items: center;
 }
-
 
 .card:hover ~ .card {
   position: relative;
@@ -63,23 +62,28 @@ background: linear-gradient(to bottom right, #5F91D3, #2EA6EA);
 .emptybar {
   position: absolute;
   background-color: #3665ac;
-  color:white;
-  display:flex;
+  color: white;
+  display: flex;
   width: 100%;
   height: 100%;
 }
 
 .filledbar {
   position: absolute;
-  color:white;
+  color: white;
   line-height: 2rem;
   width: 18vw;
   top: 0px;
   z-index: 3;
   width: 0px;
   height: 100%;
-  background: rgb(0,154,217);
-  background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+  background: rgb(0, 154, 217);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 154, 217, 1) 0%,
+    rgba(217, 147, 0, 1) 65%,
+    rgba(255, 186, 0, 1) 100%
+  );
   transition: 0.6s ease-out;
 }
 
@@ -100,6 +104,6 @@ background: linear-gradient(to bottom right, #5F91D3, #2EA6EA);
   letter-spacing: 1px;
   border: 2px solid #0039a6;
   color: black;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   line-height: 2rem;
 }

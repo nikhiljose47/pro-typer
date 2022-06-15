@@ -33,7 +33,7 @@ export class TyperComponent implements OnInit {
   initialLeftOffset: number = 0.0;
   leftOffset: number = 0.0;
   isInitialOffsetVal: boolean = true;
-  offsetSum: number = 0;
+  offsetSum: number = 20;
   typerUnits: TyperUnit[] = [];
   wrongAudio: any = new Audio();
 
@@ -92,9 +92,9 @@ export class TyperComponent implements OnInit {
         this.wordUpdate.emit();
       }
       this.updateVal.emit(true);
-      // console.log("inital", this.initialLeftOffset)
-      // console.log("left", this.leftOffset)
-      //  console.log("diff",this.leftOffset - this.initialLeftOffset)
+       console.log("inital", this.initialLeftOffset)
+       console.log("left", this.leftOffset)
+       console.log("diff",this.leftOffset - this.initialLeftOffset)
       if (this.leftOffset - this.initialLeftOffset > 0) {
         this.offsetSum += this.leftOffset - this.initialLeftOffset;
         this.viewport.scrollTo({ start: this.offsetSum });

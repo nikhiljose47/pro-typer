@@ -70,15 +70,7 @@
         <app-typer [data]="typerText" (result)="typerFinish($event)" (wordUpdate)="wordUpdate()"
           (updateVal)="typerUpdate($event)" [typerActive]="isTyperEnabled"></app-typer>
       </div>
-
-      <div class="card-container">
-        <button id="reset" class="typerBtn" type="button" [disabled]="!timerFinishIndicator" (click)="playAgain()">
-          Play Again
-        </button>
-        <button id="reset" class="typerBtn" type="button" [disabled]="!timerFinishIndicator" (click)="changeTyper()">
-          Change Text
-        </button>
-      </div>
+      
     </section>
   </div>
   <!-- End of typer section -->

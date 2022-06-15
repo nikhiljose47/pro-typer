@@ -56,6 +56,7 @@ $absolute-position: absolute;
 
 #multiplayerSection {
   left: 28%;
+  right:25%;
   position: $absolute-position;
 }
 
@@ -199,7 +200,7 @@ summary {
   height: 1.5rem;
   position: absolute;
   top: 0.5rem;
-  right: 0.5rem;
+  right: 5.5vw;
   z-index: 2;
   border-radius: 50%;
   content: round($number: 0);
@@ -404,30 +405,7 @@ summary:focus {
 }
 /* !!!!!!!!!!!!! End of Card section !!!!!!!!!!!!!!! */
 
-/********* Start of Button section ************/
 
-.typerBtn {
-  border-color: #3498db;
-  font-size: 1rem;
-  margin-bottom: $size-small;
-  color: #fff;
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem 4rem 1.5rem 4rem;
-  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-  transition: all 150ms ease-in-out;
-  margin-right: $size-small;
-
-  &:hover {
-    box-shadow: 0 0 $ten-pixels 0 $blue inset, 0 0 $ten-pixels 4px $blue;
-    color: black;
-  }
-
-  &:disabled {
-    box-shadow: 0 0 $ten-pixels 0 $blue inset, 0 0 $ten-pixels 4px #7b8389;
-    color: black;
-  }
-}
 
 .playGame {
   width: 183px;
@@ -475,7 +453,7 @@ summary:focus {
 }
 
 /* For Tablets */
-@media screen and (min-width: 540px) and (max-width: 834px) {
+@media screen and (min-width: 540px) and (max-width: 964px) {
   .title h1 {
     font-size: $size-small;
   }
@@ -503,8 +481,21 @@ summary:focus {
     margin-top: 5rem;
   }
 
+  #multiplayerSection {
+    left: 10%;
+    }
+
   .typerBtn {
     padding: 1.5rem 2.8rem 1.5rem 2.8rem;
     font-size: $size-small;
   }
 }
+
+@media screen and (min-width: 965px) and (max-width: 1240px) {
+
+ #multiplayerSection {
+  left: 16%;
+  }
+
+}
+

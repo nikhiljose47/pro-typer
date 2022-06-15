@@ -1,7 +1,7 @@
 <div class="section-body" [style.background]="!hasGameBegun? 'linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)' 
 : 'linear-gradient(to top, #45BCF7, #45BCF7, #FFFFFF)'">
   <div class="title">
-    <h2>TYPER PRO</h2>
+    <h2>TYPING TEST ONLINE</h2>
     <h1>Check your typing speed now</h1>
   </div>
 
@@ -21,7 +21,7 @@
       </div>
 
       <div class="accuracy-bg">
-        <span id="accuracy-label">99<span id="accuracy-label-sub-percent">%</span>
+        <span id="accuracy-label">{{this.accuracyVal}}<span id="accuracy-label-sub-percent">%</span>
         </span>
         <div id="accuracy-label-sub">accuracy</div>
 

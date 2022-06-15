@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
       {
         name: 'description',
         content:
-          'With our free online typing speed test, you can check your Words Per Minute and accuracy in a flash!. Become a fast typer with high accuracy with our typing test and typing games.',
+          'Online typing test, to see how fast you type. Featuring a fun way to improve typing speed, ghost games, multiplayer typing game, practice freely. Play with your friends offline, check your wpm and accuracy levels and more.',
       },
       {
         name: 'og:description',
