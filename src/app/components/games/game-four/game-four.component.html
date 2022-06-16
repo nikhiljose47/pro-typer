@@ -33,7 +33,7 @@
   <!-- Start of typer section -->
   <div *ngIf="showTyper">
     <section class="col1">
-      <div class="showPlayer">PLAYER <b>{{this.showPlayer? this.showPlayer: 1}}</b></div>
+      <div class="showPlayer"><b><i>PLAYER {{this.showPlayer? this.showPlayer: 1}}</i></b></div>
       <div class="widgets">
         <div class="dashboard">
           <div class="progress-bg timer">
@@ -70,7 +70,7 @@
         <app-typer [data]="typerText" (result)="typerFinish($event)" (wordUpdate)="wordUpdate()"
           (updateVal)="typerUpdate($event)" [typerActive]="isTyperEnabled"></app-typer>
       </div>
-      
+
     </section>
   </div>
   <!-- End of typer section -->
