@@ -21,20 +21,20 @@ export class GameFourComponent implements OnInit {
   rightCount: number = 0;
   charactersTyped: number = 0;
   timer: number = TIMER;
-  seconds: string = "Sec";
+  seconds: string = 'Sec';
   timerPercent: number = 0;
   timerLabel: string = TIMER.toString();
   isTyperInitial: boolean = true;
-  wpmLabel: string = "0";
+  wpmLabel: string = '0';
   delays: Array<number> = [];
   prevDelay: number = 0;
   startms: number = 0;
   timerlabel: string;
   percentIndicator: number;
   timerFinishIndicator: boolean = false;
- //c-progress-bar
+  //c-progress-bar
   progressColor: ThemePalette = 'accent';
-  progressLabel: number=100;
+  progressLabel: number = 100;
   timerInterval: ReturnType<typeof setInterval>;
 
   //accuracy
@@ -51,7 +51,7 @@ export class GameFourComponent implements OnInit {
   showPlayer: number;
   finalResult: any;
   validInput: boolean = true;
-  btnstate: boolean=false;
+  btnstate: boolean = false;
   showPlayArea = true;
   showDashboard: boolean = false;
   currentPlayer: number;
@@ -67,24 +67,41 @@ export class GameFourComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle("Free offline multiplayer typing test | Typer Pro");
+    this.titleService.setTitle(
+      'Free offline multiplayer typing test | Typer Pro'
+    );
     this.metaTagService.addTags([
-      { name: 'keywords', content: 'Free Online Typing speed test in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing, Offline multiplayer typing test' },
+      {
+        name: 'keywords',
+        content:
+          'Free Online Typing speed test in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing, Offline multiplayer typing test',
+      },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'description', content: 'With the multiplayer game, you can compete with your friends, you can check your Words Per Minute and accuracy in a flash!. The more you compete and practise, the more chances to improve your typing speed.'},
-      { name: 'og:description', content: 'Welcome to the #1 Typing Speed Multiplayer game! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed'},
-      { name:'og:type', content: 'website'},
-      { charset: 'UTF-8' }
+      {
+        name: 'description',
+        content:
+          'With the multiplayer game, you can compete with your friends, you can check your Words Per Minute and accuracy in a flash!. The more you compete and practise, the more chances to improve your typing speed.',
+      },
+      {
+        name: 'og:description',
+        content:
+          'Welcome to the #1 Typing Speed Multiplayer game! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed',
+      },
+      { name: 'og:type', content: 'website' },
+      { charset: 'UTF-8' },
     ]);
 
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce))");
-    const details = document.querySelector(".cars > details");
-    if(localStorage.getItem('currentPlayer') && localStorage.getItem('playerCount')) {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce))');
+    const details = document.querySelector('.cars > details');
+    if (
+      localStorage.getItem('currentPlayer') &&
+      localStorage.getItem('playerCount')
+    ) {
       localStorage.removeItem('currentPlayer');
       localStorage.removeItem('playerCount');
     }
     if (mediaQuery.matches) {
-      details.removeAttribute("open");
+      details.removeAttribute('open');
     }
 
     this.welcomeAudio.src = 'assets/audio/Level_Select.mp3';
@@ -104,7 +121,7 @@ export class GameFourComponent implements OnInit {
       this.setTyper();
     } else {
       this.finalResult = JSON.parse(localStorage.getItem('playersList'));
-      if(this.finalResult && this.finalResult.length) {
+      if (this.finalResult && this.finalResult.length) {
         this.results = this.finalResult.reverse();
       }
       this.showResults();
@@ -116,8 +133,8 @@ export class GameFourComponent implements OnInit {
   }
 
   setTyper() {
-    let counter = localStorage.getItem('typerCounter') ?? '0';
-    this.typerText = this.typerData[parseInt(counter)].value;
+    let index = this.getRandomInt(this.typerData.length);
+    this.typerText = this.typerData[index].value;
   }
 
   startGame() {
@@ -133,13 +150,18 @@ export class GameFourComponent implements OnInit {
         this.timerFinish();
       }
       if (this.timer > 0) {
-        this.progressColor = this.timerPercent>69?'warn':this.timerPercent>49?'primary':'accent';
+        this.progressColor =
+          this.timerPercent > 69
+            ? 'warn'
+            : this.timerPercent > 49
+            ? 'primary'
+            : 'accent';
         this.timer--;
-        this.timerPercent = 100 * (TIMER - this.timer) / TIMER;
+        this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
         this.timerLabel = this.timer.toString();
-        this.progressLabel = 100-this.timerPercent;
+        this.progressLabel = 100 - this.timerPercent;
       }
-    }, 1000)
+    }, 1000);
   }
 
   openDialog() {
@@ -170,12 +192,8 @@ export class GameFourComponent implements OnInit {
     // this.showPlayArea = false;
   }
 
-  changeTyper() {
-    let data = localStorage.getItem('typerCounter') ?? '0';
-    let counter = parseInt(data);
-    let newCounter = ++counter % this.typerData.length;
-    localStorage.setItem('typerCounter', newCounter.toString());
-    this.playAgain();
+  getRandomInt(max): number {
+    return Math.floor(Math.random() * max);
   }
 
   timerFinish() {
@@ -254,8 +272,15 @@ export class GameFourComponent implements OnInit {
   }
 
   accuracyUpdate() {
-    this.accuracyVal = (Math.round((this.rightCount / this.charactersTyped) * 100));
-    this.accuracyColor = this.accuracyVal<20?'warn':this.accuracyVal<60?'primary':'accent';
+    this.accuracyVal = Math.round(
+      (this.rightCount / this.charactersTyped) * 100
+    );
+    this.accuracyColor =
+      this.accuracyVal < 20
+        ? 'warn'
+        : this.accuracyVal < 60
+        ? 'primary'
+        : 'accent';
   }
 
   //re-work needed
@@ -267,7 +292,7 @@ export class GameFourComponent implements OnInit {
 
   onSubmit() {
     let pCount = parseInt(this.playerCount.nativeElement.value);
-    if(pCount<9 && pCount >1){
+    if (pCount < 9 && pCount > 1) {
       this.showTyper = true;
       this.showDashboard = false;
       localStorage.setItem(
@@ -282,10 +307,9 @@ export class GameFourComponent implements OnInit {
       }
       this.welcomeAudio.pause();
     }
-    
   }
 
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.welcomeAudio.pause();
     localStorage.removeItem('currentPlayer');
     localStorage.removeItem('playersList');

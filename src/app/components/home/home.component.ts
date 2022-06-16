@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
       {
         name: 'description',
         content:
-          'Online typing test, to see how fast you type. Featuring a fun way to improve typing speed, ghost games, multiplayer typing game, practice freely. Play with your friends offline, check your wpm and accuracy levels and more.',
+          'Online typing test, to see how fast you type. Featuring a fun way to improve typing speed, play ghost games, multiplayer typing game, practice freely. Play with your friends offline, check your wpm and accuracy levels and more.',
       },
       {
         name: 'og:description',
@@ -103,6 +103,7 @@ export class HomeComponent implements OnInit {
         wpm: this.wpmLabel,
         accuracy: this.accuracyVal,
       },
+      disableClose:true,
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);

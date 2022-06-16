@@ -33,7 +33,7 @@ export class TyperComponent implements OnInit {
   initialLeftOffset: number = 0.0;
   leftOffset: number = 0.0;
   isInitialOffsetVal: boolean = true;
-  offsetSum: number = 20;
+  offsetSum: number = 0;
   typerUnits: TyperUnit[] = [];
   wrongAudio: any = new Audio();
 
