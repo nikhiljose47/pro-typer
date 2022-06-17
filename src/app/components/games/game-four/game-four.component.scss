@@ -41,7 +41,7 @@ $absolute-position: absolute;
 }
 
 .headings {
-  font-size: 2.5rem;
+  font-size: 2.5vw;
   font-family: sans-serif;
   padding-bottom: 3rem;
   font-weight: 700;
@@ -190,15 +190,10 @@ input:valid + span:after {
   transform: translateY(-4rem);
 }
 
-.fle {
-  display: inline-block;
-  position: relative;
-}
-
 .cars img {
-  padding-bottom: 5vh;
-  height: 32rem;
-  width: 48rem;
+  margin-bottom: 5vh;
+  height: 50vh;
+  width: 45vw;
 }
 
 
@@ -238,11 +233,12 @@ summary:focus {
   outline: transparent;
 }
 
-.cars1 img {
-  display: inline-block;
+.cars1 video {
   position: absolute;
   top: 0px;
   left: 0px;
+  height: 50vh;
+  width: 45vw;
   overflow: visible;
 }
 
@@ -504,6 +500,15 @@ summary:focus {
  #multiplayerSection {
   left: 16%;
   }
+
+  .cars img {
+    margin-bottom: 3vh;
+    height: 40vh;
+    width: 35vw;
+  }
+  
+
+
 
 }
 

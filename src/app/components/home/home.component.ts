@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
     if (localStorage.getItem('typerCounter') == null)
       localStorage.setItem('typerCounter', '0');
     if (localStorage.getItem('hasGameBegun') == null) {
-      localStorage.setItem('hasGameBegun', '1');
+     localStorage.setItem('hasGameBegun', '1');
     } else {
       this.hasGameBegun = true;
     }
@@ -207,5 +207,9 @@ export class HomeComponent implements OnInit {
 
   ngOnDestroy(): void {
     clearInterval(this.timerInterval);
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 }
