@@ -41,7 +41,7 @@ $absolute-position: absolute;
 }
 
 .headings {
-  font-size: 2.5vw;
+  font-size: 2.4vw;
   font-family: sans-serif;
   padding-bottom: 3rem;
   font-weight: 700;
@@ -58,14 +58,15 @@ $absolute-position: absolute;
 }
 
 #playArea {
-  margin-left: 2vw;
-  display: inline-flex;
+  margin-left: 1vw;
+  display: flex;
+  justify-content: center;
 }
 
 #multiplayerSection {
-  left: 28%;
-  right:25%;
-  position: $absolute-position;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .form__label {
@@ -86,11 +87,11 @@ $absolute-position: absolute;
   font-weight: 400;
   margin: 0 auto;
   display: block;
-  padding: 20px 120px;
+  padding: 20px 50px 20px;
   border-radius: 0.2rem;
   background-color: white;
   border: none;
-  width: 80%;
+  width: 100%;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
 }
@@ -99,8 +100,8 @@ input:invalid + span:after {
   content: "✖";
   color: red;
   position: $absolute-position;
-  top: 84.5%;
-  left: 42%;
+  top: 81%;
+  left: 50%;
   font-size: 1.9rem;
   background-color: white;
 }
@@ -109,9 +110,9 @@ input:valid + span:after {
   content: "✓";
   color: green;
   position: $absolute-position;
-  top: 84.5%;
-  left: 42%;
-  font-size: 1.9rem;
+  top: 81%;
+  left: 50%;
+  font-size: 1.7rem;
   background-color: white;
 }
 
@@ -192,54 +193,12 @@ input:valid + span:after {
 
 .cars img {
   padding-bottom: 5vh;
-  height: 32rem;
-  width: 48rem;
+  height: 50vh;
+  width: 48vw;
 }
 
 
-summary {
-  color: #fff;
-  width: 1.5rem;
-  height: 1.5rem;
-  position: absolute;
-  top: 0.5rem;
-  right: 5.5vw;
-  z-index: 2;
-  border-radius: 50%;
-  content: round($number: 0);
-  background-size: 90% auto;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: rgb(190, 35, 35);
-}
 
-[open] summary {
- content: square;
-  box-shadow: 0 0 0 2px rgb(12, 11, 11);
-  background-color: rgb(37, 238, 70);
-}
-
-/* for blink/webkit */
-details summary::-webkit-details-marker {
-  display: none;
-}
-/* for firefox */
-details > summary:first-of-type {
-  list-style: none;
-}
-
-summary:focus {
-  box-shadow: 0 0 0 0.25rem #aade87;
-  outline: transparent;
-}
-
-.cars1 img {
-  display: inline-block;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: visible;
-}
 
 
 /***************** End of Multiplayer opening page **************************/
@@ -413,7 +372,7 @@ summary:focus {
 .playGame {
   width: 183px;
   height: 66px;
-  margin-left: 15vw;
+  margin-left: 8vw;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;

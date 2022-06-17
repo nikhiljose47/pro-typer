@@ -8,6 +8,7 @@ import * as data from 'src/app/data/typer-data.json';
 import { TyperResultComponent } from 'src/app/components/typer-result/typer-result.component';
 import { DialogBoxComponent } from 'src/app/components/common-components/dialog-box/dialog-box.component';
 import { ThemePalette } from '@angular/material/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-four',
@@ -63,7 +64,8 @@ export class GameFourComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private metaTagService: Meta,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -97,8 +99,7 @@ export class GameFourComponent implements OnInit {
       localStorage.getItem('hasGameBegun') &&
       localStorage.getItem('typerCounter')
     ) {
-      localStorage.removeItem('hasGameBegun');
-      localStorage.removeItem('typerCounter');
+      this.clearLocalStorage();
     }
     if (mediaQuery.matches) {
       details.removeAttribute('open');
@@ -130,6 +131,11 @@ export class GameFourComponent implements OnInit {
         localStorage.removeItem('playerCount');
       }
     }
+  }
+
+  clearLocalStorage() {
+    localStorage.removeItem('playersList');
+    localStorage.removeItem('typerCounter');
   }
 
   setTyper() {
@@ -185,7 +191,16 @@ export class GameFourComponent implements OnInit {
     localStorage.setItem('currentPlayer', cPlayer.toString());
     // this.showPlayArea = false;
     window.location.reload();
+    this.reloadComponent();
   }
+
+  reloadComponent() {
+    let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
+  
 
   showResults() {
     this.showDashboard = true;
@@ -240,10 +255,6 @@ export class GameFourComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       this.nextPlayer();
     });
-  }
-
-  playAgain() {
-    window.location.reload();
   }
 
   typerFinish(typerUnits: TyperUnit[]) {
@@ -311,8 +322,6 @@ export class GameFourComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.welcomeAudio.pause();
-    localStorage.removeItem('currentPlayer');
-    localStorage.removeItem('playersList');
     clearInterval(this.timerInterval);
   }
 }

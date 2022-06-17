@@ -83,7 +83,7 @@ export class GameTwoComponent implements OnInit {
         item.remove("active1");
       }
       document.getElementById(name).classList.add("active1");
-      this.difficultySelectionAudio.src = "assets/audio/play_btn.mp3";
+      this.difficultySelectionAudio.src = "assets/audio/difficulty.mp3";
       this.difficultySelectionAudio.load();
       this.difficultySelectionAudio.play();
      // this.difficultySelectionAudio.currentTime = 0;
