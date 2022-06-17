@@ -191,9 +191,9 @@ input:valid + span:after {
 }
 
 .cars img {
-  margin-bottom: 5vh;
-  height: 50vh;
-  width: 45vw;
+  padding-bottom: 5vh;
+  height: 32rem;
+  width: 48rem;
 }
 
 
@@ -233,12 +233,11 @@ summary:focus {
   outline: transparent;
 }
 
-.cars1 video {
+.cars1 img {
+  display: inline-block;
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 50vh;
-  width: 45vw;
   overflow: visible;
 }
 
