@@ -64,7 +64,7 @@ export class GameFourComponent implements OnInit {
     public dialog: MatDialog,
     private metaTagService: Meta,
     private titleService: Title
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.titleService.setTitle(
@@ -94,11 +94,11 @@ export class GameFourComponent implements OnInit {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce))');
     const details = document.querySelector('.cars > details');
     if (
-      localStorage.getItem('currentPlayer') &&
-      localStorage.getItem('playerCount')
+      localStorage.getItem('hasGameBegun') &&
+      localStorage.getItem('typerCounter')
     ) {
-      localStorage.removeItem('currentPlayer');
-      localStorage.removeItem('playerCount');
+      localStorage.removeItem('hasGameBegun');
+      localStorage.removeItem('typerCounter');
     }
     if (mediaQuery.matches) {
       details.removeAttribute('open');
@@ -106,8 +106,8 @@ export class GameFourComponent implements OnInit {
 
     this.welcomeAudio.src = 'assets/audio/Level_Select.mp3';
     this.welcomeAudio.load();
-    this.welcomeAudio.loop = false;
     this.welcomeAudio.play();
+    this.welcomeAudio.loop = false;
     this.btnstate = true;
     this.isTyperEnabled = true;
     this.setTyper();
@@ -154,8 +154,8 @@ export class GameFourComponent implements OnInit {
           this.timerPercent > 69
             ? 'warn'
             : this.timerPercent > 49
-            ? 'primary'
-            : 'accent';
+              ? 'primary'
+              : 'accent';
         this.timer--;
         this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
         this.timerLabel = this.timer.toString();
@@ -279,8 +279,8 @@ export class GameFourComponent implements OnInit {
       this.accuracyVal < 20
         ? 'warn'
         : this.accuracyVal < 60
-        ? 'primary'
-        : 'accent';
+          ? 'primary'
+          : 'accent';
   }
 
   //re-work needed
@@ -295,6 +295,7 @@ export class GameFourComponent implements OnInit {
     if (pCount < 9 && pCount > 1) {
       this.showTyper = true;
       this.showDashboard = false;
+    }
       localStorage.setItem(
         'playerCount',
         this.playerCount.nativeElement.value.toString()
@@ -306,7 +307,6 @@ export class GameFourComponent implements OnInit {
         localStorage.removeItem('playersList');
       }
       this.welcomeAudio.pause();
-    }
   }
 
   ngOnDestroy(): void {
