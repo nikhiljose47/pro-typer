@@ -30,6 +30,7 @@ export class GameFourComponent implements OnInit {
   delays: Array<number> = [];
   prevDelay: number = 0;
   startms: number = 0;
+  isMuted: boolean = false;
   timerlabel: string;
   percentIndicator: number;
   timerFinishIndicator: boolean = false;
@@ -65,8 +66,8 @@ export class GameFourComponent implements OnInit {
     public dialog: MatDialog,
     private metaTagService: Meta,
     private titleService: Title,
-    private router: Router,
-  ) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.titleService.setTitle(
@@ -95,17 +96,21 @@ export class GameFourComponent implements OnInit {
 
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce))');
     const details = document.querySelector('.cars > details');
-    if (
-      localStorage.getItem('hasGameBegun') &&
-      localStorage.getItem('typerCounter')
-    ) {
+
+    /* Clearing game data on visiting other routes */
+    if (localStorage.getItem('typerCounter')) {
       this.clearLocalStorage();
     }
+
+    if (!localStorage.getItem('playersList')) {
+      localStorage.removeItem('playersList');
+    }
+
     if (mediaQuery.matches) {
       details.removeAttribute('open');
     }
 
-    this.welcomeAudio.src = 'assets/audio/Level_Select.mp3';
+    this.welcomeAudio.src = 'assets/audio/Level-Select.mp3';
     this.welcomeAudio.load();
     this.welcomeAudio.play();
     this.welcomeAudio.loop = false;
@@ -118,6 +123,7 @@ export class GameFourComponent implements OnInit {
       parseInt(localStorage.getItem('playerCount'))
     ) {
       this.showTyper = true;
+      this.welcomeAudio.pause();
       this.showPlayer = parseInt(localStorage.getItem('currentPlayer'));
       this.setTyper();
     } else {
@@ -135,6 +141,8 @@ export class GameFourComponent implements OnInit {
 
   clearLocalStorage() {
     localStorage.removeItem('playersList');
+    localStorage.removeItem('playerCount');
+    this.welcomeAudio.pause();
     localStorage.removeItem('typerCounter');
   }
 
@@ -160,8 +168,8 @@ export class GameFourComponent implements OnInit {
           this.timerPercent > 69
             ? 'warn'
             : this.timerPercent > 49
-              ? 'primary'
-              : 'accent';
+            ? 'primary'
+            : 'accent';
         this.timer--;
         this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
         this.timerLabel = this.timer.toString();
@@ -190,17 +198,15 @@ export class GameFourComponent implements OnInit {
     cPlayer++;
     localStorage.setItem('currentPlayer', cPlayer.toString());
     // this.showPlayArea = false;
-    window.location.reload();
     this.reloadComponent();
   }
 
   reloadComponent() {
     let currentUrl = this.router.url;
-        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-        this.router.onSameUrlNavigation = 'reload';
-        this.router.navigate([currentUrl]);
-    }
-  
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+  }
 
   showResults() {
     this.showDashboard = true;
@@ -290,8 +296,8 @@ export class GameFourComponent implements OnInit {
       this.accuracyVal < 20
         ? 'warn'
         : this.accuracyVal < 60
-          ? 'primary'
-          : 'accent';
+        ? 'primary'
+        : 'accent';
   }
 
   //re-work needed
@@ -307,17 +313,26 @@ export class GameFourComponent implements OnInit {
       this.showTyper = true;
       this.showDashboard = false;
     }
-      localStorage.setItem(
-        'playerCount',
-        this.playerCount.nativeElement.value.toString()
-      );
-      if (!localStorage.getItem('currentPlayer')) {
-        localStorage.setItem('currentPlayer', '1');
-      }
-      if (localStorage.getItem('playersList')) {
-        localStorage.removeItem('playersList');
-      }
+    localStorage.setItem(
+      'playerCount',
+      this.playerCount.nativeElement.value.toString()
+    );
+    if (!localStorage.getItem('currentPlayer')) {
+      localStorage.setItem('currentPlayer', '1');
+    }
+    if (localStorage.getItem('playersList')) {
+      localStorage.removeItem('playersList');
+    }
+    this.welcomeAudio.pause();
+  }
+
+  playSound() {
+    this.isMuted = !this.isMuted;
+    if (this.isMuted) {
       this.welcomeAudio.pause();
+    } else {
+      this.welcomeAudio.play();
+    }
   }
 
   ngOnDestroy(): void {

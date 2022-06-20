@@ -6,20 +6,24 @@
   <section id="multiplayerSection" *ngIf="this.showDashboard">
 
     <div class="cars">
-      <img src="assets/cars6.jpg" alt="Static: Alan Partridge - would it be rude to stop listening to you?" loading="lazy">
+      <img src="assets/racing.gif" alt="Static: Typer Pro Multiplayer - Typing speed check with friends?"
+        loading="lazy">
     </div>
   </section>
 
   <div id="playArea" *ngIf="this.showDashboard">
+    <div class="GlobalVolume"><button class="mute_interactive" (click)="playSound()">{{isMuted? 'Music ON' : 'Music
+        OFF'}}</button></div>
     <div class="form__group">
-      <input #playerCount type="number" class="form__input" name="playerCount" placeholder="Choose 2-8"
-        pattern="[2-8]" min="2" max="8" value="2" required="" />
+      <input #playerCount type="number" class="form__input" name="playerCount" placeholder="Choose 2-8" pattern="[2-8]"
+        min="2" max="8" value="2" required="" />
       <span class="validity"></span>
       <label for="number" class="form__label">No of players</label>
     </div>
     <button class="playGame" [disabled]="!playerCount.value" (click)="onSubmit()">
       Let's Play
     </button>
+
   </div>
 
   <!-- Start of typer section -->

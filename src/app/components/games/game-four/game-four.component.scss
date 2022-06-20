@@ -11,7 +11,7 @@ $absolute-position: absolute;
 
 #bg {
   width: $percentage;
-  height: 70rem;
+  height: 120vh;
   background: #000428;
   background: -webkit-linear-gradient(to right, #004e92, #000428);
   background: linear-gradient(to right, #004e92, #000428);
@@ -36,12 +36,12 @@ $absolute-position: absolute;
 
 @keyframes ghost-blinker {
   50% {
-    color: transparent
+    color: transparent;
   }
 }
 
 .headings {
-  font-size: 2.4vw;
+  font-size: 2.5rem;
   font-family: sans-serif;
   padding-bottom: 3rem;
   font-weight: 700;
@@ -64,9 +64,9 @@ $absolute-position: absolute;
 }
 
 #multiplayerSection {
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form__label {
@@ -85,8 +85,10 @@ align-items: center;
   color: #333;
   font-size: 1.2rem;
   font-weight: 400;
-  margin: 0 auto;
+  margin-left: 1vw;
+  margin-right: 1vw;
   display: block;
+  border-radius: 5px;
   padding: 20px 50px 20px;
   border-radius: 0.2rem;
   background-color: white;
@@ -100,8 +102,8 @@ input:invalid + span:after {
   content: "✖";
   color: red;
   position: $absolute-position;
-  top: 81%;
-  left: 50%;
+  top: 94%;
+  left: 48%;
   font-size: 1.9rem;
   background-color: white;
 }
@@ -110,8 +112,8 @@ input:valid + span:after {
   content: "✓";
   color: green;
   position: $absolute-position;
-  top: 81%;
-  left: 50%;
+  top: 94%;
+  left: 48%;
   font-size: 1.7rem;
   background-color: white;
 }
@@ -128,7 +130,7 @@ input:valid + span:after {
   background-color: transparent;
   font-size: 2.2rem;
   color: aqua;
-  left: 29%;
+  left: 32%;
   background: transparent;
 
   h1 {
@@ -143,16 +145,16 @@ input:valid + span:after {
   tbody {
     font-size: 1.3rem;
     border-bottom: 1px solid darken($rain, 6%);
-    border-left:1px solid darken($rain, 6%);
-    border-right:1px solid darken($rain, 6%);
+    border-left: 1px solid darken($rain, 6%);
+    border-right: 1px solid darken($rain, 6%);
     font-weight: 500;
   }
   td {
     padding: 7px 7px 0;
     text-align: $center;
     border-bottom: 1px solid darken($rain, 6%);
-    border-left:1px solid darken($rain, 6%);
-    border-right:1px solid darken($rain, 6%);
+    border-left: 1px solid darken($rain, 6%);
+    border-right: 1px solid darken($rain, 6%);
     &:before {
       content: attr(data-title);
       color: lighten($rain, 35%);
@@ -168,7 +170,7 @@ input:valid + span:after {
   }
 
   th {
-    text-align: $center;
+    text-align: start;
     padding-right: $ten-pixels;
     font-weight: 700;
     border: 1px solid darken($rain, 6%);
@@ -193,13 +195,27 @@ input:valid + span:after {
 
 .cars img {
   padding-bottom: 5vh;
-  height: 50vh;
-  width: 48vw;
+  height: 30rem;
+  width: 40rem;
 }
 
+.mute_interactive {
+  width: 183px;
+  height: 66px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(21, 233, 169);
+  color: black;
+  border-radius: 10px;
+  border: 2px solid black;
+  box-shadow: 0 5px 15px rgba(145, 92, 182, 0.4);
+}
 
-
-
+.mute_interactive:focus {
+  background-color: rgb(230, 233, 21);
+  outline: rgb(0, 255, 106) auto 5px;
+}
 
 /***************** End of Multiplayer opening page **************************/
 
@@ -367,20 +383,18 @@ input:valid + span:after {
 }
 /* !!!!!!!!!!!!! End of Card section !!!!!!!!!!!!!!! */
 
-
-
 .playGame {
   width: 183px;
   height: 66px;
-  margin-left: 8vw;
+  margin-left: 6vw;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
   background-color: rgb(152, 233, 21);
-  color:black;
+  color: black;
   border-radius: 10px;
   border: 2px solid black;
-  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, 0.4);
 }
 
 .playGame:hover {
@@ -399,7 +413,7 @@ input:valid + span:after {
 /********* End of Button section ************/
 
 /******************************************* Desktop screen small to large ************************************************/
-@media only screen and (min-width: 1790px) {
+@media only screen and (min-width: 1780px) {
   .title {
     text-align: $center;
     padding-top: 4rem;
@@ -408,7 +422,19 @@ input:valid + span:after {
       padding-bottom: 3rem;
     }
   }
+  .form__input {
+    padding: 20px 36px 20px;
+  }
 
+  input:invalid + span:after {
+    top: 78.5%;
+    left: 51%;
+  }
+
+  input:valid + span:after {
+    top: 78.5%;
+    left: 51%;
+  }
   // #multiplayerSection {
   //   left: 37%;
   // }
@@ -422,6 +448,19 @@ input:valid + span:after {
   .circleStyle {
     height: 13rem;
   }
+
+  .playGame {
+    margin-left: 10vw;
+  }
+
+  .dashboard  {
+    left: 14%;
+  }
+
+  .headings {
+    font-size:1.5rem;
+  }
+
   .item1 {
     padding-left: $size-small;
 
@@ -445,28 +484,77 @@ input:valid + span:after {
 
   #multiplayerSection {
     left: 10%;
-    }
+  }
+
+  .form__input {
+    padding: 15px 30px 15px;
+  }
 
   .typerBtn {
     padding: 1.5rem 2.8rem 1.5rem 2.8rem;
     font-size: $size-small;
   }
+
+  // #playArea {
+  //   display: block;
+  // }
+
+  .form__input {
+    padding: 18px 34px 18px;
+  }
 }
 
-@media screen and (min-width: 965px) and (max-width: 1240px) {
-
- #multiplayerSection {
-  left: 16%;
+@media screen and (min-width: 965px) and (max-width: 1779px) {
+  #multiplayerSection {
+    left: 16%;
   }
 
+  .headings {
+    font-size:2rem;
+  }
+
+  .container .viewport {
+    height: 9rem;
+    width: 50rem;
+  }
+
+  .form__input {
+    padding: 18px 34px 18px;
+  }
+
+  .dashboard {
+    left: 19rem;
+    margin-top: 0px;
+  }
+
+  .showPlayer[_ngcontent-nkl-c88] {
+    padding-top: 2rem;
+  }
+  .widgets {
+    margin-top: 9rem;
+  }
   .cars img {
-    margin-bottom: 3vh;
-    height: 40vh;
-    width: 35vw;
+    margin-bottom: 2vh;
+    height: 47vh;
+    width: 47vw;
+    padding-bottom: 3vh;
   }
-  
+  .title {
+    text-align: center;
+    padding-top: 3.5rem;
+  }
+  input:invalid + span:after {
+    top: 85.5%;
+    left: 52%;
+  }
 
-
+  input:valid + span:after {
+    top: 85.5%;
+    left: 52%;
+  }
+  #description {
+    font-size: 20px;
+    margin-top: 8rem;
+  }
 
 }
-

@@ -18,10 +18,12 @@
   min-width: 25px;
 }
 
-/* Tablet screen small to large */
-@media screen and (min-width: 540px) and (max-width: 834px) {
+/* For Tablets */
+@media screen and (min-width: 540px) and (max-width: 964px) {
   .container .viewport {
     height: 8rem;
-    width: 42rem;
+    width: 48rem;
   }
+
+
 }
