@@ -71,7 +71,6 @@ export class TyperComponent implements OnInit {
 
   @HostListener('document:keypress', ['$event'])
   handleInput(event: KeyboardEvent) {
-    console.log('kart' + this.typerActive);
     if (!this.hasFinished && !this.timeUp && this.typerActive) {
       if (event.key === ' ' || event.target === document.body) {
         event.preventDefault();
@@ -92,9 +91,6 @@ export class TyperComponent implements OnInit {
         this.wordUpdate.emit();
       }
       this.updateVal.emit(true);
-       console.log("inital", this.initialLeftOffset)
-       console.log("left", this.leftOffset)
-       console.log("diff",this.leftOffset - this.initialLeftOffset)
       if (this.leftOffset - this.initialLeftOffset > 0) {
         this.offsetSum += this.leftOffset - this.initialLeftOffset;
         this.viewport.scrollTo({ start: this.offsetSum });

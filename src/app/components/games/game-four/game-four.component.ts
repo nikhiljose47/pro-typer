@@ -30,7 +30,7 @@ export class GameFourComponent implements OnInit {
   delays: Array<number> = [];
   prevDelay: number = 0;
   startms: number = 0;
-  isMuted: boolean = false;
+  isMuted: boolean = true;
   timerlabel: string;
   percentIndicator: number;
   timerFinishIndicator: boolean = false;
@@ -102,9 +102,6 @@ export class GameFourComponent implements OnInit {
       this.clearLocalStorage();
     }
 
-    if (!localStorage.getItem('playersList')) {
-      localStorage.removeItem('playersList');
-    }
 
     if (mediaQuery.matches) {
       details.removeAttribute('open');
@@ -112,7 +109,6 @@ export class GameFourComponent implements OnInit {
 
     this.welcomeAudio.src = 'assets/audio/Level-Select.mp3';
     this.welcomeAudio.load();
-    this.welcomeAudio.play();
     this.welcomeAudio.loop = false;
     this.btnstate = true;
     this.isTyperEnabled = true;
