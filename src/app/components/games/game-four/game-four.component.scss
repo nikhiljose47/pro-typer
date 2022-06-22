@@ -11,7 +11,7 @@ $absolute-position: absolute;
 
 #bg {
   width: $percentage;
-  height: 120vh;
+  height: calc(20rem + 100vh);
   background: #000428;
   background: -webkit-linear-gradient(to right, #004e92, #000428);
   background: linear-gradient(to right, #004e92, #000428);

@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TyperResultComponent } from '../typer-result/typer-result.component';
 import { Title, Meta } from '@angular/platform-browser';
 import { ThemePalette } from '@angular/material/core';
-import { ViewportScroller } from '@angular/common';
+import { HostListener } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -39,13 +39,27 @@ export class HomeComponent implements OnInit {
   //accuracy
   accuracyColor: ThemePalette = 'accent';
   timerInterval: ReturnType<typeof setInterval>;
+  isMobileDevice : boolean = false;
+  scrWidth:any;
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    this.scrWidth = window.innerWidth;
+    const x = this.scrWidth;
+   if(this.scrWidth> 320 && this.scrWidth<=539) {
+    this.isMobileDevice = true;
+   }
+    console.log(this.scrWidth);
+}
 
   constructor(
     public dialog: MatDialog,
-    private scroller: ViewportScroller,
     private metaTagService: Meta,
-    private titleService: Title
-  ) {}
+    private titleService: Title,
+    
+  ) {
+    console.log("constructor");
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle(

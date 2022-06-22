@@ -18,12 +18,26 @@
   min-width: 25px;
 }
 
-/* For Tablets */
-@media screen and (min-width: 540px) and (max-width: 964px) {
+
+@media screen and (min-width: 968px) and (max-width: 1300px) {
   .container .viewport {
     height: 8rem;
-    width: 48rem;
+    width: 90vw;
   }
-
-
 }
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+  .container .viewport {
+    height: 7rem;
+    width: 90vw;
+  }
+}
+
+/* For Tablets */
+@media screen and (min-width: 641px) and (max-width: 967px) {
+  .container .viewport {
+    height: 8rem;
+    width: 90vw;
+  }
+}
+

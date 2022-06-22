@@ -28,7 +28,6 @@ export class AppComponent implements OnInit,OnDestroy {
   }
 
 
-
   ngOnInit() {
     this.titleService.setTitle("Type Fast: Free Online Typing Test | Typer Pro");  
     this.metaTagService.addTags([  
@@ -40,16 +39,6 @@ export class AppComponent implements OnInit,OnDestroy {
       { charset: 'UTF-8' }  
     ]);  
     
-  }
-
-  openDropDown() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  closeDropDown() {
-    var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
-    }
   }
 
   ngOnDestroy() {

@@ -29,6 +29,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GameFourComponent } from './components/games/game-four/game-four.component';
 import { DialogBoxComponent } from './components/common-components/dialog-box/dialog-box.component';
+import { NavigationComponent } from './components/common-components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DialogBoxComponent } from './components/common-components/dialog-box/di
     FooterComponent,
     GameFourComponent,
     DialogBoxComponent,
+    NavigationComponent,
   ],
   imports: [
     FormsModule, ReactiveFormsModule,

@@ -1,0 +1,70 @@
+.topnav {
+    background-color: rgb(251, 253, 255);
+    overflow: hidden;
+    position: sticky;
+    top:0;
+    z-index: 999;
+    height: 4.5rem;
+    padding-right: 4rem;
+    padding-left: 7vw;
+    box-shadow: 0 1px 2px 0 rgb(18 18 18 / 25%);
+    border:  #3498db;
+  }  
+
+  .brand-logo {
+    float:left;
+    margin-top: 0.7rem;
+  } 
+
+  .navbar-menu {
+    margin-right:3rem;
+    float :right;
+    display: flex;
+  }
+
+  .navbar-menu a {
+    color: #000000;
+    text-align: center;
+    margin-top: 2rem;
+    margin-right: 3rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  
+  //title 
+  .navbar-menu p {
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  /* Change the color of links on hover */
+  .navbar-menu a:hover {
+    color: rgb(78, 205, 255);
+  }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}

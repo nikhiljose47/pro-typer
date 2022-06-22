@@ -11,7 +11,7 @@
 
   .section-body {
     width: 100%;
-    height: 100vh;
+    height: calc(10rem + 100vh);
     float: left;
   }
 
@@ -20,7 +20,7 @@
   }
 
   .title h1 {
-    font-size: 3.6vw;
+    font-size: calc(30px + 1vw);
     font-weight: 400;
     letter-spacing: 0.5px;
     text-align: center;
@@ -28,7 +28,7 @@
 
   .title h2 {
     text-transform: uppercase;
-    font-size: 1.6rem;
+    font-size: calc(16px + 0.7vw);
     text-align: center;
     letter-spacing: 0.1rem;
     padding-bottom: 3rem;
@@ -115,25 +115,6 @@
     border-radius: 9rem;
   }
 
-  .mat-spinner {
-    position: absolute;
-    top: 12px;
-    left: 48px;
-  }
-
-  .progress-bg {
-    top: 20px;
-    left: 3rem;
-  }
-
-  svg#clouds {
-    position: absolute;
-    bottom: $size-small;
-    left: 0px;
-    z-index: -1;
-    width: 110rem;
-  }
-
   .typerBtn {
     //border-color: #3498db;
     font-size: 1.3rem;
@@ -158,6 +139,17 @@
       background-color: transparent;
     // background-color: rgba(179, 177, 177, 0.829);
     }
+  }
+
+  .mat-spinner {
+    position: absolute;
+    top: 12px;
+    left: 48px;
+  }
+
+  .progress-bg {
+    top: 20px;
+    left: 3rem;
   }
 
   .progress-bg {
@@ -417,4 +409,71 @@
       font-size: 18px;
       width: 100px;
     }
+
+    .mat-spinner {
+      display:none;
+    }
+
+    .timer {
+      left: 5%;
+    }
+
+    .progress-bg {
+      height: 6.5rem;
+      width: 6.5rem;
+    }
+  
+    .wpm {
+      left: 35%;
+    }
+  
+    //accuracy
+    .accuracy-mat-spinner {
+      display: none;
+    }
+  
+    .accuracy-bg {
+      left: 65%;
+      top: 15px;
+      height: 6.5rem;
+      width: 6.5rem;
+    }
+  
+    .start {
+     display: none;
+    }
+    .middle {
+      display: none;
+    }
+    .end {
+      display: none;
+    }
+  
+    #progress-label {
+      font-size: 3rem;
+      color: #0000E0;
+    }
+  
+    #progress-label-sub {
+      font-size: 1rem;
+      color: black;
+    }
+  
+    #accuracy-label {
+      font-size: 2.5rem;
+      padding-top: 12px;
+      color: #0000E0;
+    }
+  
+    #accuracy-label-sub-percent {
+      font-size: 1rem;
+      color: black;
+    }
+  
+    #accuracy-label-sub {
+      padding-top: 5px;
+      font-weight: 500;
+      color: black;
+    }
+
   }
