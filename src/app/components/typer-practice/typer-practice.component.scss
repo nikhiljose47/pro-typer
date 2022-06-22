@@ -13,7 +13,7 @@
 }
 
 #accuracy-container {
-  margin-left: 41%;
+  margin-left: 41vw;
   margin-top: 1%;
   background-color: rgb(226, 226, 226);
   width: 20rem;
@@ -49,4 +49,15 @@
   color: cornsilk;
   font-family: fantasy;
   font-size: 2rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 567px) {
+  #accuracy-container {
+    width:15rem;
+  }
+
+  .bg {
+    width: 100%;
+    height: 100vh;
+  }
 }
