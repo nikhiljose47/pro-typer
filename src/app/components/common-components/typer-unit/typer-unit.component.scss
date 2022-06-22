@@ -1,6 +1,5 @@
-#cell-blink {
+#cell-blink, #cell-wrong-blink  {
     animation: blinker 1.6s linear infinite;
-    background-color: #36f465ba;
     border-radius: 8px;
     height: 7rem;
     width: 4rem;
@@ -10,16 +9,11 @@
     color:rgb(0, 0, 0);
   }
 
+  #cell-blink {
+    background-color: #36f465ba;
+  }
   #cell-wrong-blink {
-    animation: blinker 1.6s linear infinite, shake 1s;
     background-color: #e43420c2;
-    border-radius: 8px;
-    height: 7rem;
-    width: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color:rgb(0, 0, 0);
   }
 
   @keyframes shake {
@@ -48,15 +42,34 @@
     color:rgba(102, 102, 102, 0.674);
   }
 
-.text{
-  font-size: 5rem;
+.text,.blink-text {
   font-family: Merriweather,serif;
   text-rendering: optimizeLegibility;
+}
+
+.text {
+  font-size: 5rem;
 }
 
 .blink-text{
   font-size: 5.2rem;
   padding-bottom: 5px;
-  font-family: Merriweather,serif;
-  text-rendering: optimizeLegibility;;
+}
+
+@media screen and (min-width: 320px) and (max-width: 539px) {
+
+  #cell-blink, #cell-wrong-blink  {
+    height: 5rem;
+    width: 2.5rem;
+  }
+
+  .text {
+    font-size: 3rem;
+  }
+  
+  .blink-text{
+    font-size: 3.2rem;
+    padding-bottom: 5px;
+  }
+
 }

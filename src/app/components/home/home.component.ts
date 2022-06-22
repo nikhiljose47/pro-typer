@@ -57,9 +57,7 @@ export class HomeComponent implements OnInit {
     private metaTagService: Meta,
     private titleService: Title,
     
-  ) {
-    console.log("constructor");
-  }
+  ) {}
 
   ngOnInit(): void {
     this.titleService.setTitle(

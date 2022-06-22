@@ -11,7 +11,7 @@
   </section>
 
   <div id="playArea" *ngIf="this.showDashboard">
-    <div class="GlobalVolume"><button class="mute_interactive" (click)="playSound()">{{isMuted? 'Music ON' : 'Music
+    <div class="globalVolume"><button class="mute_interactive" (click)="playSound()">{{isMuted? 'Music ON' : 'Music
         OFF'}}</button></div>
     <div class="form__group">
       <input #playerCount type="number" class="form__input" name="playerCount" placeholder="Choose 2-8" pattern="[2-8]"
@@ -28,7 +28,7 @@
   <!-- Start of typer section -->
   <div *ngIf="showTyper">
     <section class="col1">
-      <div class="showPlayer"><b><i>PLAYER {{this.showPlayer? this.showPlayer: 1}}</i></b></div>
+      <div class="showPlayer"><b>PLAYER {{this.showPlayer? this.showPlayer: 1}}</b></div>
       <div class="widgets">
         <div class="dashboard">
           <div class="progress-bg timer">

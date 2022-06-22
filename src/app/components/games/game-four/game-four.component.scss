@@ -31,10 +31,10 @@ $absolute-position: absolute;
   letter-spacing: 3px;
   color: yellow;
   padding-top: 2.5rem;
-  animation: ghost-blinker 2s linear infinite;
+  animation: blinker 2s linear infinite;
 }
 
-@keyframes ghost-blinker {
+@keyframes blinker {
   50% {
     color: transparent;
   }
@@ -58,7 +58,6 @@ $absolute-position: absolute;
 }
 
 #playArea {
-  margin-left: 1vw;
   display: flex;
   justify-content: center;
 }
@@ -67,16 +66,13 @@ $absolute-position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3rem;
 }
 
 .form__label {
   font-family: "Arial, Helvetica, sans-serif";
   font-size: 1.5rem;
-  margin-left: 2rem;
-  margin-top: 0.7rem;
-  margin-bottom: 2rem;
   text-align: $center;
-  display: $block;
   transition: all 0.3s;
   transform: translateY(0rem);
 }
@@ -85,14 +81,10 @@ $absolute-position: absolute;
   color: #333;
   font-size: 1.2rem;
   font-weight: 400;
-  margin-left: 1vw;
-  margin-right: 1vw;
   display: block;
   border-radius: 5px;
   padding: 20px 50px 20px;
-  border-radius: 0.2rem;
   background-color: white;
-  border: none;
   width: 100%;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
@@ -101,20 +93,18 @@ $absolute-position: absolute;
 input:invalid + span:after {
   content: "✖";
   color: red;
-  position: $absolute-position;
-  top: 94%;
-  left: 48%;
-  font-size: 1.9rem;
-  background-color: white;
 }
 
 input:valid + span:after {
   content: "✓";
   color: green;
-  position: $absolute-position;
-  top: 94%;
-  left: 48%;
+
+}
+
+input:invalid + span:after, input:valid + span:after {
+  position: relative;
   font-size: 1.7rem;
+  left: 56%;
   background-color: white;
 }
 
@@ -126,7 +116,7 @@ input:valid + span:after {
   font-weight: 400;
   width: 29rem;
   height: auto;
-  animation: blinker 3s linear infinite;
+  animation: blinker 5s linear infinite;
   background-color: transparent;
   font-size: 2.2rem;
   color: aqua;
@@ -195,8 +185,8 @@ input:valid + span:after {
 
 .cars img {
   padding-bottom: 5vh;
-  height: 30rem;
-  width: 40rem;
+  height: 50vh;
+  width: 100%;
 }
 
 .mute_interactive {
@@ -215,6 +205,11 @@ input:valid + span:after {
 .mute_interactive:focus {
   background-color: rgb(230, 233, 21);
   outline: rgb(0, 255, 106) auto 5px;
+}
+
+.form__group {
+  margin-left:3rem;
+  margin-right: 8rem;
 }
 
 /***************** End of Multiplayer opening page **************************/
@@ -386,7 +381,6 @@ input:valid + span:after {
 .playGame {
   width: 183px;
   height: 66px;
-  margin-left: 6vw;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
@@ -426,18 +420,21 @@ input:valid + span:after {
     padding: 20px 36px 20px;
   }
 
-  input:invalid + span:after {
-    top: 78.5%;
-    left: 51%;
+  .form__group {
+    margin-left:2rem;
+    margin-right: 7rem;
   }
 
-  input:valid + span:after {
-    top: 78.5%;
-    left: 51%;
+  input:invalid + span:after, input:valid + span:after {
+    left: 108%;
   }
-  // #multiplayerSection {
-  //   left: 37%;
-  // }
+
+
+  .cars img {
+    padding-bottom: 5vh;
+    height: 50vh;
+    width: 60vw;
+  }
 }
 
 /* For Tablets */
@@ -449,12 +446,40 @@ input:valid + span:after {
     height: 13rem;
   }
 
-  .playGame {
-    margin-left: 10vw;
+  .globalVolume, .form__group, .playGame  {
+    margin-bottom: 1rem;
+  }
+  
+  #playArea {
+    display: block;
+    margin-top: 6rem;
+    margin-left: 15rem;
+  }
+  
+  .mute_interactive, .form__input, .playGame, .form__label, input:invalid + span:after, input:valid + span:after{
+    font-size: 2rem;
+  }
+  .playGame, .mute_interactive {
+    width: 18rem;
+   height: 5rem;
   }
 
-  .dashboard  {
-    left: 14%;
+  
+  .showPlayer {
+    font-size: 2.5rem;
+  }
+  
+  .form__input {
+    width:40%;
+    margin-bottom: 10px;
+  }
+  
+  .widgets{
+    margin-top: 3rem;
+  }
+
+  .playGame {
+    margin: 0;
   }
 
   .headings {
@@ -482,10 +507,6 @@ input:valid + span:after {
     margin-top: 5rem;
   }
 
-  #multiplayerSection {
-    left: 10%;
-  }
-
   .form__input {
     padding: 15px 30px 15px;
   }
@@ -495,19 +516,33 @@ input:valid + span:after {
     font-size: $size-small;
   }
 
-  // #playArea {
-  //   display: block;
-  // }
+  #playArea {
+    margin-top: 3rem;
+    display: block;
+  }
 
   .form__input {
-    padding: 18px 34px 18px;
+    padding: 24px 40px 24px;
   }
+  input:invalid + span:after, input:valid + span:after {
+    left: 40%;
+  }
+  .form__group {
+    margin-left:0;
+    margin-right: 0;
+  }
+  .widgets{
+    margin-top: 10rem;
+  }
+
+  .dashboard {
+    left: 5rem;
+    top: 20rem;
+  }
+
 }
 
 @media screen and (min-width: 965px) and (max-width: 1779px) {
-  #multiplayerSection {
-    left: 16%;
-  }
 
   .headings {
     font-size:2rem;
@@ -527,9 +562,10 @@ input:valid + span:after {
     margin-top: 0px;
   }
 
-  .showPlayer[_ngcontent-nkl-c88] {
+  .showPlayer{
     padding-top: 2rem;
   }
+
   .widgets {
     margin-top: 9rem;
   }
@@ -556,5 +592,122 @@ input:valid + span:after {
     font-size: 20px;
     margin-top: 8rem;
   }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 539px) {
+
+.cars {
+    padding-bottom: 5vh;
+    height: 35vh;
+    width: 90vw;
+}
+#bg {
+  height: calc(15rem + 100vh);
+}
+.dashboard {
+  left: 0rem;
+  top: 20rem;
+  width: 23rem;
+}
+
+.globalVolume, .form__group, .playGame  {
+  margin-bottom: 1rem;
+}
+
+#playArea {
+  display: block;
+  margin-top: 9rem;
+  margin-left: 6rem;
+}
+
+.mute_interactive, .form__input, .playGame, .form__label, input:invalid + span:after, input:valid + span:after{
+  font-size: 1rem;
+}
+
+.showPlayer {
+  font-size: 1.5rem;
+  padding-top: 0px;
+}
+
+.form__input {
+  width:27%;
+  margin-bottom: 10px;
+}
+
+.widgets{
+  margin-top: 8rem;
+}
+
+.form__group {
+  margin-left:0;
+  margin-right: 0;
+}
+
+.mat-spinner {
+  display:none;
+}
+
+.timer {
+  left: 5%;
+}
+
+.progress-bg {
+  height: 6.5rem;
+  width: 6.5rem;
+}
+
+.wpm {
+  left: 35%;
+}
+
+//accuracy
+.accuracy-mat-spinner {
+  display: none;
+}
+
+.accuracy-bg {
+  left: 65%;
+  top: 15px;
+  height: 7rem;
+  width: 7rem;
+}
+
+.start {
+ display: none;
+}
+.middle {
+  display: none;
+}
+.end {
+  display: none;
+}
+
+#progress-label {
+  font-size: 3rem;
+  color: #fa2ba4;
+}
+
+#progress-label-sub {
+  font-size: 1rem;
+  color: black;
+}
+
+#accuracy-label {
+  font-size: 2.5rem;
+  padding-top: 12px;
+  color: #fa2ba4;
+}
+
+#accuracy-label-sub-percent {
+  font-size: 1rem;
+  color: black;
+}
+
+#accuracy-label-sub {
+  padding-top: 5px;
+  font-weight: 500;
+  color: black;
+}
 
 }
