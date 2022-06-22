@@ -41,7 +41,7 @@ $absolute-position: absolute;
 }
 
 .headings {
-  font-size: 2.5rem;
+  font-size: calc(16px + 1vw);
   font-family: sans-serif;
   padding-bottom: 3rem;
   font-weight: 700;
