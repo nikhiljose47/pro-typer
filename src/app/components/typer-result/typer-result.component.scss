@@ -11,17 +11,17 @@
 }
 
 .result-heading {
- font-size: 25px;
- font-weight: 500;
- font-family: Verdana, Geneva, Tahoma, sans-serif;
- color: black;
- text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    text-align: center;
 }
 
-.result-dialog {
-    background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+// .result-dialog {
+//     background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+// }
 
-}
 .game-title {
     color: red;
     font-size: larger;
@@ -29,12 +29,11 @@
     text-align: center;
 }
 
-#spacer{
+#spacer {
     margin-top: 2rem;
 }
 
-#submit-btn{
+#submit-btn {
     margin-top: 8%;
     margin-left: 37%;
 }
-

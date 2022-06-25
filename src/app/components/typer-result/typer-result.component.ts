@@ -18,7 +18,7 @@ export class TyperResultComponent implements OnInit {
   ngOnInit(): void {
     if (this.data.wpm) {
       this.showMarks = true;
-      setTimeout(() => this.isLoading = false, 2000)
+      setTimeout(() => this.isLoading = false, 2000);
     }
   }
 

@@ -116,6 +116,7 @@ export class HomeComponent implements OnInit {
         accuracy: this.accuracyVal,
       },
       disableClose:true,
+      autoFocus: false
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);

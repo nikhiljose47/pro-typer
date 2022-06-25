@@ -71,10 +71,10 @@ export class TyperComponent implements OnInit {
 
   @HostListener('document:keypress', ['$event'])
   handleInput(event: KeyboardEvent) {
+    if (event.key === ' ' || event.target === document.body) {
+      event.preventDefault();
+    }
     if (!this.hasFinished && !this.timeUp && this.typerActive) {
-      if (event.key === ' ' || event.target === document.body) {
-        event.preventDefault();
-      }
       this.updateTyper(event.key);
       if (this.typerUnits.length - 1 == this.index) {
         this.hasFinished = true;
