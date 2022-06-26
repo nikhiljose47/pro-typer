@@ -67,7 +67,7 @@ export class GameFourComponent implements OnInit {
     private metaTagService: Meta,
     private titleService: Title,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.titleService.setTitle(
@@ -155,22 +155,22 @@ export class GameFourComponent implements OnInit {
   startTimer() {
     this.timer = TIMER;
     this.timerInterval = setInterval(() => {
-      if (this.timer <= 0) {
-        clearInterval(this.timerInterval);
-        this.timerFinish();
-      }
-      if (this.timer > 0) {
+      if (this.timer > 1) {
         this.progressColor =
           this.timerPercent > 69
             ? 'warn'
             : this.timerPercent > 49
-            ? 'primary'
-            : 'accent';
-        this.timer--;
-        this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
-        this.timerLabel = this.timer.toString();
-        this.progressLabel = 100 - this.timerPercent;
+              ? 'primary'
+              : 'accent';
       }
+      else {
+        clearInterval(this.timerInterval);
+        this.timerFinish();
+      }
+      this.timer--;
+      this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
+      this.timerLabel = this.timer.toString();
+      this.progressLabel = 100 - this.timerPercent;
     }, 1000);
   }
 
@@ -292,8 +292,8 @@ export class GameFourComponent implements OnInit {
       this.accuracyVal < 20
         ? 'warn'
         : this.accuracyVal < 60
-        ? 'primary'
-        : 'accent';
+          ? 'primary'
+          : 'accent';
   }
 
   //re-work needed

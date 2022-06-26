@@ -138,23 +138,23 @@ export class HomeComponent implements OnInit {
   startTimer() {
     this.timer = TIMER;
     this.timerInterval = setInterval(() => {
-      if (this.timer <= 0) {
-        clearInterval(this.timerInterval);
-        this.timerFinish();
-        this.hasGameBegun = true;
-      }
-      if (this.timer > 0) {
+      if (this.timer > 1) {
         this.progressColor =
           this.timerPercent > 69
             ? 'warn'
             : this.timerPercent > 49
             ? 'primary'
             : 'accent';
-        this.timer--;
-        this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
-        this.timerLabel = this.timer.toString();
-        this.progressLabel = 100 - this.timerPercent;
       }
+      else{
+        clearInterval(this.timerInterval);
+        this.timerFinish();
+        this.hasGameBegun = true;
+      }
+      this.timer--;
+      this.timerPercent = (100 * (TIMER - this.timer)) / TIMER;
+      this.timerLabel = this.timer.toString();
+      this.progressLabel = 100 - this.timerPercent;
     }, 1000);
   }
 
