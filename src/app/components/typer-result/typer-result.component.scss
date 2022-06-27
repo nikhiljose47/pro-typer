@@ -1,13 +1,17 @@
-.bg {
-    height: 100%;
-    display: inline-block;
-    background-color: white;
+// .result-dialog {
+//     background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+// }
+
+#container {
+    display: flex;
 }
 
-.text {
-    color: black;
-    font-size: large;
-    font-weight: bold;
+#col1 {
+    width: 60%;
+}
+
+#col2 {
+    width: 40%;
 }
 
 .result-heading {
@@ -18,10 +22,6 @@
     text-align: center;
 }
 
-// .result-dialog {
-//     background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
-// }
-
 .game-title {
     color: red;
     font-size: larger;
@@ -29,11 +29,6 @@
     text-align: center;
 }
 
-#spacer {
-    margin-top: 2rem;
-}
-
 #submit-btn {
     margin-top: 8%;
-    margin-left: 37%;
 }
