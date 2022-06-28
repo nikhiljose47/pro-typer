@@ -13,7 +13,9 @@ export class TyperResultComponent implements OnInit {
   description: string = "";
   tempDescription: string = "";
   wpmLabel: string = "";
+  nextDesc:string = "";
   accuracyLabel: string = "";
+  showEmojiCol: boolean = false;
   interval: ReturnType<typeof setInterval>;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
@@ -28,7 +30,7 @@ export class TyperResultComponent implements OnInit {
   }
 
   showResult() {
-    let totalData = "WPM : " + this.data.wpm + '/' + "ACCURACY : " + this.data.accuracy;
+    let totalData = "Your wpm is  " + this.data.wpm + '/' + "& accuracy is " + this.data.accuracy;
     this.makeAnimated(totalData);
   }
 
@@ -53,27 +55,33 @@ export class TyperResultComponent implements OnInit {
         clearInterval(this.interval);
         this.createResultDesc()
       }
-    }, 300);
+    }, 200);
   }
 
   createResultDesc(): void {
     let wpm = parseInt(this.data.wpm);
-    if (wpm > 60) {
+    if (wpm > 69) {
+      this.imageName = "result_king";
+      this.description = "King!, you are highly productive!";
+      this.nextDesc = "god speed!"
+    }
+    else if (wpm > 49) {
       this.imageName = "result_super";
-      this.description = "Ultra!, you are highly productive!";
-    }
-    else if (wpm > 50) {
-      this.imageName = "result_good";
       this.description = "Nice!, you are fast!";
+      this.nextDesc = "Next milestone at 70 wpm!"
+
     }
-    else if (wpm > 38) {
+    else if (wpm > 35) {
       this.imageName = "result_good";
-      this.description = "Yes!, You are above world average typers!";
+      this.description = "Yes!, You have a decent speed!";
+      this.nextDesc = "Next milestone at 50 wpm!"
     }
     else {
       this.imageName = "result_sad";
-      this.description = "Too slow!, you need more practice!";
+      this.description = "Slow!, you need more practice!";
+      this.nextDesc = "Next milestone at 36 wpm!"
     }
+    this.showEmojiCol = true;
   }
 
   onSubmit() {

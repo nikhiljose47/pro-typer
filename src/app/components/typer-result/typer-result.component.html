@@ -1,17 +1,17 @@
 <div class="result-dialog" *ngIf="showMarks; else showGameResult">
+    <button id="close" (click)="onSubmit()"><b> X </b></button>
+
     <section id="container">
         <section id="col1">
-            <p class="result-heading"><b>RESULT</b></p>
+            <p class="result-heading"><b><u>RESULT</u></b></p>
             <br><br>
-            <p class="result-heading">{{this.wpmLabel}}</p>
-            <p class="result-heading">{{this.accuracyLabel}}</p>
-
-            <button class="button-G0" id="submit-btn" (click)="onSubmit()">OK</button>
+            <p class="result-heading"><i>{{this.wpmLabel}}</i></p>
+            <p class="result-heading"><i>{{this.accuracyLabel}}</i></p>
         </section>
-        <section id="col2">
+        <section id="col2" *ngIf="showEmojiCol">
             <img style="width: 70%" src="/assets/results/{{imageName}}.png" />
-            <p class="result-heading">{{this.description}}</p>
-            <div class="result-heading"><img style="width: 10%" src="/assets/results/result_sad.png" /><span>-</span><span> <img style="width: 10%" src="/assets/results/result_good.png" /></span><span>-</span><span> <img style="width: 10%" src="/assets/results/result_super.png" /></span></div>
+            <p class="result-sub">{{this.description}}</p>
+            <p class="result-sub">{{this.nextDesc}}</p>
        </section>
     </section>
 </div>
