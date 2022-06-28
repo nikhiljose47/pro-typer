@@ -1,10 +1,10 @@
 <div class="result-dialog" *ngIf="showMarks; else showGameResult">
     <section id="container">
         <section id="col1">
-            <p class="result-heading"><u>Your result</u></p>
+            <p class="result-heading"><b>{{this.title}}</b></p>
             <br><br>
-            <p class="result-heading">Wpm: {{this.data.wpm}}</p>
-            <p class="result-heading">Accuracy: {{this.data.accuracy}}</p>
+            <p class="result-heading">{{this.wpmLabel}}</p>
+            <p class="result-heading">{{this.accuracyLabel}}</p>
 
             <button class="button-G0" id="submit-btn" (click)="onSubmit()">OK</button>
         </section>

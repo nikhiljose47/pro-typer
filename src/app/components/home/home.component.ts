@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
     this.scrWidth = window.innerWidth;
-    const x = this.scrWidth;
    if(this.scrWidth> 320 && this.scrWidth<=539) {
     this.isMobileDevice = true;
    }
@@ -61,13 +60,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle(
-      'Typing Speed Online test in 60 Seconds | Typer Pro'
+      'Typing Speed Test in 1 minute online | Typer Pro'
     );
     this.metaTagService.addTags([
       {
         name: 'keywords',
         content:
-          'Free Online Typing speed test in 60 seconds, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing, Typer pro, Typing speed, Typing speed test',
+          'Free Online Typing speed test in 1 minute, Test your speed in WPM, Typing speed game, WPM, Test accuracy of your typing, Typer pro, Typing speed, Typing speed test',
       },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
