@@ -9,7 +9,6 @@ import { HomeComponent } from '../home/home.component';
 })
 export class TyperResultComponent implements OnInit {
   showMarks: boolean = false;
-  title: string = "";
   imageName: string = "";
   description: string = "";
   tempDescription: string = "";
@@ -29,7 +28,7 @@ export class TyperResultComponent implements OnInit {
   }
 
   showResult() {
-    let totalData = "RESULT" + '/' + "WPM : " + this.data.wpm + '/' + "ACCURACY : " + this.data.accuracy;
+    let totalData = "WPM : " + this.data.wpm + '/' + "ACCURACY : " + this.data.accuracy;
     this.makeAnimated(totalData);
   }
 
@@ -42,13 +41,10 @@ export class TyperResultComponent implements OnInit {
         id++;
         index++;
       }
-      if (id == 1) {
-        this.title += text[index];
-      }
-      else if (id == 2) {
+       if (id == 1) {
         this.wpmLabel += text[index];
       }
-      else if (id == 3) {
+      else if (id == 2) {
         this.accuracyLabel += text[index]
       }
       index++;

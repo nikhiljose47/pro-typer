@@ -1,7 +1,7 @@
 <div class="result-dialog" *ngIf="showMarks; else showGameResult">
     <section id="container">
         <section id="col1">
-            <p class="result-heading"><b>{{this.title}}</b></p>
+            <p class="result-heading"><b>RESULT</b></p>
             <br><br>
             <p class="result-heading">{{this.wpmLabel}}</p>
             <p class="result-heading">{{this.accuracyLabel}}</p>
@@ -11,7 +11,7 @@
         <section id="col2">
             <img style="width: 70%" src="/assets/results/{{imageName}}.png" />
             <p class="result-heading">{{this.description}}</p>
-            <p class="result-heading">Next<span> <img style="width: 10%" src="/assets/results/{{imageName}}.png" /></span></p>
+            <div class="result-heading"><img style="width: 10%" src="/assets/results/result_sad.png" /><span>-</span><span> <img style="width: 10%" src="/assets/results/result_good.png" /></span><span>-</span><span> <img style="width: 10%" src="/assets/results/result_super.png" /></span></div>
        </section>
     </section>
 </div>
