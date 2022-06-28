@@ -76,7 +76,7 @@ export class TyperResultComponent implements OnInit {
       this.description = "Great!, You have a good speed!";
       this.nextDesc = "Next milestone at 50 wpm!"
     }
-    else if (wpm > 20) {
+    else if (wpm > 19) {
       this.imageName = "result_ok";
       this.description = "Yes!, You have a decent speed!";
       this.nextDesc = "Next milestone at 36 wpm!"
@@ -84,7 +84,7 @@ export class TyperResultComponent implements OnInit {
     else {
       this.imageName = "result_sad";
       this.description = "Slow!, you need more practice!";
-      this.nextDesc = "Next milestone at 19 wpm!"
+      this.nextDesc = "Next milestone at 20 wpm!"
     }
     this.showEmojiCol = true;
   }
