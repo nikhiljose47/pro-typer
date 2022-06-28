@@ -67,19 +67,24 @@ export class TyperResultComponent implements OnInit {
     }
     else if (wpm > 49) {
       this.imageName = "result_super";
-      this.description = "Nice!, you are fast!";
+      this.description = "Stunning!, you are fast!";
       this.nextDesc = "Next milestone at 70 wpm!"
 
     }
     else if (wpm > 35) {
       this.imageName = "result_good";
-      this.description = "Yes!, You have a decent speed!";
+      this.description = "Great!, You have a good speed!";
       this.nextDesc = "Next milestone at 50 wpm!"
+    }
+    else if (wpm > 20) {
+      this.imageName = "result_ok";
+      this.description = "Yes!, You have a decent speed!";
+      this.nextDesc = "Next milestone at 36 wpm!"
     }
     else {
       this.imageName = "result_sad";
       this.description = "Slow!, you need more practice!";
-      this.nextDesc = "Next milestone at 36 wpm!"
+      this.nextDesc = "Next milestone at 19 wpm!"
     }
     this.showEmojiCol = true;
   }
