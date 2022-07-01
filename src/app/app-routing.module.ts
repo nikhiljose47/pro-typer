@@ -7,10 +7,10 @@ import { GameFourComponent } from './components/games/game-four/game-four.compon
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'typer-practice', component: TyperPracticeComponent },
-  { path: 'game', component: GameTwoComponent },
-  { path: 'multiplayer-game', component: GameFourComponent },
+  { path: 'typing-test', component: HomeComponent },
+  { path: 'typing-practice', component: TyperPracticeComponent },
+  { path: 'typing-game-ghost', component: GameTwoComponent },
+  { path: 'typing-game-multiplayer', component: GameFourComponent },
   { path: '404', component: HomeComponent},
   { path: '**', redirectTo: '/404'},
   // { path: '**',}
