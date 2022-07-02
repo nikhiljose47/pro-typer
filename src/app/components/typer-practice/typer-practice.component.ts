@@ -32,11 +32,11 @@ constructor(private titleService: Title,
   ngOnInit(): void {
     this.typerText = this.typerData[this.typerDataCounter].value;
 
-    this.titleService.setTitle("Free Typing Speed Practice Match | Typer Pro");  
+    this.titleService.setTitle("Typing Game Practice Match | Typer Pro");  
     this.metaTagService.addTags([  
       { name: 'keywords', content: 'Typing speed game, Practice speed typing, Improve typing accuracy' },  
       { name: 'viewport', content: 'width=device-width'},
-      { name: 'description', content: 'Typer Pro introduces Practice game, where you can play and find the accuracy of your typing and improve it along with typing speed. Become a fast typer with high accuracy.'},
+      { name: 'description', content: 'Typing practice game, where you can play and find the accuracy of your typing and improve it along with typing speed. Become a fast typer with high accuracy.'},
       { name: 'og:description', content: 'Welcome to Typer Pro! Check your true typing speed, accuracy and skill level in just 60 seconds. Also play games which improves our typing speed. Choose Easy, Medium, Hard or Difficult modes as u wish.'},
       { name:'og:type', content: 'website'},
       { charset: 'UTF-8' }  
