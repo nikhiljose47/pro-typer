@@ -7,12 +7,12 @@ import { GameFourComponent } from './components/games/game-four/game-four.compon
 import { CarouselComponent } from './components/carousel/carousel.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
   { path: 'typing-test', component: HomeComponent },
   { path: 'typing-test-practice', component: TyperPracticeComponent },
   { path: 'typing-game-ghost', component: GameTwoComponent },
   { path: 'typing-game-multiplayer', component: GameFourComponent },
   { path: 'improve-typing-speed', component: CarouselComponent },
+  { path: '', redirectTo: '/typing-test', pathMatch: 'full'},
   { path: '404', component: HomeComponent},
   { path: '**', redirectTo: '/404'},
   // { path: '**',}
