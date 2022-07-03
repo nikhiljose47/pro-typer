@@ -1,10 +1,11 @@
 .bg {
   width: 100%;
-  height: calc(10rem + 100vh);
+  height: 100%;
   background-image: url("../../../assets/practice-bg.avif");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-color: rgb(16, 127, 192);
+  background-color: rgb(14, 165, 65);
 }
 
 .item1 {
@@ -14,10 +15,10 @@
 
 #accuracy-container {
   margin-left: 41vw;
-  margin-top: 1%;
+  margin-top: 2%;
   background-color: rgb(226, 226, 226);
   width: 20rem;
-  height: 3rem;
+  height: 2.5rem;
   border-radius: 8px;
 }
 
@@ -26,7 +27,6 @@
   width: 20rem;
   color: rgb(255, 255, 255);
   padding-left: 2%;
-  padding-bottom: 1%;
   padding-top: 5%;
   text-align: start;
   font-size: 200;
@@ -38,7 +38,7 @@
 #typer {
   display: flex;
   flex-direction: row;
-  margin-top: 7%;
+  margin-top: 4%;
   justify-content: center;
 }
 

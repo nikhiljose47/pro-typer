@@ -67,6 +67,7 @@ $absolute-position: absolute;
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
+ // max-width: 7rem;
 }
 
 .form__label {
@@ -187,6 +188,7 @@ input:invalid + span:after, input:valid + span:after {
   padding-bottom: 5vh;
   height: 50vh;
   width: 100%;
+ // max-width: 40rem;
 }
 
 .mute_interactive {

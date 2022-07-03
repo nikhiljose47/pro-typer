@@ -1,5 +1,5 @@
 <div class="bg">
-  <h1 class="text">Practice Match</h1>
+  <h1 class="text">Typing Test Practice</h1>
 
 
   <section id="top-container">
@@ -9,7 +9,6 @@
         <div class="accuracy" [ngStyle]="{'width': accuracyVal+'%'}">{{accuracyVal}}%</div>
       </div>
     </div>
-
   </section>
   <section id="typer">
     <app-typer [data]="typerText" (result)="typerFinish($event)" (updateVal)="typerUpdate($event)"></app-typer>

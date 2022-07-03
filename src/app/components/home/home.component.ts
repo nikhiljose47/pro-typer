@@ -9,7 +9,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ThemePalette } from '@angular/material/core';
 import { HostListener } from '@angular/core';
 @Component({
-  selector: 'app-home',
+  selector: 'typing-test',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
@@ -108,7 +108,7 @@ export class HomeComponent implements OnInit {
   timerFinish() {
     this.timerFinishIndicator = true;
     let dialogRef = this.dialog.open(TyperResultComponent, {
-      height: '350px',
+      height: '370px',
       width: '600px',
       data: {
         wpm: this.wpmLabel,

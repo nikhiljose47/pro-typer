@@ -5,7 +5,7 @@
     top:0;
     z-index: 999;
     height: 4.5rem;
-    padding-right: 4rem;
+    padding-right: 3vw;
     padding-left: 7vw;
     box-shadow: 0 1px 2px 0 rgb(18 18 18 / 25%);
     border:  #3498db;
@@ -17,7 +17,6 @@
   } 
 
   .navbar-menu {
-    margin-right:3rem;
     float :right;
     display: flex;
   }
@@ -67,4 +66,26 @@
 
 .show {
   display: block;
+}
+
+@media screen and (min-width: 965px) and (max-width: 1779px) {
+  .navbar-menu a {
+    color: #000000;
+    text-align: center;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 540px) and (max-width: 965px) {
+  .navbar-menu a {
+    color: #000000;
+    text-align: center;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+  }
 }

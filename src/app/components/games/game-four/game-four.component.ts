@@ -177,7 +177,7 @@ export class GameFourComponent implements OnInit {
   openDialog() {
     this.isTyperEnabled = false;
     let dialogRef = this.dialog.open(DialogBoxComponent, {
-      height: '300px',
+      height: '370px',
       width: '600px',
       data: {
         wpm: this.wpmLabel,
@@ -216,7 +216,7 @@ export class GameFourComponent implements OnInit {
   timerFinish() {
     this.timerFinishIndicator = true;
     let dialogRef = this.dialog.open(TyperResultComponent, {
-      height: '300px',
+      height: '370px',
       width: '600px',
       data: {
         wpm: this.wpmLabel,
