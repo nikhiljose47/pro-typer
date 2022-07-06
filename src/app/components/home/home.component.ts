@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit {
         accuracy: this.accuracyVal,
       },
       disableClose:true,
-      autoFocus: false
+      autoFocus: false,
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
@@ -177,8 +177,8 @@ export class HomeComponent implements OnInit {
 
   replay() {
     let dialogRef = this.dialog.open(TyperReplayComponent, {
-      height: '500px',
-      width: '800px',
+      height: '400px',
+      width: '700px',
       data: {
         typerText: this.typerText,
         trailList: this.delays,

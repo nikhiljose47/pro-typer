@@ -27,12 +27,11 @@ export class TyperReplayComponent implements OnInit {
 
   ngOnInit(): void {
     this.createTyper(this.typerText);
-    console.log(this.data);
   }
 
   createTyper(data: string) {
     let arr = data.split("");
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < this.replayData.length+1; i++) {
       let unit = new GameTwoUnit();
       unit.val = arr[i];
       i == 0 ? unit.state = GameTwoUnitState.blink : GameTwoUnitState.undone;
