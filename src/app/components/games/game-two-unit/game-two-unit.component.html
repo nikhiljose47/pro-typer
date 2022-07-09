@@ -1,9 +1,9 @@
 <ng-container [ngSwitch]="value.state">
-    <span class="heading2" id="cell-blink" *ngSwitchCase="'0'">{{ value.val }}</span>
-    <span class="heading2" id="cell-done" *ngSwitchCase="'1'">{{ value.val }}</span>
-    <span class="heading2" id="cell-undone" *ngSwitchCase="'2'">{{ value.val }}</span>
-    <span class="heading2" id="cell-gblink" *ngSwitchCase="'3'">{{ value.val }}</span>
-    <span class="heading2" id="cell-gdone" *ngSwitchCase="'4'">{{ value.val }}</span>
-    <span class="heading2" id="cell-gundone" *ngSwitchCase="'5'">{{ value.val }}</span>
-    <span class="heading2" id="cell-undone" *ngSwitchDefault>{{ value.val }}</span>
+    <span class="text" id="cell-blink" *ngSwitchCase="'0'">{{ value.val }}</span>
+    <span class="text" id="cell-done" *ngSwitchCase="'1'">{{ value.val }}</span>
+    <span class="text" id="cell-undone" *ngSwitchCase="'2'">{{ value.val }}</span>
+    <span class="text" id="cell-gblink" *ngSwitchCase="'3'">{{ value.val }}</span>
+    <span class="text" id="cell-gdone" *ngSwitchCase="'4'">{{ value.val }}</span>
+    <span class="text" id="cell-gundone" *ngSwitchCase="'5'">{{ value.val }}</span>
+    <span class="text" id="cell-undone" *ngSwitchDefault>{{ value.val }}</span>
 </ng-container>

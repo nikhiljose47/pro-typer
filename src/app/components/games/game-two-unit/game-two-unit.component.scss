@@ -1,40 +1,45 @@
+.text {
+  font-size: 35px;
+  line-height: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  text-rendering: optimizeLegibility;
+}
+
 #cell-blink {
-    animation: blinker 1.2s linear infinite;
-    background-color: rgb(54, 214, 102);
-    font-size: x-large;
-  }
-  
-  @keyframes blinker {  
-    50% { opacity: 0.3; }
-  }
+  animation: blinker 1.2s linear infinite;
+  background-color: rgb(54, 214, 102);
+}
 
-  #cell-undone {
-    color:black;
-    font-size: x-large;
+@keyframes blinker {
+  50% {
+    opacity: 0.3;
   }
+}
 
-  #cell-done {
-    color: #3eb118;
-    font-size: x-large;
-  }
+#cell-undone {
+  color: white;
+}
 
-  #cell-gblink {
-    animation: blinker 1.2s linear infinite;
-    background-color: #698ff8;
-    font-size: x-large;
-  }
-  
-  @keyframes blinker {  
-    50% { opacity: 0.3; }
-  }
+#cell-done {
+  color: rgb(186, 186, 186);
+  font-size: 35px;
+}
 
-  #cell-gundone {
-    background-color: #698ff8;
-    font-size: x-large;
+#cell-gblink {
+  animation: blinker 1.2s linear infinite;
+  background-color: red;
+}
 
+@keyframes blinker {
+  50% {
+    opacity: 0.3;
   }
+}
 
-  #cell-gdone {
-    background-color: #698ff8;
-    font-size: x-large;
-  }
+#cell-gundone {
+  background-color: red;
+}
+
+#cell-gdone {
+  background-color: red;
+}
