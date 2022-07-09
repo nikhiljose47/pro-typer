@@ -234,6 +234,6 @@ export class GameTwoComponent implements OnInit {
 
   ngOnDestroy(): void {
     clearInterval(this.ghostIntervalId);
+    this.ghostBgAudio.pause();
   }
-
 }
