@@ -18,12 +18,12 @@
 
 <ng-template #showGameResult>
     <div *ngIf="this.data.compWin; else elseBlock">
-        <h1 class="game-title">You lose!</h1>
-        <img style="height: 24rem;" src="/assets/gif/slow-turtle.gif" />
+        <h1 class="result-heading">YOU LOSE!</h1>
+        <img style="height: 24rem;" src="/assets/results/typing-game-ghost-lose.jpg" />
     </div>
 
     <ng-template #elseBlock>
-        <h1 class="game-title">You Won!</h1>
-        <img style="height: 24rem;" src="/assets/gif/success-fireworks.gif" />
+        <h1 class="result-heading">YOU WON THE WAR!</h1>
+        <img style="height: 24rem;" src="/assets/results/typing-game-ghost-win.jpg" />
     </ng-template>
 </ng-template>

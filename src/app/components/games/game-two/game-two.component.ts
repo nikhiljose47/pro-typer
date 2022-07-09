@@ -69,7 +69,6 @@ export class GameTwoComponent implements OnInit {
     this.ghostBellAudio.load();
 
     window.addEventListener('blur', () => this.ghostBgAudio.pause())
-
   }
 
 
