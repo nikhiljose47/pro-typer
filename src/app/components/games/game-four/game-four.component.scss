@@ -9,15 +9,73 @@ $block: block;
 $ten-pixels: 10px;
 $absolute-position: absolute;
 
+
 #bg {
   width: $percentage;
   height: calc(20rem + 100vh);
-  background: #000428;
-  background: -webkit-linear-gradient(to right, #004e92, #000428);
-  background: linear-gradient(to right, #004e92, #000428);
   justify-content: $center;
   align-items: $center;
   color: #fff;
+  background:linear-gradient(to top, #45BCF7, #45BCF7, #FFFFFF);
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.video {
+  display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    min-width: 100%;
+    height: auto;
+    min-height: 100%;
+    background-size: cover;
+
+    source {
+      min-width: 100%;
+      height: auto;
+      min-height: 100%;
+  }
+    
+}
+
+
+.overlay-fadeout,.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  left: 0;
+}
+
+.overlay-fadeout {
+  background-color: #fff;
+  z-index: 1;
+}
+
+.overlay {
+    z-index: 2;
+    opacity: 1;
+    background-color: RGBA(0,0,0,0.25);
+    right: 0;
+    bottom: 0;
+}
+
+
+.overlay-button {
+  position: absolute;
+  top: calc(80vh - 10rem);
+  z-index: 2;
+  left: 30vw;
+  text-align: center;
 }
 
 .title {
@@ -28,6 +86,7 @@ $absolute-position: absolute;
 .showPlayer {
   text-align: $center;
   font-size: 2rem;
+  margin-top: 7rem;
   letter-spacing: 3px;
   color: yellow;
   padding-top: 2.5rem;
@@ -59,6 +118,7 @@ $absolute-position: absolute;
 
 #playArea {
   display: flex;
+  z-index: 2;
   justify-content: center;
 }
 
@@ -447,6 +507,15 @@ input:invalid + span:after, input:valid + span:after {
   .circleStyle {
     height: 13rem;
   }
+  .overlay-button {
+    position: absolute;
+    top: calc(80vh - 20rem);
+    left: 0;
+  }
+
+  video {
+    display: none;
+  }
 
   .globalVolume, .form__group, .playGame  {
     margin-bottom: 1rem;
@@ -604,6 +673,17 @@ input:invalid + span:after, input:valid + span:after {
     height: 35vh;
     width: 90vw;
 }
+
+.overlay-button {
+  position: absolute;
+  top: calc(50vh - 10rem);
+  left: 0;
+}
+
+  video {
+    display: none;
+  }
+
 #bg {
   height: calc(15rem + 100vh);
 }

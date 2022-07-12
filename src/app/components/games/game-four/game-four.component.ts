@@ -38,7 +38,7 @@ export class GameFourComponent implements OnInit {
   progressColor: ThemePalette = 'accent';
   progressLabel: number = 100;
   timerInterval: ReturnType<typeof setInterval>;
-
+  videoLocation: any;
   //accuracy
   accuracyColor: ThemePalette = 'accent';
   showTyper: boolean = false;
@@ -70,6 +70,7 @@ export class GameFourComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.titleService.setTitle(
       'Free offline multiplayer typing test | Typer Pro'
     );
@@ -93,18 +94,15 @@ export class GameFourComponent implements OnInit {
       { name: 'og:type', content: 'website' },
       { charset: 'UTF-8' },
     ]);
+    // this.videoLocation  = document.getElementById("hero-video");
+		// if(window.innerWidth >992){
+		// 	this.videoLocation.setAttribute("autoplay","");
+	  // };
 
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce))');
-    const details = document.querySelector('.cars > details');
 
     /* Clearing game data on visiting other routes */
     if (localStorage.getItem('typerCounter')) {
       this.clearLocalStorage();
-    }
-
-
-    if (mediaQuery.matches) {
-      details.removeAttribute('open');
     }
 
     this.welcomeAudio.src = 'assets/audio/Level-Select.mp3';

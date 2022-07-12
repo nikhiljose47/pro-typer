@@ -30,6 +30,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GameFourComponent } from './components/games/game-four/game-four.component';
 import { DialogBoxComponent } from './components/common-components/dialog-box/dialog-box.component';
 import { NavigationComponent } from './components/common-components/navigation/navigation.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { NavigationComponent } from './components/common-components/navigation/n
     BrowserAnimationsModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    ScrollingModule
+    ScrollingModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
