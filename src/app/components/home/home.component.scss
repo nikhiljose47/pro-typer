@@ -19,14 +19,14 @@
     margin-top: 3rem;
   }
 
-  .title h1 {
+  .title h2 {
     font-size: calc(30px + 1vw);
     font-weight: 400;
     letter-spacing: 0.5px;
     text-align: center;
   }
 
-  .title h2 {
+  .title h1 {
     text-transform: uppercase;
     font-size: calc(16px + 0.7vw);
     text-align: center;
@@ -254,7 +254,7 @@
       text-align: center;
       padding-top: 4rem;
 
-      h1 {
+      h2 {
         padding-bottom: 3rem;
       }
     }
@@ -355,7 +355,7 @@
   /* For Tablets */
 
   @media screen and (min-width: 540px) and (max-width: 964px) {
-    .title h1 {
+    .title h2 {
       font-size: $size-small;
     }
 
