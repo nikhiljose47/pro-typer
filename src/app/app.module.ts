@@ -30,13 +30,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GameFourComponent } from './components/games/game-four/game-four.component';
 import { DialogBoxComponent } from './components/common-components/dialog-box/dialog-box.component';
 import { NavigationComponent } from './components/common-components/navigation/navigation.component';
-import { GameFiveComponent } from './components/games/game-five/game-five.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     TyperComponent,
-    LeaderboardComponent, 
+    LeaderboardComponent,
     TyperUnitComponent,
     LoginComponent,
     GameTwoComponent,
@@ -55,7 +55,6 @@ import { GameFiveComponent } from './components/games/game-five/game-five.compon
     GameFourComponent,
     DialogBoxComponent,
     NavigationComponent,
-    GameFiveComponent,
   ],
   imports: [
     FormsModule, ReactiveFormsModule,
@@ -67,7 +66,8 @@ import { GameFiveComponent } from './components/games/game-five/game-five.compon
     BrowserAnimationsModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    ScrollingModule
+    ScrollingModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

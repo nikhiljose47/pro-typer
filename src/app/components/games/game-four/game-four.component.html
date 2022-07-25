@@ -1,15 +1,30 @@
 <div id="bg">
-  <div class="title">
-    <h1 class="headings">OFFLINE MULTIPLAYER TYPING GAME</h1>
+
+  <div class="overlay" [style.background]="!this.showDashboard? 'z-index:2' : 'z-index:0'">
+    <div class="title">
+      <h1 class="headings">OFFLINE MULTIPLAYER TYPING GAME</h1>
+    </div>
+
   </div>
+
 
   <section id="multiplayerSection" *ngIf="this.showDashboard">
 
-    <div class="cars">
+    <!-- <div class="cars">
       <img src="assets/racing.gif" alt="Static: typing game multiplayer result dashboard | Typer Pro">
-    </div>
+    </div> -->
+    <div class="overlay-fadeout" style="opacity: 0;"></div>
+	
+    <video autoplay loop muted poster="assets/cars.avif">
+          <source src="assets/baby.mp4" type="video/mp4">
+          <source src="assets/baby.mp4" type="video/webm">
+          <source src="assets/baby.mp4" type="video/ogv">
+    </video>
+
+
   </section>
 
+  <div class="overlay-button">
   <div id="playArea" *ngIf="this.showDashboard">
     <div class="globalVolume"><button class="mute_interactive" (click)="playSound()">{{isMuted? 'Music ON' : 'Music
         OFF'}}</button></div>
@@ -22,7 +37,7 @@
     <button class="playGame" [disabled]="!playerCount.value" (click)="onSubmit()">
       Let's Play
     </button>
-
+</div>
   </div>
 
   <!-- Start of typer section -->
