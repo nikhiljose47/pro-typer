@@ -1,63 +1,62 @@
-<img id="bg" src="../../../../assets/typing-game-ghost-bg.webp">
-  <div [ngClass]="isGhostLeading?'shadow':null">
-    <h1 id="title">Ghost Typing Game</h1>
+<img id="bg" src="../../../../assets/typing-test-games-ghost-bg.webp" alt="typing test games - ghost">
+<div [ngClass]="isGhostLeading?'shadow':null">
+  <h1 id="title">Typing Test Games: Ghost</h1>
   <div id="main-container">
     <section id="top-section">
-        <h2 id="description">
-          "It is time to beat the ghost!, The blue pointer is played by a ghost!"</h2>
+      <h2 id="description">
+        "Time to beat the ghost!, The red pointer shows position of the ghost!"</h2>
       <div id="difficulty-container">
-        <p id="difficulty-title">Select your difficulty</p>
-          <button id="easy-btn" class="btnGroup-unit" type="button"  (click)="setDifficulty('easy-btn')">EASY</button>
-          <button id="medium-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('medium-btn')">MEDIUM</button>
-          <button id="hard-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('hard-btn')">HARD</button>
-          <button id="extreme-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('extreme-btn')">EXTREME</button>
-        </div>
+        <h3 id="difficulty-title">Select typing difficulty</h3>
+        <button id="easy-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('easy-btn')">EASY</button>
+        <button id="medium-btn" class="btnGroup-unit" type="button"
+          (click)="setDifficulty('medium-btn')">MEDIUM</button>
+        <button id="hard-btn" class="btnGroup-unit" type="button" (click)="setDifficulty('hard-btn')">HARD</button>
+        <button id="extreme-btn" class="btnGroup-unit" type="button"
+          (click)="setDifficulty('extreme-btn')">EXTREME</button>
+      </div> 
     </section>
 
     <!-- below -->
-    <div *ngIf="!hasStartedTyping; else elseBlock" id="start-toaster">
+    <h3 *ngIf="!hasStartedTyping; else elseBlock" id="start-toaster">
       Begin typing to start the game!
-    </div>
+    </h3>
     <ng-template #elseBlock>
       <section id="game-start-dash">
-    
+
         <div id="progress-status" *ngIf="index > ghostIndex; else elseBehind">
           <div id="ahead"></div>
           <div>&nbsp;</div>
-          <div>You are ahead by</div>
+          <h3>You are ahead by</h3>
           <div>&nbsp;</div>
-  
+
           <div>{{ index - ghostIndex }}</div>
           <div>&nbsp;</div>
-  
-          <div>letters !</div>
+
+          <h3>letters !</h3>
         </div>
         <ng-template #elseBehind>
           <div id="progress-status">
             <div id="behind"></div>
             <div>&nbsp;</div>
-            <div>You are behind by</div>
+            <h3>You are behind by</h3>
             <div>&nbsp;</div>
-  
+
             <div>{{ ghostIndex - index }}</div>
             <div>&nbsp;</div>
-  
-            <div>letters</div>
+
+            <h3>letters</h3>
           </div>
         </ng-template>
-        <button id="abort-btn" type="button" (click)="abort()" >
+        <button id="abort-btn" type="button" (click)="abort()">
           Start Again
         </button>
-      </section>  
+      </section>
     </ng-template>
-    
+
     <span style="display: block; height: 4px"></span>
     <section id="typer-container">
-      <game-two-unit id="typer"
-        *ngFor="let val of gameTwoUnits; let i = index; trackBy: trackByItems"
-        [value]="val"
-      >
+      <game-two-unit id="typer" *ngFor="let val of gameTwoUnits; let i = index; trackBy: trackByItems" [value]="val">
       </game-two-unit>
     </section>
   </div>
-  </div> 
+</div>

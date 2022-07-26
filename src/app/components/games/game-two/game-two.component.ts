@@ -52,12 +52,12 @@ export class GameTwoComponent implements OnInit {
     document.getElementById("medium-btn").classList.add("active1")
 
 
-    this.titleService.setTitle("Typing Speed Test: Beat the ghost | Typer Pro");  
+    this.titleService.setTitle("Free Typing Games - Ghost game");  
     this.metaTagService.addTags([  
-      { name: 'keywords', content: 'free typing games, Typing speed game, Online Free Typing Test, Typer Pro, Take free typing test online, Typing online test, Ghost game typing, Beat the typing ghost, Easy typing test, Medium typing test, Hard typing test , Extreme typing testTyping speed game' },  
+      { name: 'keywords', content: 'free typing games, Typing speed game, keyboard games, Ghost game typing, Beat the typing ghost, Easy typing, Medium typing, Hard typing, Extreme typing' },  
       { name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      { name: 'description', content: 'Ghost typing game is one of free typing games from typer pro, here you can compete with a ghost in 4 different levels of typing test. Have fun as well as improve typing speed. Test your speed in 4 difficulty levels : Easy, Medium, Hard and Extreme tests.' },
-      { name: 'og:description', content: 'Welcome to the #1 Fun Online Typing Speed Test! Check your true typing speed, accuracy and skill level here at Typer Pro. Also play games or take typing test which improves your typing speed'},
+      { name: 'description', content: 'Ghost typing test game is one of free typing test game from typer pro, play with a ghost in 4 levels of difficulty. Have fun as well as improve typing speed. Test your speed in 4 difficulty levels : Easy, Medium, Hard and Extreme tests.' },
+      { name: 'og:description', content: 'Ghost typing test game is one of free typing test game from typer pro, play with a ghost in 4 levels of difficulty. Have fun as well as improve typing speed. Test your speed in 4 difficulty levels : Easy, Medium, Hard and Extreme tests.'},
       { name:'og:type', content: 'website'},
       { charset: 'UTF-8' }  
     ]); 
@@ -140,20 +140,24 @@ export class GameTwoComponent implements OnInit {
 
   onGameFinish(winner) {
      this.ghostBgAudio.pause();
+     let dialogRef;
     if (winner == "player") {
-      let dialogRef = this.dialog.open(TyperResultComponent, {
+      dialogRef = this.dialog.open(TyperResultComponent, {
         data: {
           compWin: false
         },
       });
     }
     else {
-      let dialogRef = this.dialog.open(TyperResultComponent, {
+      dialogRef = this.dialog.open(TyperResultComponent, {
         data: {
           compWin: true
         },
       });
     }
+    dialogRef.afterClosed().subscribe(result => {
+      this.abort();
+    });
   }
 
   setState(index: number) {

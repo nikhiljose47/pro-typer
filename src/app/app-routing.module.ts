@@ -9,7 +9,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 const routes: Routes = [
   { path: 'typing-test', component: HomeComponent },
   { path: 'typing-test-practice', component: TyperPracticeComponent },
-  { path: 'typing-game-ghost', component: GameTwoComponent },
+  { path: 'typing-test-games-ghost', component: GameTwoComponent },
   { path: 'typing-game-multiplayer', component: GameFourComponent },
   { path: 'improve-typing-speed', component: CarouselComponent },
   { path: '', redirectTo: '/typing-test', pathMatch: 'full'},
