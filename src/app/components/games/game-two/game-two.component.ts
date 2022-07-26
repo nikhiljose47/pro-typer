@@ -52,7 +52,7 @@ export class GameTwoComponent implements OnInit {
     document.getElementById("medium-btn").classList.add("active1")
 
 
-    this.titleService.setTitle("Free Typing Games - Ghost game");  
+    this.titleService.setTitle("Typing Test Games - Ghost, A Free Typing Game");  
     this.metaTagService.addTags([  
       { name: 'keywords', content: 'free typing games, Typing speed game, keyboard games, Ghost game typing, Beat the typing ghost, Easy typing, Medium typing, Hard typing, Extreme typing' },  
       { name: 'viewport', content: 'width=device-width, initial-scale=1'},
