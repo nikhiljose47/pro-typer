@@ -2,10 +2,13 @@ $percentage: 100%;
 $twentypixel: 20px;
 
 #bg {
-  display: flex;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  //display: flex;
   width: $percentage;
-  height: $percentage+25%;
-  background-image: url("../../../../assets/typing-game-ghost-bg.webp");
+  height: $percentage+45%;
+  //background-image: url("../../../../assets/typing-game-ghost-bg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
