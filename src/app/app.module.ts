@@ -31,6 +31,8 @@ import { GameFourComponent } from './components/games/game-four/game-four.compon
 import { DialogBoxComponent } from './components/common-components/dialog-box/dialog-box.component';
 import { NavigationComponent } from './components/common-components/navigation/navigation.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FootballTypingGameComponent } from './components/games/football-typing-game/football-typing-game.component';
+import { FootballTypingGamePlayerComponent } from './components/games/football-typing-game-player/football-typing-game-player.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     GameFourComponent,
     DialogBoxComponent,
     NavigationComponent,
+    FootballTypingGameComponent,
+    FootballTypingGamePlayerComponent,
   ],
   imports: [
     FormsModule, ReactiveFormsModule,

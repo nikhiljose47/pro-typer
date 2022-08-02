@@ -54,3 +54,10 @@ export class PlayerDetails {
     accuracy : number;
 }
 
+export class FootballPlayer {
+    id: number;
+    team: boolean;
+    name: string;
+    leftPos: string;
+    topPos: string;
+}

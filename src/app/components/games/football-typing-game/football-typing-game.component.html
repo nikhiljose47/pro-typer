@@ -1,0 +1,12 @@
+<p>football-typing-game works!</p>
+<img id="bg" src="../../../../assets/game-football/football-field-typing-game.png" alt="typing test games - football field">
+<div id="typer-container"> 
+    <app-typer [data]="typerText" [timeUp]="timerFinishIndicator" (result)="typerFinish($event)"
+    (updateVal)="typerUpdate($event)"></app-typer>
+</div>
+
+
+<img src ="../../../../assets/game-football/typing-test-game-football.webp" class="ball" [ngStyle]="{'top': this.ball.top, 'left': this.ball.left}">
+
+<football-typing-game-player *ngFor="let val of footballPlayers; let i = index; trackBy: trackByItems" [value]="val">
+</football-typing-game-player>

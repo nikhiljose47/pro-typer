@@ -47,6 +47,11 @@ export class TyperComponent implements OnInit {
     this.wrongAudio.load();
   }
 
+  ngOnChanges() {
+    this.typerUnits = [];
+    this.createTyper(this.data);
+   } 
+
   getLeftOffset(value) {
     this.leftOffset = value;
     this.initialOffsetCalc();
