@@ -15,7 +15,8 @@ $absolute-position: absolute;
   height: calc(20rem + 100vh);
   justify-content: $center;
   align-items: $center;
-  color: #fff;
+  font-weight: 500;
+  color: white;
   background:linear-gradient(to top, #45BCF7, #45BCF7, #FFFFFF);
   
   background-repeat: no-repeat;
@@ -86,9 +87,9 @@ $absolute-position: absolute;
 .showPlayer {
   text-align: $center;
   font-size: 2rem;
-  margin-top: 7rem;
+  margin-top: 3rem;
   letter-spacing: 3px;
-  color: yellow;
+  color: black;
   padding-top: 2.5rem;
   animation: blinker 2s linear infinite;
 }
@@ -688,9 +689,9 @@ input:invalid + span:after, input:valid + span:after {
   height: calc(15rem + 100vh);
 }
 .dashboard {
-  left: 0rem;
-  top: 20rem;
-  width: 23rem;
+    left: 0rem;
+    top: 16rem;
+    width: 25rem;
 }
 
 .globalVolume, .form__group, .playGame  {
@@ -718,7 +719,7 @@ input:invalid + span:after, input:valid + span:after {
 }
 
 .widgets{
-  margin-top: 8rem;
+  margin-top: 6rem;
 }
 
 .form__group {

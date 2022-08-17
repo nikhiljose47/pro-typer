@@ -17,7 +17,6 @@ export class TyperResultComponent implements OnInit {
   accuracyLabel: string = "";
   showEmojiCol: boolean = false;
   interval: ReturnType<typeof setInterval>;
- intervalTime: number = 100;
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
@@ -41,7 +40,6 @@ export class TyperResultComponent implements OnInit {
     let index = 0;
     let id = 1;
     this.interval = setInterval(() => {
-      this.intervalTime= 800;
 
       if (text[index] == '/') {
         id++;
@@ -59,7 +57,7 @@ export class TyperResultComponent implements OnInit {
         clearInterval(this.interval);
         this.createResultDesc()
       }
-    }, this.intervalTime);
+    }, 100);
   }
 
   createResultDesc(): void {

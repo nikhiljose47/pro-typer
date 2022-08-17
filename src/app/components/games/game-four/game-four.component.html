@@ -1,65 +1,90 @@
 <div id="bg">
-
-  <div class="overlay" [style.background]="!this.showDashboard? 'z-index:2' : 'z-index:0'">
+  <div [ngClass]="{ overlay: this.showDashboard === true }">
     <div class="title">
       <h1 class="headings">OFFLINE MULTIPLAYER TYPING GAME</h1>
     </div>
-
   </div>
 
-
   <section id="multiplayerSection" *ngIf="this.showDashboard">
-
     <!-- <div class="cars">
       <img src="assets/racing.gif" alt="Static: typing game multiplayer result dashboard | Typer Pro">
     </div> -->
-    <div class="overlay-fadeout" style="opacity: 0;"></div>
-	
+    <div class="overlay-fadeout" style="opacity: 0"></div>
+
     <video autoplay loop muted poster="assets/cars.avif">
-          <!-- <source src="assets/baby.mp4" type="video/mp4">
+      <!-- <source src="assets/baby.mp4" type="video/mp4">
           <source src="assets/baby.mp4" type="video/webm">
           <source src="assets/baby.mp4" type="video/ogv"> -->
     </video>
-
-
   </section>
 
   <div class="overlay-button">
-  <div id="playArea" *ngIf="this.showDashboard">
-    <div class="globalVolume"><button class="mute_interactive" (click)="playSound()">{{isMuted? 'Music ON' : 'Music
-        OFF'}}</button></div>
-    <div class="form__group">
-      <input #playerCount type="number" class="form__input" name="playerCount" placeholder="Choose 2-8" pattern="[2-8]"
-        min="2" max="8" value="2" required="" />
-      <span class="validity"></span>
-      <label for="number" class="form__label">No of players</label>
+    <div id="playArea" *ngIf="this.showDashboard">
+      <div class="globalVolume">
+        <button class="mute_interactive" (click)="playSound()">
+          {{ isMuted ? "Music ON" : "Music
+        OFF" }}
+        </button>
+      </div>
+      <div class="form__group">
+        <input
+          #playerCount
+          type="number"
+          class="form__input"
+          name="playerCount"
+          placeholder="Choose 2-8"
+          pattern="[2-8]"
+          min="2"
+          max="8"
+          value="2"
+          required=""
+        />
+        <span class="validity"></span>
+        <label for="number" class="form__label">No of players</label>
+      </div>
+      <button
+        class="playGame"
+        [disabled]="!playerCount.value"
+        (click)="onSubmit()"
+      >
+        Let's Play
+      </button>
     </div>
-    <button class="playGame" [disabled]="!playerCount.value" (click)="onSubmit()">
-      Let's Play
-    </button>
-</div>
   </div>
 
   <!-- Start of typer section -->
   <div *ngIf="showTyper">
     <section class="col1">
-      <div class="showPlayer"><b>PLAYER {{this.showPlayer? this.showPlayer: 1}}</b></div>
+      <div class="showPlayer">
+        <b>PLAYER {{ this.showPlayer ? this.showPlayer : 1 }}</b>
+      </div>
       <div class="widgets">
         <div class="dashboard">
           <div class="progress-bg timer">
-            <span id="progress-label">{{ timer }}<span id="progress-label-sub">sec</span></span>
+            <span id="progress-label"
+              >{{ timer }}<span id="progress-label-sub">sec</span></span
+            >
           </div>
 
-          <mat-progress-spinner class="mat-spinner" [color]="progressColor" [diameter]="170" [strokeWidth]="14"
-            [mode]="'determinate'" [value]="progressLabel">
+          <mat-progress-spinner
+            class="mat-spinner"
+            [color]="progressColor"
+            [diameter]="170"
+            [strokeWidth]="14"
+            [mode]="'determinate'"
+            [value]="progressLabel"
+          >
           </mat-progress-spinner>
 
           <div class="progress-bg wpm">
-            <span id="progress-label">{{ wpmLabel }}<span id="progress-label-sub">wpm</span></span>
+            <span id="progress-label"
+              >{{ wpmLabel }}<span id="progress-label-sub">wpm</span></span
+            >
           </div>
 
           <div class="accuracy-bg">
-            <span id="accuracy-label">{{ accuracyVal }}<span id="accuracy-label-sub-percent">%</span>
+            <span id="accuracy-label"
+              >{{ accuracyVal }}<span id="accuracy-label-sub-percent">%</span>
             </span>
             <div id="accuracy-label-sub">accuracy</div>
 
@@ -68,8 +93,14 @@
             <div class="accuracy-bg-radials end"><b>____</b></div>
           </div>
 
-          <mat-progress-spinner class="accuracy-mat-spinner" [color]="accuracyColor" [diameter]="170" [strokeWidth]="14"
-            [mode]="'determinate'" [value]="accuracyVal / 2">
+          <mat-progress-spinner
+            class="accuracy-mat-spinner"
+            [color]="accuracyColor"
+            [diameter]="170"
+            [strokeWidth]="14"
+            [mode]="'determinate'"
+            [value]="accuracyVal / 2"
+          >
           </mat-progress-spinner>
 
           <div id="spacer"></div>
@@ -77,10 +108,14 @@
       </div>
 
       <div class="widgets">
-        <app-typer [data]="typerText" (result)="typerFinish($event)" (wordUpdate)="wordUpdate()"
-          (updateVal)="typerUpdate($event)" [typerActive]="isTyperEnabled"></app-typer>
+        <app-typer
+          [data]="typerText"
+          (result)="typerFinish($event)"
+          (wordUpdate)="wordUpdate()"
+          (updateVal)="typerUpdate($event)"
+          [typerActive]="isTyperEnabled"
+        ></app-typer>
       </div>
-
     </section>
   </div>
   <!-- End of typer section -->
