@@ -1,5 +1,7 @@
 # ProTyper
 
+Link - https://typerpro.netlify.app/typing-test
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
 Live on June 13, 2022.
